@@ -1,0 +1,29 @@
+@import "./styleByScreenSize/SmallScreenSize.scss";
+
+.body {
+  width: 100%;
+}
+
+.content {
+  margin: 30px 30px 0px 30px;
+  display: flex;
+}
+
+.fly_information {
+  flex: 1;
+  display: flex;
+  height: 50px;
+}
+
+.from {
+  flex: 1;
+}
+
+.where {
+  flex: 1;
+}
+
+.weather {
+  flex: 1;
+  background-color: aqua;
+}

@@ -1,0 +1,46 @@
+$extraBigScreen: 2500px;
+
+.body {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  margin: 25px 50px;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: $extraBigScreen) {
+  .content {
+    margin: 50px 100px;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+img {
+  margin-left: 10px;
+}
+
+@media (min-width: $extraBigScreen) {
+  .menu {
+    display: flex;
+    align-items: center;
+    & img {
+      width: 35px;
+      height: 35px;
+      margin-left: 30px;
+    }
+  }
+}
+
+.logo {
+  flex: 1;
+}

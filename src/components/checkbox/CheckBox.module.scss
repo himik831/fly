@@ -1,0 +1,34 @@
+$greenColor: #82cdc2;
+
+.body {
+  width: 100%;
+  background-color: white;
+}
+
+.content {
+  display: flex;
+  & form {
+    align-items: center;
+    display: flex;
+  }
+  & input {
+    width: 1.2em;
+    height: 1.2em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid $greenColor;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 10px;
+    &:checked {
+      background-color: $greenColor;
+    }
+  }
+  & label {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+}

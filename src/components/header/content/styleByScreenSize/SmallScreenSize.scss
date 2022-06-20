@@ -1,0 +1,13 @@
+$smallScreen: 767px;
+
+@media (max-width: $smallScreen) {
+  .content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: $smallScreen) {
+  .fly_information {
+    flex-direction: column;
+  }
+}

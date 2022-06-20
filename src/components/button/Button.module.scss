@@ -1,0 +1,17 @@
+$extraBigScreen: 2500px;
+
+button {
+  margin: 15px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@media (min-width: $extraBigScreen) {
+  button {
+    margin: 25px;
+    font-size: 20px;
+  }
+}
