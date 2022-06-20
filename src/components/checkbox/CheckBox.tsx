@@ -15,7 +15,6 @@ export default function CheckBox() {
           <input
             type="radio"
             name="selection"
-            checked
             className={classes.checkbox_round}
           />
           <label htmlFor="">One way</label>
