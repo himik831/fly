@@ -1,16 +1,11 @@
 $mediumScreenTextSize: 43px;
 $extraScreenTextSize: 70px;
 
+$bigScreen: 1200px;
 $extraBigScreen: 2500px;
 
 .content {
   margin: 0px 50px;
-}
-
-@media (min-width: $extraBigScreen) {
-  .content {
-    margin: 50px 100px;
-  }
 }
 
 .text1 {
@@ -21,26 +16,31 @@ $extraBigScreen: 2500px;
   font-size: $mediumScreenTextSize;
 }
 
-@media (min-width: $extraBigScreen) {
-  .text1 {
-    font-size: $extraScreenTextSize;
-  }
-
-  .text2 {
-    font-size: $extraScreenTextSize;
-  }
-}
-
 .text3 {
   font-size: 80px;
 }
 
-@media (min-width: $extraBigScreen) {
-  .text3 {
-    font-size: 130px;
+.color {
+  color: white;
+}
+
+@media (min-width: $bigScreen) {
+  .content {
+    margin: 30px 50px;
   }
 }
 
-.color {
-  color: white;
+@media (min-width: $extraBigScreen) {
+  .content {
+    margin: 150px 100px;
+  }
+  .text1 {
+    font-size: $extraScreenTextSize;
+  }
+  .text2 {
+    font-size: $extraScreenTextSize;
+  }
+  .text3 {
+    font-size: 130px;
+  }
 }

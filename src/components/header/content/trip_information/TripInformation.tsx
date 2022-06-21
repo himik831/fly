@@ -11,22 +11,35 @@ export default function TripInformation() {
     <div className={classes.body}>
       <div className={classes.content}>
         <CheckBox />
-        <TripInforamtionDetails
-          label={"DEPARTURE DATE *"}
-          details={"15.05.2022"}
-          icon={<BiCalendar size={22} />}
+        <div className={classes.trip_information}>
+          <div className={classes.departure}>
+            <TripInforamtionDetails
+              label={"DEPARTURE DATE *"}
+              details={"15.05.2022"}
+              icon={<BiCalendar size={20} />}
+            />
+          </div>
+          <div className={classes.return}>
+            <TripInforamtionDetails
+              label={"RETURN DATE *"}
+              details={"18.05.2022"}
+              icon={<BiCalendar size={20} />}
+            />
+          </div>
+          <div className={classes.passangers}>
+            <TripInforamtionDetails
+              label={"PASSENGERS *"}
+              details={"1 Adult, Econom"}
+              icon={<IoIosArrowDown size={20} />}
+            />
+          </div>
+        </div>
+        <Button
+          label="Search flights"
+          backgroundColor={"#82cdc2"}
+          isFullWidth={true}
+          bold={500}
         />
-        <TripInforamtionDetails
-          label={"RETURN DATE *"}
-          details={"18.05.2022"}
-          icon={<BiCalendar size={22} />}
-        />
-        <TripInforamtionDetails
-          label={"PASSENGERS *"}
-          details={"1 Adult, Econom"}
-          icon={<IoIosArrowDown size={22} />}
-        />
-        <Button label="Search flights" backgroundColor={'#82cdc2'} isFullWidth={true} bold={500}/>
       </div>
     </div>
   );

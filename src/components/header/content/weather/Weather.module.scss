@@ -1,0 +1,43 @@
+$bigScreen: 1200px;
+
+.body {
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  background-color: white;
+  & .content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    & .country_weather {
+      height: 100px;
+      width: 100%;
+      flex: 1;
+    }
+    & .weather {
+      display: flex;
+      flex: 1;
+      & .weather_details {
+        flex: 15;
+        display: flex;
+        align-items: center;
+      }
+      & .next {
+        flex: 1;
+        display: flex;
+        padding-right: 15px;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+@media (min-width: $bigScreen) {
+  .body {
+    margin-top: 0px;
+  }
+  .weather {
+    padding: 10px 30px 25px 30px;
+  }
+}

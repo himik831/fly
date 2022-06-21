@@ -10,7 +10,7 @@ import Content from "./content/Content.tsx";
 export default function Header() {
   const smallScreen: number = 767;
 
-  const [width] = useWindowSize();
+  const [, width] = useWindowSize();
   const image = { backgroundImage: `url(${MainImage})` };
 
   return (

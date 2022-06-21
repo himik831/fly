@@ -10,8 +10,8 @@ export default function TripInforamtionDetails({
     <div className={classes.body}>
       <div className={classes.content}>
         <div className={classes.label}>{label}</div>
-        <div className={classes.destination}>
-          <div className={classes.date}>{details}</div>
+        <div className={classes.info}>
+          <div className={classes.value}>{details}</div>
           <div className={classes.icon}>{icon}</div>
         </div>
         <div className={classes.line} />

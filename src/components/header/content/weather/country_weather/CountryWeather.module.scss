@@ -1,0 +1,22 @@
+.content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 10px 40px 0px 40px;
+  font-weight: 100;
+  & .city_information {
+    padding: 0px 30px 0px 20px;
+    & .place {
+      margin-bottom: 5px;
+      font-weight: 400;
+    }
+    & .date {
+      font-size: 14px;
+      font-weight: 200;
+    }
+  }
+  & .temperature {
+    font-size: 50px;
+  }
+}
+

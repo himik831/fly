@@ -1,20 +1,37 @@
+$extraBigScreen: 2500px;
+
 .body {
   width: 100%;
   background-color: white;
   margin-bottom: 10px;
+  & .content {
+    padding: 15px 15px;
+    & .label {
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+    & .destination {
+      font-size: 12px;
+      font-weight: 200;
+    }
+  }
 }
 
-.content {
-  padding: 15px 15px;
-}
-
-.label {
-  font-size: 14px;
-  font-weight: 400;
-  margin-bottom: 5px;
-}
-
-.destination {
-  font-size: 12px;
-  font-weight: 200;
+@media (min-width: $extraBigScreen) {
+  .body {
+    & .content {
+      padding: 30px;
+      margin-bottom: 20px;
+      & .label {
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+      & .destination {
+        font-size: 16px;
+        font-weight: 200;
+      }
+    }
+  }
 }

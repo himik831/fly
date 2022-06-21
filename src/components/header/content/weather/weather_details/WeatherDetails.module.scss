@@ -1,0 +1,38 @@
+$bigScreen: 1200px;
+
+.body {
+  width: 100%;
+}
+
+.content {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 200;
+  margin-bottom: 2px;
+}
+
+.temperature {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 2px;
+}
+
+@media (min-width: $bigScreen) {
+  .date {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  .temperature {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+}

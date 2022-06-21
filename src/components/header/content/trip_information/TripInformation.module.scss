@@ -1,8 +1,53 @@
+$bigScreen: 1200px;
+$extraBigScreen: 2500px;
+
 .body {
   width: 100%;
   background-color: white;
+  & .content {
+    padding: 15px 15px;
+  }
 }
 
-.content {
-  padding: 15px 15px;
+@media (min-width: $bigScreen) {
+  .body {
+    & .content {
+      & .trip_information {
+        display: flex;
+      }
+      & .departure {
+        flex: 1.5;
+        margin-right: 20px;
+      }
+      & .return {
+        flex: 1.5;
+        margin-right: 20px;
+      }
+      & .passangers {
+        flex: 2.5;
+      }
+    }
+  }
+}
+
+@media (min-width: $extraBigScreen) {
+  .body {
+    & .content {
+      padding: 35px;
+      & .trip_information {
+        display: flex;
+      }
+      & .departure {
+        flex: 1.5;
+        margin-right: 40px;
+      }
+      & .return {
+        flex: 1.5;
+        margin-right: 40px;
+      }
+      & .passangers {
+        flex: 2.5;
+      }
+    }
+  }
 }
