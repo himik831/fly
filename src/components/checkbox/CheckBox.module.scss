@@ -1,35 +1,52 @@
+$extraBigScreen: 2500px;
 $greenColor: #82cdc2;
 
 .body {
   width: 100%;
   background-color: white;
-}
-
-.content {
-  display: flex;
-  margin-bottom: 15px;
-  & form {
-    align-items: center;
+  & .content {
     display: flex;
-  }
-  & input {
-    width: 1.2em;
-    height: 1.2em;
-    background-color: white;
-    border-radius: 50%;
-    vertical-align: middle;
-    border: 1px solid $greenColor;
-    appearance: none;
-    -webkit-appearance: none;
-    outline: none;
-    cursor: pointer;
-    margin-right: 10px;
-    &:checked {
-      background-color: $greenColor;
+    margin-bottom: 15px;
+    & form {
+      align-items: center;
+      display: flex;
+    }
+    & input {
+      width: 1.2em;
+      height: 1.2em;
+      background-color: white;
+      border-radius: 50%;
+      vertical-align: middle;
+      border: 1px solid $greenColor;
+      appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+      cursor: pointer;
+      margin-right: 10px;
+      &:checked {
+        background-color: $greenColor;
+      }
+    }
+    & label {
+      font-size: 14px;
+      margin-right: 10px;
     }
   }
-  & label {
-    font-size: 14px;
-    margin-right: 10px;
+}
+
+@media (min-width: $extraBigScreen) {
+  .body {
+    & .content {
+      margin-bottom: 25px;
+      & input {
+        width: 1.4em;
+        height: 1.4em;
+      }
+      & label {
+        font-size: 18px;
+        margin-right: 80px;
+        font-weight: 100;
+      }
+    }
   }
 }

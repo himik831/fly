@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./WeatherDetails.module.scss";
+import classes from "./WeatherDayDetails.module.scss";
 
 export default function WeatherDetails({ date, icon, temperature }) {
   return (

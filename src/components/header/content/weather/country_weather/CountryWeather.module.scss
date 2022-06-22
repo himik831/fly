@@ -1,3 +1,5 @@
+$extraBigScreen: 2500px;
+
 .content {
   height: 100%;
   display: flex;
@@ -20,3 +22,23 @@
   }
 }
 
+@media (min-width: $extraBigScreen) {
+  .content {
+    margin: 20px 80px 0px 80px;
+    & .city_information {
+      padding: 0px 50px 0px 30px;
+      & .place {
+        margin-bottom: 5px;
+        font-size: 20px;
+        font-weight: 300;
+      }
+      & .date {
+        font-size: 20px;
+        font-weight: 100;
+      }
+    }
+    & .temperature {
+      font-size: 80px;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+$extraBigScreen: 2500px;
+
 .body {
   width: 100%;
   & .label {
@@ -25,5 +27,23 @@
     width: 100%;
     background-color: black;
     margin-bottom: 15px;
+  }
+}
+
+@media (min-width: $extraBigScreen) {
+  .body {
+    & .content {
+      & .label {
+        font-size: 14px;
+        margin-right: 80px;
+        margin-bottom: 10px;
+      }
+      & .value {
+        font-size: 20px;
+      }
+      & .info {
+        margin-bottom: 10px;
+      }
+    }
   }
 }

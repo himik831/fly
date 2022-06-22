@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import HourMinDayMonthYear from "../../utils/date_format/HourMinDayMonthYear.tsx";
 
-export default function usePlaceWeather() {
-
-  const place: string = "Chisinau";
-    const host: string = "http://api.openweathermap.org/";
-    const key: string = "eda6f00ce5cf7fa110832661a868e932";
+export default function usePlaceWeather({ place }) {
+  const host: string = "http://api.openweathermap.org/";
+  const key: string = "eda6f00ce5cf7fa110832661a868e932";
 
   interface CurrentWeather {
     dateTime: Date;
