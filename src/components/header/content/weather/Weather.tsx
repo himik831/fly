@@ -4,23 +4,30 @@ import { BsSun } from "react-icons/bs";
 import { BsCloudSun } from "react-icons/bs";
 import { BsCloudRain } from "react-icons/bs";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import useWindowSize from "../../../../hooks/WindowSize/useWindowSize";
+import useWindowSize from "../../../../hooks/window_size/useWindowSize";
 import CountryWeather from "./country_weather/CountryWeather.tsx";
 import WeatherDetails from "./weather_details/WeatherDetails.tsx";
+import usePlaceWeather from "../../../../hooks/weather/usePlaceWeather.tsx";
 
 export default function Weather() {
   const bigScreen = 1200;
   const [, width] = useWindowSize();
 
+  const weather = usePlaceWeather();
+  console.log(weather)
+  
   return (
     <div className={classes.body}>
       <div className={classes.content}>
         <div className={classes.country_weather}>
           {width >= bigScreen ? (
             <CountryWeather
-              temperature={33}
-              place={"Canada"}
-              date={"12 : 11 - Friday 9, 06 2022"}
+              // temperature={weather.temp}
+              // place={weather}
+              // date={weather.dateTime}
+              temperature={'22'}
+              place={'Chis'}
+              date={'20.20.20'}
               icon={<BsCloudSun size={20} />}
             />
           ) : null}

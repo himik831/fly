@@ -2,7 +2,7 @@ import React from "react";
 import MainImage from "../../assets/img/mainImg.jpg";
 import BigMenu from "./menu/big_menu/BigMenu";
 import classes from "./Header.module.scss";
-import useWindowSize from "../../hooks/WindowSize/useWindowSize";
+import useWindowSize from "../../hooks/window_size/useWindowSize";
 import SmallMenu from "./menu/small_menu/SmallMenu.tsx";
 import Welcome from "./welcome/Welcome.tsx";
 import Content from "./content/Content.tsx";

@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./CountryWeather.module.scss";
 
 export default function CountryWeather({ temperature, place, date, icon }) {
+
   return (
     <div className={classes.content}>
       <div className={classes.temperature}>{temperature} °</div>
