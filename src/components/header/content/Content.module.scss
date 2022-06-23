@@ -26,6 +26,7 @@ $extraBigScreen: 2500px;
 
   & .weather {
     flex: 1;
+    overflow: hidden;
   }
 }
 

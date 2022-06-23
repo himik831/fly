@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./WeatherDayDetails.module.scss";
 
-export default function WeatherDetails({ date, icon, temperature }) {
+export default function WeatherDayDetails({ date, icon, temperature }) {
   return (
     <div className={classes.body}>
       <div className={classes.content}>

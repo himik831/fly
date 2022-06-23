@@ -18,9 +18,7 @@ $bigScreen: 1200px;
       display: flex;
       flex: 1;
       & .weather_details {
-        flex: 15;
-        display: flex;
-        align-items: center;
+        width: 100%;
       }
       & .next {
         flex: 1;
