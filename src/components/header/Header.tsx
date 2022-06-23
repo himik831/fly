@@ -9,6 +9,7 @@ import Content from "./content/Content.tsx";
 
 export default function Header() {
   const smallScreen: number = 767;
+  const bigScreen: number = 1200;
 
   const [, width] = useWindowSize();
   const image = { backgroundImage: `url(${MainImage})` };
@@ -18,7 +19,7 @@ export default function Header() {
       <div className={classes.image} style={image}>
         <div className={classes.content}>
           {width >= smallScreen ? <BigMenu /> : <SmallMenu />}
-          {width >= smallScreen ? <Welcome /> : null}
+          {width >= bigScreen ? <Welcome /> : null}
           <Content />
         </div>
       </div>

@@ -1,4 +1,4 @@
-$smallScreen: 767px;
+// $smallScreen: 767px;
 $bigScreen: 1200px;
 $extraBigScreen: 2500px;
 
@@ -30,7 +30,7 @@ $extraBigScreen: 2500px;
   }
 }
 
-@media (max-width: $smallScreen) {
+@media (max-width: $bigScreen) {
   .content {
     flex-direction: column;
   }
