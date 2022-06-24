@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "../welcome/Welcome.module.scss";
+import "reactjs-popup/dist/index.css";
 
 export default function Welcome() {
   return (

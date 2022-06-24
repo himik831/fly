@@ -9,21 +9,23 @@ import {
 import { AiOutlineCloud } from "react-icons/ai";
 import { RiMistFill } from "react-icons/ri";
 import { FaThermometerEmpty } from "react-icons/fa";
+import {
+  BIG_SCREEN_SIZE,
+  EXTRA_BIG_SCREEN_SIZE,
+} from "../../../../../constants/constants";
 
 import useWindowSize from "../../../../../hooks/window_size/useWindowSize";
 
-function generateIcon(Component, width) {
-  const bigScreen = 1200;
-  const extraBigScreen = 2500;
+function generateIcon(Component: any, width: number) {
   const smallIcon = 15,
-    bigIcon = width >= extraBigScreen ? 40 : 20;
+    bigIcon = width >= EXTRA_BIG_SCREEN_SIZE ? 40 : 20;
 
-  return <Component size={width >= bigScreen ? bigIcon : smallIcon} />;
+  return <Component size={width >= BIG_SCREEN_SIZE ? bigIcon : smallIcon} />;
 }
 
 export default function WeatherIcon({ type }) {
   const [, width] = useWindowSize();
-  const aloha = {
+  const iconValue = {
     "clear sky": BsSun,
     "few clouds": BsCloudSun,
     "scattered clouds": AiOutlineCloud,
@@ -36,5 +38,5 @@ export default function WeatherIcon({ type }) {
     mist: RiMistFill,
   };
 
-  return generateIcon(aloha[type] || FaThermometerEmpty, width);
+  return generateIcon(iconValue[type] || FaThermometerEmpty, width);
 }

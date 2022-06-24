@@ -1,0 +1,40 @@
+$mediumScreen: 992px;
+
+.body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  & .header {
+    width: 100%;
+    display: flex;
+    & .action_right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+    & .action_left {
+      flex: 1.5;
+    }
+  }
+  & .line {
+    height: 0.5px;
+    margin: 0px 10px;
+    background-color: #252525;
+  }
+  & .content {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: $mediumScreen) {
+  .body {
+    & .line {
+      height: 0.5px;
+      margin: 0px 20px;
+      background-color: #252525;
+    }
+    & .content {
+      margin: 20px;
+    }
+  }
+}

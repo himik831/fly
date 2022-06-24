@@ -34,7 +34,6 @@ export default function usePlaceWeather({ place }) {
           weatherDescription: json.weather[0].description,
         });
       });
-      console.log('este')
   }, []);
 
   return currentWeather;

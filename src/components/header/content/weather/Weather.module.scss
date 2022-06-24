@@ -5,6 +5,7 @@ $bigScreen: 1200px;
   height: 100%;
   margin-top: 10px;
   background-color: white;
+  z-index: 1;
   & .content {
     display: flex;
     height: 100%;

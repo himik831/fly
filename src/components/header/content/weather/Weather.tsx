@@ -5,23 +5,24 @@ import CountryWeather from "./country_weather/CountryWeather.tsx";
 import WeatherIcon from "./weather_icons/WeatherIcon.tsx";
 import usePlaceWeather from "../../../../hooks/weather/usePlaceWeather.tsx";
 import WeatherSwipeToSlide from "./weather_swipe_to_slide/WeatherSwipeToSlide.tsx";
+import {
+  EXTRA_BIG_SCREEN_SIZE,
+  BIG_SCREEN_SIZE,
+  SMALL_SCREEN_SIZE,
+} from "../../../../constants/constants";
 
 function slidesToShow(width: number) {
-  const smallScreen = 767;
-  const bigScreen = 1200;
-  const extraBigScreen = 2500;
-  if (width <= smallScreen) {
+  if (width <= SMALL_SCREEN_SIZE) {
     return 5;
-  } else if (width < extraBigScreen && width >= smallScreen) {
+  } else if (width < EXTRA_BIG_SCREEN_SIZE && width >= SMALL_SCREEN_SIZE) {
     return 7;
   }
   return 9;
 }
 
 export default function Weather() {
-  const bigScreen = 1200;
   const [, width] = useWindowSize();
-  const place: string = "Chisinau";
+  const place: string = "Chișinău";
   let weather = usePlaceWeather({ place: place });
 
   const weatherDaysObj = {
@@ -75,7 +76,7 @@ export default function Weather() {
     <div className={classes.body}>
       <div className={classes.content}>
         <div className={classes.country_weather}>
-          {width >= bigScreen ? (
+          {width >= BIG_SCREEN_SIZE ? (
             <CountryWeather
               temperature={weather.temp}
               place={place}

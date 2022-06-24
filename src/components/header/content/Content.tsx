@@ -4,16 +4,33 @@ import FromDestination from "./from/FromDestination.tsx";
 import ToDestination from "./to/ToDestination.tsx";
 import TripInformation from "./trip_information/TripInformation.tsx";
 import Weather from "./weather/Weather.tsx";
+import Modal from "../../modal/Modal.tsx";
+import FromPopUp from "./from/from_pop_up/FromPopUp.tsx";
+import useWindowSize from "../../../hooks/window_size/useWindowSize";
+
+function from() {
+  return (
+    <div className={classes.from}>
+      <FromDestination />
+    </div>
+  );
+}
 
 export default function Content() {
+  const [, width] = useWindowSize();
+
   return (
     <div className={classes.body}>
       <div className={classes.content}>
         <div className={classes.fly_information}>
           <div className={classes.destination}>
-            <div className={classes.from}>
-              <FromDestination />
-            </div>
+            <Modal
+              trigger={from()}
+              popUpType={"DESTINATION_FROM_TO"}
+              content={<FromPopUp />}
+              screenSize={width}
+            />
+
             <div className={classes.where}>
               <ToDestination />
             </div>

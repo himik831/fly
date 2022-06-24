@@ -8,7 +8,7 @@ export default function SmallMenu() {
       <div className={classes.content}>
         <div className={classes.logo}>LOGO</div>
         <div className={classes.menu}>
-          <AiOutlineMenu color="#ffffff" size={25} />
+          <AiOutlineMenu color="white" size={25} />
         </div>
       </div>
     </div>

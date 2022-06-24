@@ -27,9 +27,10 @@ export default function WeatherSwipeToSlide({ details }) {
   return (
     <div className={classes.body}>
       <Slider {...settings} className={classes.slider}>
-        {details.days.map((element) => {
+        {details.days.map((element, index) => {
           return (
             <WeatherDayDetails
+              key={index}
               date={element.date}
               icon={<WeatherIcon type={element.weather_description} />}
               temperature={element.temperature}
