@@ -9,7 +9,7 @@ $extraBigScreen: 2500px;
   }
 }
 
-@media (min-width: $bigScreen) {
+@media screen and(min-width: $bigScreen) {
   .body {
     & .content {
       & .trip_information {
@@ -30,7 +30,7 @@ $extraBigScreen: 2500px;
   }
 }
 
-@media (min-width: $extraBigScreen) {
+@media screen and(min-width: $extraBigScreen) {
   .body {
     & .content {
       padding: 35px;

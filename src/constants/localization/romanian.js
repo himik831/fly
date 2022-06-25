@@ -1,0 +1,16 @@
+export const ROMANIAN = {
+  FROM: "ZBOR DIN",
+  WHERE: "ATERIZARE ÎN",
+  ROUND_TRIP: "Dus-întors",
+  ONE_WAY: "Într-o direcție",
+  DEPARTURE_DATE: "DATA PLECĂRII *",
+  RETURN_DATE: "DATA ÎNTOARCERII *",
+  PASSENGERS: "PASAGERI *",
+  PASSENGER_ADULT: "Adult",
+  SEARCH_FLY: "Căutați zboruri",
+  WELCOME_TEXT_1: "UNDE",
+  WELCOME_TEXT_2: "DOREȘTI SĂ",
+  WELCOME_TEXT_3: "EXPLOREZI",
+  BLOG: "Blog",
+  CONTACTS: "Contacte",
+};

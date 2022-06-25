@@ -30,7 +30,7 @@ $extraBigScreen: 2500px;
   }
 }
 
-@media (min-width: $extraBigScreen) {
+@media screen and(min-width: $extraBigScreen) {
   .body {
     & .content {
       & .label {

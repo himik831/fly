@@ -34,7 +34,7 @@ $greenColor: #82cdc2;
   }
 }
 
-@media (min-width: $extraBigScreen) {
+@media screen and (min-width: $extraBigScreen) {
   .body {
     & .content {
       margin-bottom: 25px;

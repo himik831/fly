@@ -1,0 +1,16 @@
+export const ENGLISH = {
+  FROM: "FROM",
+  WHERE: "WHERE?",
+  ROUND_TRIP: "Round trip",
+  ONE_WAY: "One way",
+  DEPARTURE_DATE: "DEPARTURE DATE *",
+  RETURN_DATE: "RETURN DATE *",
+  PASSENGERS: "PASSENGERS *",
+  PASSENGER_ADULT: "Adult",
+  SEARCH_FLY: "Search flights",
+  WELCOME_TEXT_1: "WHERE",
+  WELCOME_TEXT_2: "DO YOU WANT TO",
+  WELCOME_TEXT_3: "EXPLORE",
+  BLOG: "Blog",
+  CONTACTS: "Contacts",
+};

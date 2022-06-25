@@ -3,16 +3,16 @@ import classes from "./CloseButton.module.scss";
 import useWindowSize from "../../../hooks/window_size/useWindowSize";
 import {
   SMALL_SCREEN_SIZE,
-  MEDIUM_SCREEN_SIZE,
+  EXTRA_BIG_SCREEN_SIZE,
 } from "../../../constants/constants";
 
 function iconSize(width: number) {
   if (width <= SMALL_SCREEN_SIZE) {
     return 20;
-  } else if (width >= SMALL_SCREEN_SIZE && width <= MEDIUM_SCREEN_SIZE) {
+  } else if (width >= SMALL_SCREEN_SIZE && width <= EXTRA_BIG_SCREEN_SIZE) {
     return 22;
   }
-  return 40;
+  return 30;
 }
 
 export default function CloseButton() {

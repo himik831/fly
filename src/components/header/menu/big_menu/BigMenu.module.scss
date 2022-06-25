@@ -13,7 +13,7 @@ $extraBigScreen: 2500px;
   align-items: center;
 }
 
-@media (min-width: $extraBigScreen) {
+@media screen and(min-width: $extraBigScreen) {
   .content {
     margin: 50px 100px;
   }
@@ -29,7 +29,7 @@ img {
   margin-left: 10px;
 }
 
-@media (min-width: $extraBigScreen) {
+@media screen and(min-width: $extraBigScreen) {
   .menu {
     display: flex;
     align-items: center;

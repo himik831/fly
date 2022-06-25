@@ -2,7 +2,11 @@ import React from "react";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import classes from "./Modal.module.scss";
-import { SMALL_SCREEN_SIZE, BIG_SCREEN_SIZE } from "../../constants/constants";
+import {
+  SMALL_SCREEN_SIZE,
+  BIG_SCREEN_SIZE,
+  EXTRA_BIG_SCREEN_SIZE,
+} from "../../constants/constants";
 import CloseButton from "./close_button/CloseButton.tsx";
 import HeaderText from "./header_text/HeaderText.tsx";
 
@@ -10,6 +14,10 @@ function popUpSize(type: string, screenSize: number) {
   const smallPopUp = {
     width: `300px`,
     height: `400px`,
+  };
+  const mediumPopUp = {
+    width: `400px`,
+    height: `500px`,
   };
   const bigPopUp = {
     width: `400px`,
@@ -24,7 +32,9 @@ function popUpSize(type: string, screenSize: number) {
     DESTINATION_FROM_TO:
       screenSize <= SMALL_SCREEN_SIZE
         ? smallPopUp
-        : screenSize > SMALL_SCREEN_SIZE && screenSize <= BIG_SCREEN_SIZE
+        : screenSize > SMALL_SCREEN_SIZE && screenSize < BIG_SCREEN_SIZE
+        ? mediumPopUp
+        : screenSize >= BIG_SCREEN_SIZE && screenSize <= EXTRA_BIG_SCREEN_SIZE
         ? bigPopUp
         : extraBigPopUp,
   };

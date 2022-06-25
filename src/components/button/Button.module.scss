@@ -9,7 +9,7 @@ button {
   font-weight: 300;
 }
 
-@media (min-width: $extraBigScreen) {
+@media screen and (min-width: $extraBigScreen) {
   button {
     margin: 25px;
     font-size: 20px;

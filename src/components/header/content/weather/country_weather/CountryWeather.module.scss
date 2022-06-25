@@ -22,7 +22,7 @@ $extraBigScreen: 2500px;
   }
 }
 
-@media (min-width: $extraBigScreen) {
+@media screen and(min-width: $extraBigScreen) {
   .content {
     margin: 20px 80px 0px 80px;
     & .city_information {

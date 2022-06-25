@@ -32,7 +32,7 @@ $bigScreen: 1200px;
   }
 }
 
-@media (min-width: $bigScreen) {
+@media screen and(min-width: $bigScreen) {
   .body {
     margin-top: 0px;
   }

@@ -22,7 +22,7 @@ $extraBigScreen: 2500px;
   }
 }
 
-@media (min-width: $bigScreen) {
+@media screen and(min-width: $bigScreen) {
   .body {
     & .content {
       & .date {
@@ -39,7 +39,7 @@ $extraBigScreen: 2500px;
   }
 }
 
-@media (min-width: $extraBigScreen) {
+@media screen and(min-width: $extraBigScreen) {
   .body {
     & .content {
       padding: 0px 50px 40px 50px;

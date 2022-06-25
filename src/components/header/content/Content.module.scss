@@ -28,7 +28,7 @@ $extraBigScreen: 2500px;
   }
 }
 
-@media (max-width: $bigScreen) {
+@media screen and (max-width: $bigScreen) {
   .content {
     flex-direction: column;
   }
@@ -37,7 +37,7 @@ $extraBigScreen: 2500px;
   }
 }
 
-@media (min-width: $bigScreen) {
+@media screen and (min-width: $bigScreen) {
   .body {
     & .content {
       margin: 20px 50px 0px 50px;
@@ -54,7 +54,7 @@ $extraBigScreen: 2500px;
   }
 }
 
-@media (min-width: $extraBigScreen) {
+@media screen and (min-width: $extraBigScreen) {
   .body {
     & .content {
       margin: 100px 100px;

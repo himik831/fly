@@ -1,4 +1,5 @@
-$mediumScreen: 992px;
+$mediumScreen: 768px;
+$extraBigScreen: 2500px;
 
 .body {
   display: flex;
@@ -7,7 +8,7 @@ $mediumScreen: 992px;
     display: flex;
     align-items: center;
     margin-right: 10px;
-    font-size: 14px;
+    font-size: 12px;
   }
   & .icon {
     display: flex;
@@ -15,11 +16,21 @@ $mediumScreen: 992px;
   }
 }
 
-@media (max-width: $mediumScreen) {
+@media screen and(min-width: $mediumScreen) {
   .body {
     padding: 20px 0px 20px 20px;
     & .text {
-      font-size: 16px;
+      font-size: 14px;
+    }
+  }
+}
+
+
+@media screen and(min-width: $mediumScreen) {
+  .body {
+    padding: 20px 0px 20px 20px;
+    & .text {
+      font-size: 18px;
     }
   }
 }
