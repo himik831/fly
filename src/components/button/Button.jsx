@@ -6,6 +6,7 @@ function Button({
   backgroundColor = null,
   isFullWidth = false,
   bold = null,
+  action,
 }) {
   const buttonStyle = {
     backgroundColor:
@@ -16,7 +17,11 @@ function Button({
     fontWeight: bold === null ? bold : `${bold}`,
   };
 
-  return <button style={buttonStyle}>{label}</button>;
+  return (
+    <button style={buttonStyle} onClick={action}>
+      {label}
+    </button>
+  );
 }
 
 export default Button;

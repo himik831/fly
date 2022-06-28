@@ -7,6 +7,7 @@ import Weather from "./weather/Weather.tsx";
 import Modal from "../../modal/Modal.tsx";
 import FromPopUp from "./from/from_pop_up/FromPopUp.tsx";
 import useWindowSize from "../../../hooks/window_size/useWindowSize";
+import { AIRPANE_ORIENTATION } from "../../../constants/enum/enum.tsx";
 
 function from() {
   return (
@@ -16,9 +17,17 @@ function from() {
   );
 }
 
+function to() {
+  return (
+    <div className={classes.where}>
+      <ToDestination />
+    </div>
+  );
+}
+
 export default function Content() {
   const [, width] = useWindowSize();
-
+  
   return (
     <div className={classes.body}>
       <div className={classes.content}>
@@ -29,11 +38,17 @@ export default function Content() {
               popUpType={"DESTINATION_FROM_TO"}
               content={<FromPopUp />}
               screenSize={width}
+              headerText={"FROM"}
+              airplaneOrientation={AIRPANE_ORIENTATION.UP}
             />
-
-            <div className={classes.where}>
-              <ToDestination />
-            </div>
+            <Modal
+              trigger={to()}
+              popUpType={"DESTINATION_FROM_TO"}
+              content={<FromPopUp />}
+              screenSize={width}
+              headerText={"WHERE?"}
+              airplaneOrientation={AIRPANE_ORIENTATION.DOWN}
+            />
           </div>
           <div className={classes.trip_information}>
             <TripInformation />

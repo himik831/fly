@@ -9,6 +9,7 @@ import {
 } from "../../constants/constants";
 import CloseButton from "./close_button/CloseButton.tsx";
 import HeaderText from "./header_text/HeaderText.tsx";
+import { Console } from "console";
 
 function popUpSize(type: string, screenSize: number) {
   const smallPopUp = {
@@ -42,7 +43,14 @@ function popUpSize(type: string, screenSize: number) {
   return popUpType[type];
 }
 
-export default function Modal({ trigger, popUpType, content, screenSize }) {
+export default function Modal({
+  trigger,
+  popUpType,
+  content,
+  screenSize,
+  headerText,
+  airplaneOrientation,
+}) {
   return (
     <Popup
       trigger={trigger}
@@ -54,7 +62,10 @@ export default function Modal({ trigger, popUpType, content, screenSize }) {
         <div className={classes.body}>
           <div className={classes.header}>
             <div className={classes.action_left}>
-              <HeaderText />
+              <HeaderText
+                headerText={headerText}
+                airplaneOrientation={airplaneOrientation}
+              />
             </div>
             <div className={classes.action_right}>
               <CloseButton />

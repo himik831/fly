@@ -7,8 +7,10 @@ import Button from "../../../button/Button.jsx";
 import { BiCalendar } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import { DEFAULT } from "../../../../constants/localization/default";
+import { useSelector } from "react-redux";
 
 export default function TripInformation() {
+  const language = useSelector((state) => state.language.value);
 
   return (
     <div className={classes.body}>
@@ -19,7 +21,7 @@ export default function TripInformation() {
             <TripInforamtionDetails
               label={
                 <Localization
-                  language={"RO"}
+                  language={language}
                   id={"DEPARTURE_DATE"}
                   defaultValue={DEFAULT.DEPARTURE_DATE}
                 />
@@ -32,7 +34,7 @@ export default function TripInformation() {
             <TripInforamtionDetails
               label={
                 <Localization
-                  language={"RO"}
+                  language={language}
                   id={"RETURN_DATE"}
                   defaultValue={DEFAULT.RETURN_DATE}
                 />
@@ -45,7 +47,7 @@ export default function TripInformation() {
             <TripInforamtionDetails
               label={
                 <Localization
-                  language={"RO"}
+                  language={language}
                   id={"PASSENGERS"}
                   defaultValue={DEFAULT.PASSENGERS}
                 />

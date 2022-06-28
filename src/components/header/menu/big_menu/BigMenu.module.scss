@@ -25,10 +25,6 @@ $extraBigScreen: 2500px;
   flex: 1;
 }
 
-img {
-  margin-left: 10px;
-}
-
 @media screen and(min-width: $extraBigScreen) {
   .menu {
     display: flex;

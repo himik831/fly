@@ -25,12 +25,3 @@ $extraBigScreen: 2500px;
     }
   }
 }
-
-@media screen and(min-width: $extraBigScreen) {
-  .body {
-    padding: 20px 20px 20px 0px;
-    & .text {
-      font-size: 18px;
-    }
-  }
-}
