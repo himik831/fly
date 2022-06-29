@@ -1,5 +1,5 @@
 import { LANGUAGES } from "../../../../constants/enum/enum.tsx";
-import { languageEN, languageRO } from "../../../../redux/rootReducer";
+import { languageEN, languageRO } from "../../../../redux/reducers/languageReducer";
 import ROFlagSvg from "../../../../assets/svg/ro.svg";
 import ENFlagSvg from "../../../../assets/svg/gb.svg";
 

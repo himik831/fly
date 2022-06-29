@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import classes from "./SmallMenu.module.scss";
 import { AiOutlineMenu } from "react-icons/ai";
-import SidebarMenu from "../small_menu/sidebar/menu/SidebarMenu.tsx";
+import SidebarMenu from "../small_menu/sidebar/SidebarMenu.tsx";
+import { sidebarOpen } from "../../../../redux/reducers/sidebarReducer";
 
 export default function SmallMenu() {
-  const [sidebar, setSidebar] = useState(false);
-
-  const showSidebar = () => setSidebar(!sidebar);
+  const sidebarState = useSelector((state) => state.sidebarMenu.value);
+  const dispatch = useDispatch();
 
   return (
     <div className={classes.body}>
       <div className={classes.content}>
         <div className={classes.logo}>LOGO</div>
-        <div className={classes.menu} onClick={showSidebar}>
+        <div
+          className={classes.menu}
+          onClick={() => {
+            console.log("inside Small menu");
+            dispatch(sidebarOpen());
+          }}
+        >
           <AiOutlineMenu color="white" size={25} />
-          {sidebar === true ? <SidebarMenu /> : false}
         </div>
+        {sidebarState === true ? <SidebarMenu /> : false}
       </div>
     </div>
   );

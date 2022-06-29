@@ -6,7 +6,7 @@ import { DEFAULT } from "../../constants/localization/default";
 import { LOCALIZATION_ID } from "../../constants/enum/enum.tsx";
 
 export default function CheckBox() {
-  const language = useSelector((state) => state.language.value);
+  const languageState = useSelector((state) => state.language.value);
 
   return (
     <div className={classes.body}>
@@ -19,7 +19,7 @@ export default function CheckBox() {
           />
           <label htmlFor="">
             <Localization
-              language={language}
+              language={languageState}
               id={LOCALIZATION_ID.ROUND_TRIP}
               defaultValue={DEFAULT.ROUND_TRIP}
             />
@@ -31,7 +31,7 @@ export default function CheckBox() {
           />
           <label htmlFor="">
             <Localization
-              language={language}
+              language={languageState}
               id={LOCALIZATION_ID.ONE_WAY}
               defaultValue={DEFAULT.ONE_WAY}
             />

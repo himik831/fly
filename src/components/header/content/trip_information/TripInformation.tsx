@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import { LOCALIZATION_ID } from "../../../../constants/enum/enum.tsx";
 
 export default function TripInformation() {
-  const language = useSelector((state) => state.language.value);
+  const languageState = useSelector((state) => state.language.value);
 
   return (
     <div className={classes.body}>
@@ -22,7 +22,7 @@ export default function TripInformation() {
             <TripInforamtionDetails
               label={
                 <Localization
-                  language={language}
+                  language={languageState}
                   id={LOCALIZATION_ID.DEPARTURE_DATE}
                   defaultValue={DEFAULT.DEPARTURE_DATE}
                 />
@@ -35,7 +35,7 @@ export default function TripInformation() {
             <TripInforamtionDetails
               label={
                 <Localization
-                  language={language}
+                  language={languageState}
                   id={LOCALIZATION_ID.RETURN_DATE}
                   defaultValue={DEFAULT.RETURN_DATE}
                 />
@@ -48,7 +48,7 @@ export default function TripInformation() {
             <TripInforamtionDetails
               label={
                 <Localization
-                  language={language}
+                  language={languageState}
                   id={LOCALIZATION_ID.PASSENGERS}
                   defaultValue={DEFAULT.PASSENGERS}
                 />
