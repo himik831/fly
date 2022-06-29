@@ -13,4 +13,5 @@ export const ROMANIAN = {
   WELCOME_TEXT_3: "EXPLOREZI",
   BLOG: "Blog",
   CONTACTS: "Contacte",
+  CLOSE: "Închide",
 };

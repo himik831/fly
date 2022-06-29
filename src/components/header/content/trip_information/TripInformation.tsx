@@ -8,6 +8,7 @@ import { BiCalendar } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import { DEFAULT } from "../../../../constants/localization/default";
 import { useSelector } from "react-redux";
+import { LOCALIZATION_ID } from "../../../../constants/enum/enum.tsx";
 
 export default function TripInformation() {
   const language = useSelector((state) => state.language.value);
@@ -22,7 +23,7 @@ export default function TripInformation() {
               label={
                 <Localization
                   language={language}
-                  id={"DEPARTURE_DATE"}
+                  id={LOCALIZATION_ID.DEPARTURE_DATE}
                   defaultValue={DEFAULT.DEPARTURE_DATE}
                 />
               }
@@ -35,7 +36,7 @@ export default function TripInformation() {
               label={
                 <Localization
                   language={language}
-                  id={"RETURN_DATE"}
+                  id={LOCALIZATION_ID.RETURN_DATE}
                   defaultValue={DEFAULT.RETURN_DATE}
                 />
               }
@@ -48,7 +49,7 @@ export default function TripInformation() {
               label={
                 <Localization
                   language={language}
-                  id={"PASSENGERS"}
+                  id={LOCALIZATION_ID.PASSENGERS}
                   defaultValue={DEFAULT.PASSENGERS}
                 />
               }

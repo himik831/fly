@@ -13,4 +13,5 @@ export const ENGLISH = {
   WELCOME_TEXT_3: "EXPLORE",
   BLOG: "Blog",
   CONTACTS: "Contacts",
+  CLOSE: "Close",
 };

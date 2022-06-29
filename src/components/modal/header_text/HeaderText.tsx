@@ -21,7 +21,6 @@ export default function HeaderText(
   airplaneOrientation: string
 ) {
   const [, width] = useWindowSize();
-  console.log(airplaneOrientation);
 
   return (
     <div className={classes.body}>

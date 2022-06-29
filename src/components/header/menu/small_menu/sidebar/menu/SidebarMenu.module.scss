@@ -1,0 +1,171 @@
+.sidebar {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.25);
+  & .sidebar_menu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 70%;
+    background-color: white;
+    flex-direction: column;
+    z-index: 1;
+  }
+}
+//     & .header {
+//       display: flex;
+//       justify-content: flex-end;
+//       padding: 20px 20px 15px 20px;
+//       & .text {
+//         font-size: 12px;
+//         margin-right: 5px;
+//         display: flex;
+//         align-items: center;
+//       }
+//       & .icon {
+//         display: flex;
+//         align-items: center;
+//       }
+//     }
+//     & .body {
+//       width: 100%;
+//       height: 100%;
+//       display: flex;
+//       font-size: 14px;
+//       flex-direction: column;
+//       & .center {
+//         flex: 6;
+//         display: flex;
+//         flex-direction: column;
+//         padding-top: 10px;
+//         & ul {
+//           list-style-type: none;
+//           padding: 10px;
+//           & li {
+//             display: flex;
+//             padding: 0px 10px;
+//             & .icon {
+//               display: flex;
+//               align-items: center;
+//               margin-right: 15px;
+//             }
+//             & .text {
+//               display: flex;
+//               align-items: center;
+//             }
+//           }
+//         }
+//         & .top {
+//           flex: 2;
+//         }
+//         & .footer {
+//           flex: 1;
+//           display: flex;
+//           justify-content: end;
+//           flex-direction: column;
+//           & ul {
+//             list-style-type: none;
+//             padding: 10px;
+//             & li {
+//               display: flex;
+//               padding: 0px 10px;
+//               & .icon {
+//                 display: flex;
+//                 align-items: center;
+//                 margin-right: 15px;
+//               }
+//               & .text {
+//                 display: flex;
+//                 align-items: center;
+//               }
+//             }
+//           }
+//         }
+//       }
+//       & .bottom {
+//         flex: 1;
+//         display: flex;
+//         & ul {
+//           list-style-type: none;
+//           padding: 10px;
+//           & li {
+//             display: flex;
+//             padding: 0px 10px;
+//             & .icon {
+//               display: flex;
+//               align-items: center;
+//               margin-right: 15px;
+//             }
+//             & .text {
+//               display: flex;
+//               align-items: center;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .line {
+//   width: 100%;
+//   height: 1px;
+//   background-color: #f1f3f4;
+// }
+
+// @media screen and (min-width: 768px) {
+//   .sidebar {
+//     & .sidebar_menu {
+//       & .header {
+//         padding: 25px 25px 20px 25px;
+//         & .text {
+//           font-size: 16px;
+//         }
+//       }
+//       & .body {
+//         font-size: 18px;
+//         & .center {
+//           flex: 7;
+//           & ul {
+//             padding: 15px;
+//             & li {
+//               padding: 0px 15px;
+//               & .icon {
+//                 margin-right: 20px;
+//               }
+//             }
+//           }
+//           & .footer {
+//             & ul {
+//               padding: 15px;
+//               & li {
+//                 padding: 0px 15px;
+//                 & .icon {
+//                   margin-right: 20px;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         & .bottom {
+//           & ul {
+//             padding: 20px 15px 15px 15px;
+//             & li {
+//               padding: 0px 15px;
+//               & .icon {
+//                 margin-right: 20px;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

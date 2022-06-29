@@ -16,7 +16,7 @@ export default function Header() {
     <>
       <div className={classes.image} style={image}>
         <div className={classes.content}>
-          {width >= SMALL_SCREEN_SIZE ? <BigMenu /> : <SmallMenu />}
+          {width >= BIG_SCREEN_SIZE ? <BigMenu /> : <SmallMenu />}
           {width >= BIG_SCREEN_SIZE ? <Welcome /> : null}
           <Content />
         </div>

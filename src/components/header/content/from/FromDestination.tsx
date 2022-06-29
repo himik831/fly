@@ -3,6 +3,7 @@ import classes from "./FromDestination.module.scss";
 import Localization from "../../../localization/Localization.tsx";
 import { DEFAULT } from "../../../../constants/localization/default";
 import { useSelector } from "react-redux";
+import { LOCALIZATION_ID } from "../../../../constants/enum/enum.tsx";
 
 export default function FromDestination() {
   const language = useSelector((state) => state.language.value);
@@ -13,7 +14,7 @@ export default function FromDestination() {
         <div className={classes.label}>
           <Localization
             language={language}
-            id={"FROM"}
+            id={LOCALIZATION_ID.FROM}
             defaultValue={DEFAULT.FROM}
           />
         </div>
