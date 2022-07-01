@@ -1,0 +1,63 @@
+.body {
+  max-width: 78%;
+  background-color: #82cdc2;
+  position: fixed;
+  z-index: 1;
+  overflow: auto;
+  padding: 10px;
+  & .location {
+    display: flex;
+    margin-bottom: 10px;
+    & .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 10px;
+    }
+    & .information {
+      & .label {
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 2px;
+        color: white;
+      }
+      & .description {
+        font-size: 14px;
+        font-weight: 200;
+        color: white;
+      }
+    }
+  }
+  & .airports {
+    display: flex;
+    display: flex;
+    margin-bottom: 10px;
+    & .icon_free {
+      padding: 0px 10px;
+    }
+    & .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 10px 0px 0px;
+    }
+    & .information {
+      & .label {
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 2px;
+        color: white;
+        & span {
+          font-size: 16px;
+          font-weight: 200;
+          color: white;
+        }
+      }
+      & .description {
+        font-size: 14px;
+        font-weight: 200;
+        color: white;
+      }
+    }
+  }
+}

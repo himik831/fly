@@ -14,6 +14,19 @@ $extraBigScreen: 2500px;
     & .destination {
       font-size: 12px;
       font-weight: 200;
+      & input {
+        width: 100%;
+        border: none;
+        padding: 5px 0px;
+        font-weight: 300;
+        &:focus {
+          outline: none;
+          font-weight: 300;
+        }
+        &::placeholder {
+          font-weight: 300;
+        }
+      }
     }
   }
 }

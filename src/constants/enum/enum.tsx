@@ -14,6 +14,11 @@ export enum REDUCERS_NAME {
   DROPDOWN_SEARCH = "dropdownSearch",
 }
 
+export enum DESTINATION_SEARCH_TYPE {
+  FROM = "FROM",
+  WHERE = "WHERE",
+}
+
 export enum LOCALIZATION_ID {
   FROM = "FROM",
   WHERE = "WHERE",
