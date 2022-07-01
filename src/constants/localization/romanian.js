@@ -14,4 +14,10 @@ export const ROMANIAN = {
   BLOG: "Blog",
   CONTACTS: "Contacte",
   CLOSE: "Închide",
+  ABOUT_COMPANY: "Despre companie",
+  POPULAR_DESTINATION: "Destinații populare",
+  HELP_AND_ADVICE: "Ajutor și sfaturi",
+  TERMS_AND_CONDITION: "Termeni și condiții",
+  LANGUAGE: "Limba",
+  EXAMPLE: "Exemplu",
 };

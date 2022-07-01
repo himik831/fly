@@ -16,7 +16,6 @@ export default function SmallMenu() {
         <div
           className={classes.menu}
           onClick={() => {
-            console.log("inside Small menu");
             dispatch(sidebarOpen());
           }}
         >

@@ -5,11 +5,56 @@ import { useSelector, useDispatch } from "react-redux";
 import { LOCALIZATION_ID } from "../../../../../constants/enum/enum.tsx";
 import { DEFAULT } from "../../../../../constants/localization/default";
 import { sidebarClose } from "../../../../../redux/reducers/sidebarReducer";
-import { SidebarData } from "./SidebarData";
+import SidebarData from "./SidebarData";
 
 export default function SidebarMenu() {
   const languageState = useSelector((state) => state.language.value);
   const dispatch = useDispatch();
+
+  function topMenu() {
+    return SidebarData()
+      .filter((element) => element.level === 1)
+      .map((menu) => {
+        return menu.values.map((value, index) => (
+          <ul key={index}>
+            <li onClick={() => console.log(value.path)}>
+              <div className={classes.icon}>{value.icon}</div>
+              <div className={classes.text}>{value.title}</div>
+            </li>
+          </ul>
+        ));
+      });
+  }
+
+  function bottomMenu() {
+    return SidebarData()
+      .filter((element) => element.level === 2)
+      .map((menu) => {
+        return menu.values.map((value, index) => (
+          <ul key={index}>
+            <li onClick={() => console.log(value.path)}>
+              <div className={classes.icon}>{value.icon}</div>
+              <div className={classes.text}>{value.title}</div>
+            </li>
+          </ul>
+        ));
+      });
+  }
+
+  function footerMenu() {
+    return SidebarData()
+      .filter((element) => element.level === 3)
+      .map((menu) => {
+        return menu.values.map((value, index) => (
+          <ul key={index}>
+            <li onClick={() => console.log(value.path)}>
+              <div className={classes.icon}>{value.icon}</div>
+              <div className={classes.text}>{value.title}</div>
+            </li>
+          </ul>
+        ));
+      });
+  }
 
   return (
     <div className={classes.sidebar}>
@@ -33,96 +78,11 @@ export default function SidebarMenu() {
         </div>
         <div className={classes.line} />
         <div className={classes.body}>
-          <div className={classes.top}>
-            {SidebarData.filter((element) => element.level === 1).map(
-              (menu) => {
-                return menu.values.map((value, index) => (
-                  <ul key={index}>
-                    <li>
-                      <div className={classes.icon}>{value.icon}</div>
-                      <div className={classes.text}>{value.title}</div>
-                    </li>
-                  </ul>
-                ));
-              }
-            )}
-          </div>
-          <div className={classes.bottom}>
-            {SidebarData.filter((element) => element.level === 2).map(
-              (menu) => {
-                return menu.values.map((value, index) => (
-                  <ul key={index}>
-                    <li>
-                      <div className={classes.icon}>{value.icon}</div>
-                      <div className={classes.text}>{value.title}</div>
-                    </li>
-                  </ul>
-                ));
-              }
-            )}
-          </div>
+          <div className={classes.top}>{topMenu()}</div>
+          <div className={classes.bottom}>{bottomMenu()}</div>
         </div>
         <div className={classes.line} />
-        <div className={classes.footer}>
-          {SidebarData.filter((element) => element.level === 3).map((menu) => {
-            return menu.values.map((value, index) => (
-              <ul key={index}>
-                <li>
-                  <div className={classes.icon}>{value.icon}</div>
-                  <div className={classes.text}>{value.title}</div>
-                </li>
-              </ul>
-            ));
-          })}
-        </div>
-        {/*<div className={classes.line} />
-        <div className={classes.body}>
-          <div className={classes.center}>
-            <div className={classes.top}>
-              {SidebarData.filter((element) => element.level === 1).map(
-                (menu) => {
-                  return menu.values.map((value, index) => (
-                    <ul key={index}>
-                      <li>
-                        <div className={classes.icon}>{value.icon}</div>
-                        <div className={classes.text}>{value.title}</div>
-                      </li>
-                    </ul>
-                  ));
-                }
-              )}
-            </div>
-            <div className={classes.footer}>
-              {SidebarData.filter((element) => element.level === 2).map(
-                (menu) => {
-                  return menu.values.map((value, index) => (
-                    <ul key={index}>
-                      <li>
-                        <div className={classes.icon}>{value.icon}</div>
-                        <div className={classes.text}>{value.title}</div>
-                      </li>
-                    </ul>
-                  ));
-                }
-              )}
-            </div>
-          </div>
-          <div className={classes.line} />
-          <div className={classes.bottom}>
-            {SidebarData.filter((element) => element.level === 3).map(
-              (menu) => {
-                return menu.values.map((value, index) => (
-                  <ul key={index}>
-                    <li>
-                      <div className={classes.icon}>{value.icon}</div>
-                      <div className={classes.text}>{value.title}</div>
-                    </li>
-                  </ul>
-                ));
-              }
-            )}
-          </div>
-        </div> */}
+        <div className={classes.footer}>{footerMenu()}</div>
       </div>
     </div>
   );

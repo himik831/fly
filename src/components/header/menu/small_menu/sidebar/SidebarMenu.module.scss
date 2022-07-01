@@ -22,18 +22,27 @@
       display: flex;
       justify-content: end;
       padding: 15px;
+      font-size: 12px;
+      align-items: center;
+      & .text {
+        margin-right: 5px;
+      }
+      & .icon {
+        display: flex;
+        align-items: center;
+      }
     }
     & .body {
       flex: 1;
       display: flex;
       flex-direction: column;
       padding: 15px;
-      background-color: aqua;
+      font-size: 14px;
       & .top {
         flex: 1;
-        background-color: rebeccapurple;
         & li {
           display: flex;
+          padding: 8px 0px;
           & .icon {
             margin-right: 10px;
           }
@@ -44,9 +53,9 @@
         display: flex;
         justify-content: end;
         flex-direction: column;
-        background-color: gray;
         & li {
           display: flex;
+          padding: 8px 0px;
           & .icon {
             margin-right: 10px;
           }
@@ -55,6 +64,7 @@
     }
     & .footer {
       padding: 15px;
+      font-size: 14px;
       & li {
         display: flex;
         & .icon {
@@ -71,147 +81,46 @@
   background-color: #f1f3f4;
 }
 
-//     & .header {
-//       display: flex;
-//       justify-content: flex-end;
-//       padding: 20px 20px 15px 20px;
-//       & .text {
-//         font-size: 12px;
-//         margin-right: 5px;
-//         display: flex;
-//         align-items: center;
-//       }
-//       & .icon {
-//         display: flex;
-//         align-items: center;
-//       }
-//     }
-//     & .body {
-//       width: 100%;
-//       height: 100%;
-//       display: flex;
-//       font-size: 14px;
-//       flex-direction: column;
-//       & .center {
-//         flex: 6;
-//         display: flex;
-//         flex-direction: column;
-//         padding-top: 10px;
-//         & ul {
-//           list-style-type: none;
-//           padding: 10px;
-//           & li {
-//             display: flex;
-//             padding: 0px 10px;
-//             & .icon {
-//               display: flex;
-//               align-items: center;
-//               margin-right: 15px;
-//             }
-//             & .text {
-//               display: flex;
-//               align-items: center;
-//             }
-//           }
-//         }
-//         & .top {
-//           flex: 2;
-//         }
-//         & .footer {
-//           flex: 1;
-//           display: flex;
-//           justify-content: end;
-//           flex-direction: column;
-//           & ul {
-//             list-style-type: none;
-//             padding: 10px;
-//             & li {
-//               display: flex;
-//               padding: 0px 10px;
-//               & .icon {
-//                 display: flex;
-//                 align-items: center;
-//                 margin-right: 15px;
-//               }
-//               & .text {
-//                 display: flex;
-//                 align-items: center;
-//               }
-//             }
-//           }
-//         }
-//       }
-//       & .bottom {
-//         flex: 1;
-//         display: flex;
-//         & ul {
-//           list-style-type: none;
-//           padding: 10px;
-//           & li {
-//             display: flex;
-//             padding: 0px 10px;
-//             & .icon {
-//               display: flex;
-//               align-items: center;
-//               margin-right: 15px;
-//             }
-//             & .text {
-//               display: flex;
-//               align-items: center;
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (min-width: 768px) {
-//   .sidebar {
-//     & .sidebar_menu {
-//       & .header {
-//         padding: 25px 25px 20px 25px;
-//         & .text {
-//           font-size: 16px;
-//         }
-//       }
-//       & .body {
-//         font-size: 18px;
-//         & .center {
-//           flex: 7;
-//           & ul {
-//             padding: 15px;
-//             & li {
-//               padding: 0px 15px;
-//               & .icon {
-//                 margin-right: 20px;
-//               }
-//             }
-//           }
-//           & .footer {
-//             & ul {
-//               padding: 15px;
-//               & li {
-//                 padding: 0px 15px;
-//                 & .icon {
-//                   margin-right: 20px;
-//                 }
-//               }
-//             }
-//           }
-//         }
-//         & .bottom {
-//           & ul {
-//             padding: 20px 15px 15px 15px;
-//             & li {
-//               padding: 0px 15px;
-//               & .icon {
-//                 margin-right: 20px;
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+@media screen and (min-width: 768px) {
+  .sidebar {
+    & .sidebar_menu {
+      width: 55%;
+      & .header {
+        font-size: 18px;
+        padding: 25px;
+        & .text {
+          margin-right: 10px;
+        }
+      }
+      & .body {
+        padding: 25px;
+        font-size: 20px;
+        & .top {
+          & li {
+            padding: 12px 0px;
+            & .icon {
+              margin-right: 15px;
+            }
+          }
+        }
+        & .bottom {
+          & li {
+            padding: 12px 0px;
+            & .icon {
+              margin-right: 15px;
+            }
+          }
+        }
+      }
+      & .footer {
+        padding: 25px;
+        font-size: 20px;
+        & li {
+          & .icon {
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+  }
+}

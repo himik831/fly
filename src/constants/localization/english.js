@@ -14,4 +14,10 @@ export const ENGLISH = {
   BLOG: "Blog",
   CONTACTS: "Contacts",
   CLOSE: "Close",
+  ABOUT_COMPANY: "About company",
+  POPULAR_DESTINATION: "Popular destination",
+  HELP_AND_ADVICE: "Help and advice",
+  TERMS_AND_CONDITION: "Terms and condition",
+  LANGUAGE: "Language",
+  EXAMPLE: "Example",
 };

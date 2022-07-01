@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOMServer from "react-dom/server";
 import classes from "./FromDestination.module.scss";
 import Localization from "../../../localization/Localization.tsx";
 import { DEFAULT } from "../../../../constants/localization/default";
@@ -7,7 +8,13 @@ import { LOCALIZATION_ID } from "../../../../constants/enum/enum.tsx";
 
 export default function FromDestination() {
   const languageState = useSelector((state) => state.language.value);
-
+  const example = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.EXAMPLE}
+      defaultValue={DEFAULT.EXAMPLE}
+    />
+  );
   return (
     <div className={classes.body}>
       <div className={classes.content}>
@@ -18,7 +25,8 @@ export default function FromDestination() {
             defaultValue={DEFAULT.FROM}
           />
         </div>
-        <div className={classes.destination}>Chisinau, Moldova</div>
+        <div className={classes.destination}>Moldova
+        </div>
       </div>
     </div>
   );

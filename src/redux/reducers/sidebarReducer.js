@@ -1,17 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { REDUCERS_NAME } from "../../constants/enum/enum.tsx";
 
 export const sidebarMenuSlice = createSlice({
-  name: "sidebarMenu",
+  name: REDUCERS_NAME.SIDEBAR_MENU,
   initialState: {
     value: false,
   },
   reducers: {
     sidebarOpen: (state) => {
-      console.log('reducer open')
       state.value = true;
     },
     sidebarClose: (state) => {
-      console.log('reducer close')
       state.value = false;
     },
   },

@@ -3,6 +3,9 @@ $extraBigScreen: 2500px;
 .dropdown {
   position: relative;
   display: inline-block;
+  & button {
+    margin-right: 0px;
+  }
   & .dropdown_content {
     display: none;
     right: 0px;

@@ -13,9 +13,10 @@ export default function Language() {
         <img src={LanguageSvg} alt="" />
       </button>
       <div className={classes.dropdown_content}>
-        {LanguageData.map((element) => {
+        {LanguageData.map((element, index) => {
           return (
             <a
+              key={index}
               className={lang === element.type ? classes.selected : null}
               href="#"
               onClick={() => {

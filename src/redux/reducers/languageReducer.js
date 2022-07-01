@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { LANGUAGES } from "../../constants/enum/enum.tsx";
+import { REDUCERS_NAME } from "../../constants/enum/enum.tsx";
 
 export const languageSlice = createSlice({
-  name: "language",
+  name: REDUCERS_NAME.LANGUAGE,
   initialState: {
     value: LANGUAGES.RO,
   },
