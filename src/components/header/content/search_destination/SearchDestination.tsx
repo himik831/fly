@@ -1,18 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import useCallApiAfterDelay from "../../../../hooks/input/useCallApiAfterDelay.tsx";
 import classes from "./SearchDestination.module.scss";
-
-function useCallApi(value: string) {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (value !== null) {
-        console.log("API call");
-      }
-    }, 600);
-    return () => clearTimeout(timer);
-  }, [value]);
-}
 
 export default function SearchDestination({
   label,
@@ -23,7 +13,7 @@ export default function SearchDestination({
 }) {
   const [inputValue, setInputValue] = useState(null);
 
-  useCallApi(inputValue);
+  // console.log(useCallApiAfterDelay(inputValue));
 
   const onChangeDestination = (event) => {
     onChange(event.target.value);

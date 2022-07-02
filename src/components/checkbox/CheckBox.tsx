@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOMServer from "react-dom/server";
 import classes from "./CheckBox.module.scss";
 import Localization from "../localization/Localization.tsx";
 import { useSelector } from "react-redux";
@@ -7,6 +8,21 @@ import { LOCALIZATION_ID } from "../../constants/enum/enum.tsx";
 
 export default function CheckBox() {
   const languageState = useSelector((state) => state.language.value);
+
+  const roundTrip = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.ROUND_TRIP}
+      defaultValue={DEFAULT.ROUND_TRIP}
+    />
+  );
+  const oneWay = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.ONE_WAY}
+      defaultValue={DEFAULT.ONE_WAY}
+    />
+  );
 
   return (
     <div className={classes.body}>
@@ -17,25 +33,13 @@ export default function CheckBox() {
             name="selection"
             className={classes.checkbox_round}
           />
-          <label htmlFor="">
-            <Localization
-              language={languageState}
-              id={LOCALIZATION_ID.ROUND_TRIP}
-              defaultValue={DEFAULT.ROUND_TRIP}
-            />
-          </label>
+          <label htmlFor="">{roundTrip}</label>
           <input
             type="radio"
             name="selection"
             className={classes.checkbox_round}
           />
-          <label htmlFor="">
-            <Localization
-              language={languageState}
-              id={LOCALIZATION_ID.ONE_WAY}
-              defaultValue={DEFAULT.ONE_WAY}
-            />
-          </label>
+          <label htmlFor="">{oneWay}</label>
         </form>
       </div>
     </div>

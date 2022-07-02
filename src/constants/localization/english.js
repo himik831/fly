@@ -20,4 +20,7 @@ export const ENGLISH = {
   TERMS_AND_CONDITION: "Terms and condition",
   LANGUAGE: "Language",
   EXAMPLE: "Example",
+  CITY_FROM: "City from",
+  CENTER_OF_CITY: "Center",
+  AIRPORT: "Airport",
 };

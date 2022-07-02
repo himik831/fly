@@ -1,4 +1,5 @@
 import classes from "./SidebarMenu.module.scss";
+import ReactDOMServer from "react-dom/server";
 import Localization from "../../../../localization/Localization.tsx";
 import { IoMdClose } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
@@ -56,6 +57,14 @@ export default function SidebarMenu() {
       });
   }
 
+  const close = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.CLOSE}
+      defaultValue={DEFAULT.CLOSE}
+    />
+  );
+
   return (
     <div className={classes.sidebar}>
       <div className={classes.sidebar_menu}>
@@ -65,13 +74,7 @@ export default function SidebarMenu() {
             dispatch(sidebarClose());
           }}
         >
-          <div className={classes.text}>
-            <Localization
-              language={languageState}
-              id={LOCALIZATION_ID.CLOSE}
-              defaultValue={DEFAULT.CLOSE}
-            />
-          </div>
+          <div className={classes.text}>{close}</div>
           <div className={classes.icon}>
             <IoMdClose size={18} />
           </div>

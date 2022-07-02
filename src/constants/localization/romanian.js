@@ -20,4 +20,7 @@ export const ROMANIAN = {
   TERMS_AND_CONDITION: "Termeni și condiții",
   LANGUAGE: "Limba",
   EXAMPLE: "Exemplu",
+  CITY_FROM: "Oraș din",
+  CENTER_OF_CITY: "Centru",
+  AIRPORT: "Aeroport",
 };

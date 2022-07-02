@@ -1,62 +1,87 @@
 .body {
   max-width: 78%;
-  background-color: #82cdc2;
+  background-color: white;
   position: fixed;
   z-index: 1;
   overflow: auto;
-  padding: 10px;
-  & .location {
-    display: flex;
-    margin-bottom: 10px;
-    & .icon {
+  padding: 5px;
+  border-radius: 3px;
+  & .content {
+    border: 1px solid #82cdc2;
+    padding: 10px;
+    border-radius: 3px;
+    & .location {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0px 10px;
-    }
-    & .information {
-      & .label {
-        font-size: 16px;
-        font-weight: 400;
-        margin-bottom: 2px;
-        color: white;
+      margin-bottom: 10px;
+      & .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 10px;
       }
-      & .description {
-        font-size: 14px;
-        font-weight: 200;
-        color: white;
-      }
-    }
-  }
-  & .airports {
-    display: flex;
-    display: flex;
-    margin-bottom: 10px;
-    & .icon_free {
-      padding: 0px 10px;
-    }
-    & .icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0px 10px 0px 0px;
-    }
-    & .information {
-      & .label {
-        font-size: 16px;
-        font-weight: 400;
-        margin-bottom: 2px;
-        color: white;
-        & span {
+      & .information {
+        & .label {
           font-size: 16px;
+          font-weight: 400;
+          margin-bottom: 2px;
+        }
+        & .description {
+          font-size: 12px;
           font-weight: 200;
-          color: white;
         }
       }
-      & .description {
-        font-size: 14px;
-        font-weight: 200;
-        color: white;
+    }
+    & .airports {
+      display: flex;
+      display: flex;
+      margin-bottom: 10px;
+      & .icon_free {
+        padding: 0px 10px;
+      }
+      & .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 10px 0px 0px;
+      }
+      & .information {
+        & .label {
+          font-size: 16px;
+          font-weight: 400;
+          margin-bottom: 2px;
+          & span {
+            font-size: 16px;
+            font-weight: 200;
+          }
+        }
+        & .description {
+          font-size: 12px;
+          font-weight: 200;
+          display: flex;
+          align-items: center;
+        }
+      }
+      &:hover {
+        color: #82cdc2;
+        & .information {
+          & .label {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 2px;
+            color: #82cdc2;
+            & span {
+              font-size: 16px;
+              font-weight: 200;
+              color: #82cdc2;
+            }
+          }
+          & .description {
+            font-size: 12px;
+            font-weight: 200;
+            display: flex;
+            align-items: center;
+          }
+        }
       }
     }
   }
