@@ -6,6 +6,66 @@ function getAirports(id) {
     .then((json) => json.locations);
 }
 
+async function getAirport(airportParam) {
+  const ids = [];
+  const result = [];
+
+  ids.push(airportParam.locations);
+
+  for (const [index, value] of ids.entries()) {
+    for (const airport of value) {
+      result.push({
+        id: airport.id,
+        city: airport.city.name,
+        country: airport.city.country.name,
+        airports: airportParam.locations,
+      });
+    }
+  }
+
+  return result;
+}
+
+async function getAirportsByCodeIata(codeIata) {
+  const ids = [];
+  const result = [];
+
+  ids.push(codeIata);
+
+  for (const [index, value] of ids.entries()) {
+    for (const airport of value) {
+      result.push({
+        id: airport.id,
+        city: airport.city.name,
+        country: airport.city.country.name,
+        airports: codeIata,
+      });
+    }
+  }
+
+  return result;
+}
+
+async function getAirportsByCityId(cityId) {
+  const ids = [];
+  const result = [];
+
+  ids.push(cityId);
+
+  for (const [index, value] of ids.entries()) {
+    for (const airport of value) {
+      result.push({
+        id: airport.id,
+        city: airport.name,
+        country: airport.country.name,
+        airports: await getAirports(airport.id),
+      });
+    }
+  }
+
+  return result;
+}
+
 async function getAirportsByCountryCode(countryCode) {
   const host: string = "https://api.skypicker.com/";
   const locale: string = "ro-RO";
@@ -38,7 +98,7 @@ async function getAirportsByCountryCode(countryCode) {
       result.push({
         id: airport.id,
         city: airport.name,
-        country: countryCode[index].name,
+        country: airport.country.name,
         airports: await getAirports(airport.id),
       });
     }
@@ -60,10 +120,20 @@ export default async function searchCityAirports(location) {
   const response = await fetch(urlAirportsByCountryCode);
   const json = await response.json();
   const countryCode = json.locations.filter((e) => e.id.length === 2);
-  if (countryCode.length !== 0) {
+  const cityId = json.locations.filter((el) => el.id.includes("_"));
+  const codeIata = json.locations.filter(
+    (el) => el.id === location.toUpperCase()
+  );
+  const airport = json;
+
+  if (codeIata && location.length === 3) {
+    return await getAirportsByCodeIata(codeIata);
+  } else if (countryCode.length !== 0) {
     return await getAirportsByCountryCode(countryCode);
+  } else if (cityId.length !== 0) {
+    return await getAirportsByCityId(cityId);
   } else {
-    console.log("nu sunt");
+    return await getAirport(airport);
   }
 
   return Promise.resolve([]);

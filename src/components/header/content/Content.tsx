@@ -56,6 +56,8 @@ export default function Content() {
   const [searchType, setSearchType] = useState(null);
   const [cityAirports, setCityAirports] = useState<Airports[]>([]);
 
+
+
   const onChangeDestination = (value) => {
     setLocation(value);
   };
