@@ -23,4 +23,6 @@ export const ROMANIAN = {
   CITY_FROM: "Oraș din",
   CENTER_OF_CITY: "Centru",
   AIRPORT: "Aeroport",
+  TIMEZONE: "Fus orar:",
+
 };

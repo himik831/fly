@@ -3,7 +3,7 @@ import classes from "./Weather.module.scss";
 import useWindowSize from "../../../../hooks/window_size/useWindowSize";
 import CountryWeather from "./country_weather/CountryWeather.tsx";
 import WeatherIcon from "./weather_icons/WeatherIcon.tsx";
-import usePlaceWeather from "../../../../hooks/weather/usePlaceWeather.tsx";
+import usePlaceWeather from "../../../../hooks//api/weather/usePlaceWeather.tsx";
 import WeatherSwipeToSlide from "./weather_swipe_to_slide/WeatherSwipeToSlide.tsx";
 import {
   EXTRA_BIG_SCREEN_SIZE,

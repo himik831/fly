@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import HourMinDayMonthYear from "../../utils/date_format/HourMinDayMonthYear.tsx";
+import HourMinDayMonthYear from "../../../utils/date_format/HourMinDayMonthYear.tsx";
 
 export default function usePlaceWeather({ place }) {
   const host: string = "http://api.openweathermap.org/";
@@ -33,7 +33,8 @@ export default function usePlaceWeather({ place }) {
           temp: Math.round(json.main.temp),
           weatherDescription: json.weather[0].description,
         });
-      });
+      })
+      .catch((error) => console.log(error));
   }, []);
 
   return currentWeather;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import ReactDOMServer from "react-dom/server";
 import classes from "./Content.module.scss";
@@ -11,6 +11,7 @@ import { DEFAULT } from "../../../constants/localization/default";
 import Results from "./search_destination/results/Results.tsx";
 import { useState } from "react";
 import { DESTINATION_SEARCH_TYPE } from "../../../constants/enum/enum.tsx";
+import searchCityAirports from "../../../hooks/api/search_location/useSearchLocation.ts";
 
 function from(language: string) {
   return ReactDOMServer.renderToString(
@@ -42,19 +43,37 @@ function example(language: string, destination: string) {
   )}: ${destination}`;
 }
 
+interface Airports {
+  id: string;
+  city: string;
+  country: string;
+  airports: [{ codeIata: string; name: string; timezone: string }];
+}
+
 export default function Content() {
   const languageState = useSelector((state) => state.language.value);
-
-  const [destination, setDestination] = useState("");
+  const [location, setLocation] = useState("");
   const [searchType, setSearchType] = useState(null);
+  const [cityAirports, setCityAirports] = useState<Airports[]>([]);
 
   const onChangeDestination = (value) => {
-    setDestination(value);
+    setLocation(value);
   };
 
   const onSearchType = (value) => {
     setSearchType(value);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (location !== null && location !== "" && location.length >= 3) {
+        searchCityAirports(location).then(setCityAirports);
+      } else {
+        setCityAirports([]);
+      }
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [location]);
 
   return (
     <div className={classes.body}>
@@ -69,9 +88,9 @@ export default function Content() {
                 onChange={onChangeDestination}
                 onSearchType={onSearchType}
               />
-              {destination !== "" &&
+              {location !== "" &&
               searchType === DESTINATION_SEARCH_TYPE.FROM ? (
-                <Results />
+                <Results cityAirports={cityAirports} />
               ) : null}
             </div>
             <div className={classes.where}>
@@ -82,9 +101,9 @@ export default function Content() {
                 onChange={onChangeDestination}
                 onSearchType={onSearchType}
               />
-              {destination !== "" &&
+              {location !== "" &&
               searchType === DESTINATION_SEARCH_TYPE.WHERE ? (
-                <Results />
+                <Results cityAirports={cityAirports} />
               ) : null}
             </div>
           </div>

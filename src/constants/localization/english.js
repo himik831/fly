@@ -23,4 +23,5 @@ export const ENGLISH = {
   CITY_FROM: "City from",
   CENTER_OF_CITY: "Center",
   AIRPORT: "Airport",
+  TIMEZONE: "Timezone:",
 };

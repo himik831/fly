@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import useCallApiAfterDelay from "../../../../hooks/input/useCallApiAfterDelay.tsx";
 import classes from "./SearchDestination.module.scss";
 
 export default function SearchDestination({
@@ -12,8 +11,6 @@ export default function SearchDestination({
   onSearchType,
 }) {
   const [inputValue, setInputValue] = useState(null);
-
-  // console.log(useCallApiAfterDelay(inputValue));
 
   const onChangeDestination = (event) => {
     onChange(event.target.value);
