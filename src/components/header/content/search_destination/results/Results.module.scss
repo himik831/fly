@@ -1,15 +1,16 @@
 .body {
-  max-height: 250px;
+  max-height: 300px;
   max-width: 78%;
   background-color: white;
   position: fixed;
   z-index: 1;
+  box-shadow: 1px 1px 10px 3px #dbdada;
+  -webkit-box-shadow: 1px 1px 10px 3px #dbdada;
   overflow: auto;
-  padding: 5px;
+  margin: 5px;
+  padding: 15px 15px 10px 5px;
   border-radius: 3px;
   & .content {
-    border: 1px solid #82cdc2;
-    padding: 10px;
     border-radius: 3px;
     & .location {
       display: flex;
@@ -87,3 +88,18 @@
     }
   }
 }
+
+@media screen and (min-width: 767px) {
+  .body {
+    max-height: 500px;
+    max-width: 78%;
+  }
+}
+
+// @media screen and (min-width: 767px) {
+//   .body {
+//     max-height: 500px;
+//     max-width: 78%;
+//     padding: 10px 5px;
+//   }
+// }

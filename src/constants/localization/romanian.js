@@ -24,5 +24,6 @@ export const ROMANIAN = {
   CENTER_OF_CITY: "Centru",
   AIRPORT: "Aeroport",
   TIMEZONE: "Fus orar:",
-
+  NO_RESULT: "Nici un rezultat",
+  SEARCH_IN_ANOTHER_WAY: "Încercați să căutați în alt mod",
 };

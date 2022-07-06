@@ -1,3 +1,12 @@
+function freeObject() {
+  return {
+    id: "",
+    city: "",
+    country: "",
+    airports: [],
+  };
+}
+
 function getAirports(id) {
   return fetch(
     `https://api.skypicker.com/locations?locale=ro-RO&sort=rank&location_types=airport&type=subentity&limit=20&term=${id}`
@@ -12,14 +21,18 @@ async function getAirport(airportParam) {
 
   ids.push(airportParam.locations);
 
-  for (const [index, value] of ids.entries()) {
-    for (const airport of value) {
-      result.push({
-        id: airport.id,
-        city: airport.city.name,
-        country: airport.city.country.name,
-        airports: airportParam.locations,
-      });
+  if (ids[0].length === 0) {
+    result.push(freeObject());
+  } else {
+    for (const [, value] of ids.entries()) {
+      for (const airport of value) {
+        result.push({
+          id: airport.id,
+          city: airport.city.name,
+          country: airport.city.country.name,
+          airports: airportParam.locations,
+        });
+      }
     }
   }
 
@@ -32,14 +45,18 @@ async function getAirportsByCodeIata(codeIata) {
 
   ids.push(codeIata);
 
-  for (const [index, value] of ids.entries()) {
-    for (const airport of value) {
-      result.push({
-        id: airport.id,
-        city: airport.city.name,
-        country: airport.city.country.name,
-        airports: codeIata,
-      });
+  if (ids[0].length === 0) {
+    result.push(freeObject());
+  } else {
+    for (const [, value] of ids.entries()) {
+      for (const airport of value) {
+        result.push({
+          id: airport.id,
+          city: airport.city.name,
+          country: airport.city.country.name,
+          airports: codeIata,
+        });
+      }
     }
   }
 
@@ -52,16 +69,20 @@ async function getAirportsByCityId(cityId) {
 
   ids.push(cityId);
 
-  for (const [index, value] of ids.entries()) {
-    for (const airport of value) {
-      const existAirports = await getAirports(airport.id);
-      if (existAirports.length !== 0) {
-        result.push({
-          id: airport.id,
-          city: airport.name,
-          country: airport.country.name,
-          airports: await getAirports(airport.id),
-        });
+  if (ids[0].length === 0) {
+    result.push(freeObject());
+  } else {
+    for (const [, value] of ids.entries()) {
+      for (const airport of value) {
+        const existAirports = await getAirports(airport.id);
+        if (existAirports.length !== 0) {
+          result.push({
+            id: airport.id,
+            city: airport.name,
+            country: airport.country.name,
+            airports: await getAirports(airport.id),
+          });
+        }
       }
     }
   }
@@ -96,7 +117,7 @@ async function getAirportsByCountryCode(countryCode) {
     return airport.locations.filter((el) => el.id.includes("_"));
   });
 
-  for (const [index, value] of airportInfo.entries()) {
+  for (const [, value] of airportInfo.entries()) {
     for (const airport of value) {
       result.push({
         id: airport.id,

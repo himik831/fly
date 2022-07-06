@@ -24,4 +24,6 @@ export const ENGLISH = {
   CENTER_OF_CITY: "Center",
   AIRPORT: "Airport",
   TIMEZONE: "Timezone:",
+  NO_RESULT: "No result",
+  SEARCH_IN_ANOTHER_WAY: "Try to search in another way",
 };

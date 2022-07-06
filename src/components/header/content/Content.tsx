@@ -52,11 +52,20 @@ interface Airports {
 
 export default function Content() {
   const languageState = useSelector((state) => state.language.value);
+  const [showPopUp, setShowPopUp] = useState(false);
   const [location, setLocation] = useState("");
+  const [selectedDestination, setSelectedDestination] = useState(null);
+  const [selectedDeparture, setSelectedDeparture] = useState(null);
   const [searchType, setSearchType] = useState(null);
   const [cityAirports, setCityAirports] = useState<Airports[]>([]);
 
+  const onSelectedDestination = (airport, iata) => {
+    setSelectedDestination({ airport: airport, codeIata: iata });
+  };
 
+  const onSelectedDeparture = (airport, iata) => {
+    setSelectedDeparture({ airport: airport, codeIata: iata });
+  };
 
   const onChangeDestination = (value) => {
     setLocation(value);
@@ -68,8 +77,12 @@ export default function Content() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
+      if (location === "" && location.length <= 3) {
+        setShowPopUp(false);
+      }
       if (location !== null && location !== "" && location.length >= 3) {
         searchCityAirports(location).then(setCityAirports);
+        setShowPopUp(true);
       } else {
         setCityAirports([]);
       }
@@ -86,26 +99,36 @@ export default function Content() {
               <SearchDestination
                 label={from(languageState)}
                 example={example(languageState, "Moldova")}
+                value={selectedDeparture}
                 type={DESTINATION_SEARCH_TYPE.FROM}
                 onChange={onChangeDestination}
                 onSearchType={onSearchType}
               />
               {location !== "" &&
               searchType === DESTINATION_SEARCH_TYPE.FROM ? (
-                <Results cityAirports={cityAirports} />
+                <Results
+                  cityAirports={cityAirports}
+                  showPopUp={showPopUp}
+                  onSelectedValue={onSelectedDeparture}
+                />
               ) : null}
             </div>
             <div className={classes.where}>
               <SearchDestination
                 label={where(languageState)}
                 example={example(languageState, "Paris")}
+                value={selectedDestination}
                 type={DESTINATION_SEARCH_TYPE.WHERE}
                 onChange={onChangeDestination}
                 onSearchType={onSearchType}
               />
               {location !== "" &&
               searchType === DESTINATION_SEARCH_TYPE.WHERE ? (
-                <Results cityAirports={cityAirports} />
+                <Results
+                  cityAirports={cityAirports}
+                  showPopUp={showPopUp}
+                  onSelectedValue={onSelectedDestination}
+                />
               ) : null}
             </div>
           </div>
