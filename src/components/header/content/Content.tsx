@@ -52,12 +52,11 @@ interface Airports {
 
 export default function Content() {
   const languageState = useSelector((state) => state.language.value);
-  const [showPopUp, setShowPopUp] = useState(false);
   const [location, setLocation] = useState("");
   const [selectedDestination, setSelectedDestination] = useState(null);
   const [selectedDeparture, setSelectedDeparture] = useState(null);
-  const [searchType, setSearchType] = useState(null);
   const [cityAirports, setCityAirports] = useState<Airports[]>([]);
+  const [loadingData, setLoadingData] = useState(false);
 
   const onSelectedDestination = (airport, iata) => {
     setSelectedDestination({ airport: airport, codeIata: iata });
@@ -67,22 +66,18 @@ export default function Content() {
     setSelectedDeparture({ airport: airport, codeIata: iata });
   };
 
-  const onChangeDestination = (value) => {
+  const onChange = (value) => {
     setLocation(value);
-  };
-
-  const onSearchType = (value) => {
-    setSearchType(value);
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (location === "" && location.length <= 3) {
-        setShowPopUp(false);
+      if (location.length < 3) {
+        setLoadingData(false);
       }
       if (location !== null && location !== "" && location.length >= 3) {
-        searchCityAirports(location).then(setCityAirports);
-        setShowPopUp(true);
+        const locations = searchCityAirports(location).then(setCityAirports);
+        if (locations) setLoadingData(true);
       } else {
         setCityAirports([]);
       }
@@ -97,39 +92,25 @@ export default function Content() {
           <div className={classes.destination}>
             <div className={classes.from}>
               <SearchDestination
+                cityAirports={cityAirports}
                 label={from(languageState)}
-                example={example(languageState, "Moldova")}
                 value={selectedDeparture}
-                type={DESTINATION_SEARCH_TYPE.FROM}
-                onChange={onChangeDestination}
-                onSearchType={onSearchType}
+                loadingData={loadingData}
+                example={example(languageState, "Chisinau")}
+                onChange={onChange}
+                onSelectedValue={onSelectedDeparture}
               />
-              {location !== "" &&
-              searchType === DESTINATION_SEARCH_TYPE.FROM ? (
-                <Results
-                  cityAirports={cityAirports}
-                  showPopUp={showPopUp}
-                  onSelectedValue={onSelectedDeparture}
-                />
-              ) : null}
             </div>
             <div className={classes.where}>
               <SearchDestination
-                label={where(languageState)}
-                example={example(languageState, "Paris")}
                 value={selectedDestination}
-                type={DESTINATION_SEARCH_TYPE.WHERE}
-                onChange={onChangeDestination}
-                onSearchType={onSearchType}
+                cityAirports={cityAirports}
+                label={where(languageState)}
+                loadingData={loadingData}
+                example={example(languageState, "Paris")}
+                onChange={onChange}
+                onSelectedValue={onSelectedDestination}
               />
-              {location !== "" &&
-              searchType === DESTINATION_SEARCH_TYPE.WHERE ? (
-                <Results
-                  cityAirports={cityAirports}
-                  showPopUp={showPopUp}
-                  onSelectedValue={onSelectedDestination}
-                />
-              ) : null}
             </div>
           </div>
           <div className={classes.trip_information}>

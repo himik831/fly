@@ -7,7 +7,7 @@ import Localization from "../../../../localization/Localization.tsx";
 import { LOCALIZATION_ID } from "../../../../../constants/enum/enum.tsx";
 import { DEFAULT } from "../../../../../constants/localization/default";
 
-export default function Results({ cityAirports, showPopUp, onSelectedValue }) {
+export default function Results({ cityAirports, onSelectedValue }) {
   const languageState = useSelector((state) => state.language.value);
 
   const noResult = ReactDOMServer.renderToString(
@@ -42,7 +42,7 @@ export default function Results({ cityAirports, showPopUp, onSelectedValue }) {
     />
   );
 
-  return showPopUp === true ? (
+  return (
     <div className={classes.body}>
       {cityAirports.map((el, index) => {
         return (
@@ -64,12 +64,15 @@ export default function Results({ cityAirports, showPopUp, onSelectedValue }) {
               <div
                 className={classes.airports}
                 onClick={() => {
-                  onSelectedValue(value.name, value.id)
+                  onSelectedValue(value.name, value.id);
                 }}
                 key={index2}
               >
                 <div className={classes.icon_free}>
-                  <MdAirplanemodeActive size={20} />
+                  <MdAirplanemodeActive
+                    size={20}
+                    className={classes.reactIcon}
+                  />
                 </div>
                 <div className={classes.icon}>
                   <MdAirplanemodeActive size={20} />
@@ -89,5 +92,5 @@ export default function Results({ cityAirports, showPopUp, onSelectedValue }) {
         );
       })}
     </div>
-  ) : null;
+  );
 }

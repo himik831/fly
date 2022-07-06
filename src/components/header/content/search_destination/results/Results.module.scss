@@ -1,13 +1,9 @@
 .body {
   max-height: 300px;
-  max-width: 78%;
   background-color: white;
-  position: fixed;
-  z-index: 1;
   box-shadow: 1px 1px 10px 3px #dbdada;
   -webkit-box-shadow: 1px 1px 10px 3px #dbdada;
   overflow: auto;
-  margin: 5px;
   padding: 15px 15px 10px 5px;
   border-radius: 3px;
   & .content {
@@ -39,6 +35,9 @@
       margin-bottom: 10px;
       & .icon_free {
         padding: 0px 10px;
+        & .reactIcon path {
+          color: white;
+        }
       }
       & .icon {
         display: flex;
@@ -89,12 +88,12 @@
   }
 }
 
-@media screen and (min-width: 767px) {
-  .body {
-    max-height: 500px;
-    max-width: 78%;
-  }
-}
+// @media screen and (min-width: 767px) {
+//   .body {
+//     max-height: 500px;
+//     max-width: 78%;
+//   }
+// }
 
 // @media screen and (min-width: 767px) {
 //   .body {

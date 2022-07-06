@@ -19,7 +19,7 @@ export default function SmallMenu() {
             dispatch(sidebarOpen());
           }}
         >
-          <AiOutlineMenu color="white" size={25} />
+          <AiOutlineMenu size={25} className={classes.reaactIcon} />
         </div>
         {sidebarState === true ? <SidebarMenu /> : false}
       </div>
