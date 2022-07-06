@@ -54,12 +54,15 @@ async function getAirportsByCityId(cityId) {
 
   for (const [index, value] of ids.entries()) {
     for (const airport of value) {
-      result.push({
-        id: airport.id,
-        city: airport.name,
-        country: airport.country.name,
-        airports: await getAirports(airport.id),
-      });
+      const existAirports = await getAirports(airport.id);
+      if (existAirports.length !== 0) {
+        result.push({
+          id: airport.id,
+          city: airport.name,
+          country: airport.country.name,
+          airports: await getAirports(airport.id),
+        });
+      }
     }
   }
 
@@ -132,7 +135,7 @@ export default async function searchCityAirports(location) {
     return await getAirportsByCountryCode(countryCode);
   } else if (cityId.length !== 0) {
     return await getAirportsByCityId(cityId);
-  } else {
+  } else if (airport.length !== 0) {
     return await getAirport(airport);
   }
 
