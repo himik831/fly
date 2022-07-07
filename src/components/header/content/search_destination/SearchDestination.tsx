@@ -38,7 +38,7 @@ export default function SearchDestination({
   }, [inputValue]);
 
   useEffect(() => {
-    setLabelCodeIata(value.codeIata);
+    setLabelCodeIata(value ? value.codeIata : "");
   }, [value]);
 
   const Modal = () => (

@@ -103,7 +103,7 @@ export default function Content() {
               />
             </div>
             <div className={classes.where}>
-              {/* <SearchDestination
+              <SearchDestination
                 value={selectedDestination}
                 cityAirports={cityAirports}
                 label={where(languageState)}
@@ -111,7 +111,7 @@ export default function Content() {
                 example={example(languageState, "Paris")}
                 onChange={onChange}
                 onSelectedValue={onSelectedDestination}
-              /> */}
+              />
             </div>
           </div>
           <div className={classes.trip_information}>

@@ -4,9 +4,9 @@
   box-shadow: 1px 1px 10px 3px #dbdada;
   -webkit-box-shadow: 1px 1px 10px 3px #dbdada;
   overflow: auto;
-  padding: 15px 15px 10px 5px;
   border-radius: 3px;
   & .content {
+    padding: 15px 15px 10px 5px;
     border-radius: 3px;
     & .location {
       display: flex;

@@ -6,9 +6,12 @@ import { MdAirplanemodeActive } from "react-icons/md";
 import Localization from "../../../../localization/Localization.tsx";
 import { LOCALIZATION_ID } from "../../../../../constants/enum/enum.tsx";
 import { DEFAULT } from "../../../../../constants/localization/default";
+import { useState } from "react";
 
 export default function Results({ cityAirports, onSelectedValue }) {
   const languageState = useSelector((state) => state.language.value);
+
+  const [selectedValue, setSelectedValue] = useState("");
 
   const noResult = ReactDOMServer.renderToString(
     <Localization
@@ -45,7 +48,8 @@ export default function Results({ cityAirports, onSelectedValue }) {
   return (
     <div className={classes.body}>
       {cityAirports.map((el, index) => {
-        return (
+        console.log("el.id", el.id);
+        return el.id && selectedValue === "" ? (
           <div className={classes.content} key={index}>
             <div className={classes.location}>
               <div className={classes.icon}>
@@ -64,6 +68,7 @@ export default function Results({ cityAirports, onSelectedValue }) {
               <div
                 className={classes.airports}
                 onClick={() => {
+                  setSelectedValue(value.id);
                   onSelectedValue(value.name, value.id);
                 }}
                 key={index2}
@@ -89,7 +94,7 @@ export default function Results({ cityAirports, onSelectedValue }) {
               </div>
             ))}
           </div>
-        );
+        ) : null;
       })}
     </div>
   );
