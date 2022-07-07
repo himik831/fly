@@ -11,7 +11,7 @@ import { DEFAULT } from "../../../constants/localization/default";
 import Results from "./search_destination/results/Results.tsx";
 import { useState } from "react";
 import { DESTINATION_SEARCH_TYPE } from "../../../constants/enum/enum.tsx";
-import searchCityAirports from "../../../hooks/api/search_location/useSearchLocation.ts";
+import searchCityAirports from "../../../hooks/api/search_location/searchCityAirports.ts";
 
 function from(language: string) {
   return ReactDOMServer.renderToString(
@@ -71,15 +71,16 @@ export default function Content() {
   };
 
   useEffect(() => {
+    setLoadingData(true);
+  }, [cityAirports]);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       if (location.length < 3) {
         setLoadingData(false);
       }
       if (location !== null && location !== "" && location.length >= 3) {
-        const locations = searchCityAirports(location).then(setCityAirports);
-        if (locations) setLoadingData(true);
-      } else {
-        setCityAirports([]);
+        searchCityAirports(location).then(setCityAirports);
       }
     }, 600);
     return () => clearTimeout(timer);
@@ -102,7 +103,7 @@ export default function Content() {
               />
             </div>
             <div className={classes.where}>
-              <SearchDestination
+              {/* <SearchDestination
                 value={selectedDestination}
                 cityAirports={cityAirports}
                 label={where(languageState)}
@@ -110,7 +111,7 @@ export default function Content() {
                 example={example(languageState, "Paris")}
                 onChange={onChange}
                 onSelectedValue={onSelectedDestination}
-              />
+              /> */}
             </div>
           </div>
           <div className={classes.trip_information}>
