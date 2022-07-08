@@ -3,9 +3,6 @@ $extraBigScreen: 2500px;
 .dropdown {
   position: relative;
   display: inline-block;
-  & button {
-    margin-right: 0px;
-  }
   & .dropdown_content {
     display: none;
     right: 0px;
@@ -26,6 +23,7 @@ $extraBigScreen: 2500px;
         & .text {
           display: flex;
           align-items: center;
+          color: #252525;
         }
         & img {
           width: 15px;

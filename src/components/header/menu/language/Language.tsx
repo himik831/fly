@@ -9,9 +9,9 @@ export default function Language() {
 
   return (
     <div className={classes.dropdown}>
-      <button className={classes.dropbtn}>
+      <div className={classes.dropbtn}>
         <img src={LanguageSvg} alt="" />
-      </button>
+      </div>
       <div className={classes.dropdown_content}>
         {LanguageData.map((element, index) => {
           return (

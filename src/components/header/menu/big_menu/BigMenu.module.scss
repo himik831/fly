@@ -22,7 +22,16 @@ $extraBigScreen: 2500px;
 .menu {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  color: white;
+  font-weight: 100;
   flex: 1;
+  & .blog{
+    margin-right: 30px;
+  }
+  & .contacts{
+    margin-right: 20px;
+  }
 }
 
 @media screen and(min-width: $extraBigScreen) {

@@ -2,15 +2,13 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import classes from "./TripInformation.module.scss";
 import CheckBox from "../../../checkbox/CheckBox.tsx";
-import TripInforamtionDetails from "./trip_information_details/TripInforamtionDetails.tsx";
+import TripInforamtionDetails from "./trip_information_details/TripInforamtionDetails.jsx";
 import Localization from "../../../localization/Localization.tsx";
-import Button from "../../../button/Button.jsx";
 import { BiCalendar } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import { DEFAULT } from "../../../../constants/localization/default";
 import { useSelector } from "react-redux";
 import { LOCALIZATION_ID } from "../../../../constants/enum/enum.tsx";
-
 export default function TripInformation() {
   const languageState = useSelector((state) => state.language.value);
 
@@ -38,6 +36,14 @@ export default function TripInformation() {
     />
   );
 
+  const searchFly = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.SEARCH_FLY}
+      defaultValue={DEFAULT.SEARCH_FLY}
+    />
+  );
+
   return (
     <div className={classes.body}>
       <div className={classes.content}>
@@ -48,6 +54,7 @@ export default function TripInformation() {
               label={departureDate}
               details={"15.05.2022"}
               icon={<BiCalendar size={20} />}
+              passangers={false}
             />
           </div>
           <div className={classes.return}>
@@ -55,6 +62,7 @@ export default function TripInformation() {
               label={returnDate}
               details={"18.05.2022"}
               icon={<BiCalendar size={20} />}
+              passangers={false}
             />
           </div>
           <div className={classes.passangers}>
@@ -62,15 +70,11 @@ export default function TripInformation() {
               label={passengers}
               details={`1 Adult, Econom`}
               icon={<IoIosArrowDown size={20} />}
+              passangers={true}
             />
           </div>
         </div>
-        <Button
-          label="Search flights"
-          backgroundColor={"#82cdc2"}
-          isFullWidth={true}
-          bold={500}
-        />
+        <div className={classes.search_button}>{searchFly}</div>
       </div>
     </div>
   );

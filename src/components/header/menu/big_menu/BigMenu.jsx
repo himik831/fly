@@ -1,15 +1,6 @@
 import React from "react";
-import Button from "../../../button/Button";
 import Language from "../language/Language.tsx";
-import classes from "./BigMenu.module.scss"
-
-function contacts() {
-  return console.log("Contacts clicked");
-}
-
-function blog() {
-  return console.log("Blog clicked");
-}
+import classes from "./BigMenu.module.scss";
 
 function Menu() {
   return (
@@ -17,9 +8,11 @@ function Menu() {
       <div className={classes.content}>
         <div className={classes.logo}> LOGO </div>
         <div className={classes.menu}>
-          <Button label="Blog" action={blog} />
-          <Button label="Contacts" action={contacts} />
-          <Language />
+          <div className={classes.blog}>Blog</div>
+          <div className={classes.contacts}>Contacts</div>
+          <div className={classes.language}>
+            <Language />
+          </div>
         </div>
       </div>
     </div>

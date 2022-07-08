@@ -29,17 +29,20 @@ export default function CheckBox() {
       <div className={classes.content}>
         <form>
           <input
+            id="roundTrip"
             type="radio"
             name="selection"
             className={classes.checkbox_round}
           />
-          <label htmlFor="">{roundTrip}</label>
+          <label htmlFor="roundTrip">{roundTrip}</label>
           <input
+            id="oneWay"
             type="radio"
+            defaultChecked={true}
             name="selection"
             className={classes.checkbox_round}
           />
-          <label htmlFor="">{oneWay}</label>
+          <label htmlFor="oneWay">{oneWay}</label>
         </form>
       </div>
     </div>

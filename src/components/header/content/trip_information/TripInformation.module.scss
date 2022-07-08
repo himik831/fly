@@ -6,6 +6,15 @@ $extraBigScreen: 2500px;
   background-color: white;
   & .content {
     padding: 15px 15px;
+    & .search_button {
+      background-color: #82cdc2;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+    }
   }
 }
 

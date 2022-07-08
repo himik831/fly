@@ -48,7 +48,6 @@ export default function Results({ cityAirports, onSelectedValue }) {
   return (
     <div className={classes.body}>
       {cityAirports.map((el, index) => {
-        console.log("el.id", el.id);
         return el.id && selectedValue === "" ? (
           <div className={classes.content} key={index}>
             <div className={classes.location}>
