@@ -44,6 +44,22 @@ export default function TripInformation() {
     />
   );
 
+  const selectDepartureDate = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.SELECT_DEPARTURE_DATE}
+      defaultValue={DEFAULT.SELECT_DEPARTURE_DATE}
+    />
+  );
+
+  const selectReturnDate = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.SELECT_RETURN_DATE}
+      defaultValue={DEFAULT.SELECT_RETURN_DATE}
+    />
+  );
+
   return (
     <div className={classes.body}>
       <div className={classes.content}>
@@ -51,6 +67,7 @@ export default function TripInformation() {
         <div className={classes.trip_information}>
           <div className={classes.departure}>
             <TripInforamtionDetails
+              calendarLabel={selectDepartureDate}
               label={departureDate}
               details={"15.05.2022"}
               icon={<BiCalendar size={20} />}
@@ -59,6 +76,7 @@ export default function TripInformation() {
           </div>
           <div className={classes.return}>
             <TripInforamtionDetails
+              calendarLabel={selectReturnDate}
               label={returnDate}
               details={"18.05.2022"}
               icon={<BiCalendar size={20} />}
@@ -67,6 +85,7 @@ export default function TripInformation() {
           </div>
           <div className={classes.passangers}>
             <TripInforamtionDetails
+              calendarLabel={""}
               label={passengers}
               details={`1 Adult, Econom`}
               icon={<IoIosArrowDown size={20} />}

@@ -4,16 +4,16 @@ import Popup from "reactjs-popup";
 import PassangerPopUp from "./passanger_pop_up/PassangerPopUp";
 import "react-calendar/dist/Calendar.css";
 
-export default function Passenger({
-  label,
-  details,
-  icon,
-}) {
+export default function Passenger({ label, details, icon }) {
   const [passenger, setPassenger] = useState(null);
-//   let selectedDate;
+  //   let selectedDate;
   const contentStyle = {
     padding: 0,
     width: 300,
+  };
+
+  const overlayStyle = {
+    backgroundColor: "rgba(0, 0, 0, 0.20)",
   };
 
   useEffect(() => {
@@ -32,6 +32,7 @@ export default function Passenger({
           </div>
         ) : (
           <Popup
+            className={classes.popUp}
             arrow={false}
             trigger={
               <div className={classes.info}>
@@ -40,9 +41,10 @@ export default function Passenger({
               </div>
             }
             contentStyle={contentStyle}
+            overlayStyle={overlayStyle}
             position="center center"
           >
-              <PassangerPopUp/>
+            <PassangerPopUp />
           </Popup>
         )}
         <div className={classes.line} />

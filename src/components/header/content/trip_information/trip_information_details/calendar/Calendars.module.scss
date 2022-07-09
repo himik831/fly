@@ -2,34 +2,77 @@ $extraBigScreen: 2500px;
 
 .body {
   width: 100%;
-  & .label {
-    margin-bottom: 5px;
-    font-size: 10px;
-    font-weight: 200;
-  }
-  & .info {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    & .value {
-      flex: 1;
+  & .content {
+    & .label {
+      margin-bottom: 5px;
+      font-size: 10px;
+      font-weight: 200;
     }
-    & .icon {
-      flex: 1;
+    & .info {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      & .value {
+        flex: 1;
+      }
+      & .icon {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+    & .line {
+      height: 0.1px;
+      width: 100%;
+      background-color: black;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.container {
+  padding: 20px;
+  & .header {
+    display: flex;
+    padding: 5px 0px;
+    & .info {
+      display: flex;
+      flex: 2;
+      & .text {
+        font-size: 12px;
+        display: flex;
+        font-weight: 600;
+        align-items: center;
+      }
+    }
+    & .close {
       display: flex;
       justify-content: flex-end;
+      flex: 1;
+      & .icon {
+        display: flex;
+        align-items: center;
+      }
+      & .text {
+        font-size: 12px;
+        margin-right: 5px;
+        display: flex;
+        align-items: center;
+      }
     }
   }
   & .line {
     height: 0.1px;
     width: 100%;
     background-color: black;
-    margin-bottom: 15px;
+    margin: 15px 0px;
+  }
+  & .body {
+    background-color: red;
   }
 }
-
 
 @media screen and(min-width: $extraBigScreen) {
   .body {

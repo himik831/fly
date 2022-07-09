@@ -79,20 +79,37 @@ export default function PassangerPopUp() {
       defaultValue={DEFAULT.SAVE}
     />
   );
+
+  const close = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.CLOSE}
+      defaultValue={DEFAULT.CLOSE}
+    />
+  );
+
+  const refresh = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.REFRESH}
+      defaultValue={DEFAULT.REFRESH}
+    />
+  );
+
   return (
     <div className={classes.body}>
       <div className={classes.content}>
         <div className={classes.header}>
           <div className={classes.reset}>
             <div className={classes.icon}>
-              <MdRefresh size={18} />
+              <MdRefresh size={16} />
             </div>
-            <div className={classes.text}>{"Refresh"}</div>
+            <div className={classes.text}>{refresh}</div>
           </div>
           <div className={classes.close}>
-            <div className={classes.text}>{"Close"}</div>
+            <div className={classes.text}>{close}</div>
             <div className={classes.icon}>
-              <IoMdClose size={18} />
+              <IoMdClose size={16} />
             </div>
           </div>
         </div>

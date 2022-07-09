@@ -7,8 +7,16 @@ export default function TripInforamtionDetails({
   details = "No details",
   icon,
   passangers,
+  calendarLabel,
 }) {
-  return passangers ? <Passenger label={label} details={details} icon={icon} /> : (
-    <Calendars label={label} details={details} icon={icon} />
+  return passangers ? (
+    <Passenger label={label} details={details} icon={icon} />
+  ) : (
+    <Calendars
+      label={label}
+      details={details}
+      icon={icon}
+      calendarLabel={calendarLabel}
+    />
   );
 }

@@ -15,7 +15,7 @@ export default function AirflyTypeData() {
           defaultValue={DEFAULT.ECONOM}
         />
       ),
-      selected: false,
+      selected: true,
     },
     {
       type: (
@@ -35,7 +35,7 @@ export default function AirflyTypeData() {
           defaultValue={DEFAULT.BUSINESS}
         />
       ),
-      selected: true,
+      selected: false,
     },
     {
       type: (

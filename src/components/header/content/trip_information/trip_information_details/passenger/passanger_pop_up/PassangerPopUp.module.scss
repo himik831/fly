@@ -11,8 +11,8 @@
         flex: 1;
         display: flex;
         & .text {
-          margin-left: 3px;
-          font-size: 14px;
+          margin-left: 10px;
+          font-size: 12px;
           display: flex;
           align-items: center;
           font-weight: 400;
@@ -27,8 +27,8 @@
         display: flex;
         justify-content: end;
         & .text {
-          margin-right: 3px;
-          font-size: 14px;
+          margin-right: 10px;
+          font-size: 12px;
           display: flex;
           align-items: center;
           font-weight: 400;
@@ -61,7 +61,7 @@
 }
 
 .line {
-  height: 1px;
+  height: 0.1px;
   width: 100%;
   margin: 15px 0px 10px 0px;
   background-color: black;

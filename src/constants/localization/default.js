@@ -38,4 +38,7 @@ export const DEFAULT = {
   YEARS_2_12: "2 - 12 years",
   UP_TO_2_YEARS: "Up to 2 years, no place",
   SAVE: "Save",
+  SELECT_DEPARTURE_DATE: "Select departure date",
+  SELECT_RETURN_DATE: "Select return date",
+  REFRESH: "Refresh",
 };

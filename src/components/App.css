@@ -9,3 +9,38 @@ html,
 body {
   height: 100%;
 }
+
+.calendar_pop_up button {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.calendar_pop_up .react-calendar__month-view__weekdays__weekday abbr {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.calendar_pop_up button:hover.react-calendar__tile {
+  background-color: #e6e6e6;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.calendar_pop_up button.react-calendar__tile--now {
+  background-color: #82cdc2;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  color: white;
+}
+
+.calendar_pop_up button:hover.react-calendar__tile--now {
+  background-color: #e6e6e6;
+  color: black;
+}
+
+.calendar_pop_up {
+  border: none;
+}

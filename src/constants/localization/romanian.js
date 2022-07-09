@@ -38,4 +38,7 @@ export const ROMANIAN = {
   YEARS_2_12: "2 - 12 ani",
   UP_TO_2_YEARS: "Până la 2 ani, fără loc",
   SAVE: "Salviază",
+  SELECT_DEPARTURE_DATE: "Selectați data plecării",
+  SELECT_RETURN_DATE: "Selectați data întoarcerii",
+  REFRESH: "Șterge",
 };
