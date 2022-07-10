@@ -2,7 +2,7 @@ import classes from "./PassangerPopUp.module.scss";
 import { IoMdClose } from "react-icons/io";
 import { MdRefresh } from "react-icons/md";
 import PassangerInfo from "./passanger_info/PassangerInfo.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AirflyType from "./airfly_type/AirflyType";
 import ReactDOMServer from "react-dom/server";
 import { DEFAULT } from "../../../../../../../constants/localization/default";
@@ -15,6 +15,11 @@ export default function PassangerPopUp() {
   const [adultNumber, setAdultNumber] = useState(0);
   const [childrenNumber, setChildrenNumber] = useState(0);
   const [infantNumber, setInfantNumber] = useState(0);
+  const [clearData, setClearData] = useState(false);
+
+  useEffect(() => {
+    if (clearData === true) setClearData(false);
+  }, [clearData]);
 
   const grownUps = ReactDOMServer.renderToString(
     <Localization
@@ -96,11 +101,17 @@ export default function PassangerPopUp() {
     />
   );
 
+  // if (clearData) {
+  //   setAdultNumber(0);
+  //   setChildrenNumber(0);
+  //   setInfantNumber(0);
+  // }
+
   return (
     <div className={classes.body}>
       <div className={classes.content}>
         <div className={classes.header}>
-          <div className={classes.reset}>
+          <div className={classes.reset} onClick={() => setClearData(true)}>
             <div className={classes.icon}>
               <MdRefresh size={16} />
             </div>
@@ -120,22 +131,25 @@ export default function PassangerPopUp() {
             description={moreThan12Years}
             number={adultNumber}
             onCounter={setAdultNumber}
+            clearData={clearData}
           />
           <PassangerInfo
             label={children}
             description={years2Till12}
             number={childrenNumber}
             onCounter={setChildrenNumber}
+            clearData={clearData}
           />
           <PassangerInfo
             label={babies}
             description={upTo2Years}
             number={infantNumber}
             onCounter={setInfantNumber}
+            clearData={clearData}
           />
           <div className={classes.line_grey} />
           <div className={classes.seat_type}>{tipeOfSeat}</div>
-          <AirflyType />
+          <AirflyType clearData={clearData} />
           <div className={classes.save}>{save}</div>
         </div>
       </div>

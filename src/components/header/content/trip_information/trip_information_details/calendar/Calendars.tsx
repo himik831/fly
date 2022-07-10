@@ -12,8 +12,9 @@ import "react-calendar/dist/Calendar.css";
 
 export default function Calendars({ label, details, icon, calendarLabel }) {
   const languageState = useSelector((state) => state.language.value);
+  const [openPopUp, setOpenPopUp] = useState(false);
   const [calendar, setCalendar] = useState(null);
-  let selectedDate;
+  const [flag, setFlag] = useState(false);
   const contentStyle = {
     padding: 0,
     width: 320,
@@ -24,8 +25,9 @@ export default function Calendars({ label, details, icon, calendarLabel }) {
   };
 
   useEffect(() => {
-    selectedDate = calendar;
-    setCalendar(null);
+    setFlag(true);
+    console.log(flag);
+    console.log(calendar);
   }, [calendar]);
 
   const close = ReactDOMServer.renderToString(
@@ -40,23 +42,17 @@ export default function Calendars({ label, details, icon, calendarLabel }) {
     <div className={classes.body}>
       <div className={classes.content}>
         <div className={classes.label}>{label}</div>
-        {calendar !== null ? (
-          <div className={classes.info}>
-            <div className={classes.value}>{details}</div>
-            <div className={classes.icon}>{icon}</div>
-          </div>
-        ) : (
+        <div className={classes.info} onClick={() => setOpenPopUp(true)}>
+          <div className={classes.value}>{details}</div>
+          <div className={classes.icon}>{icon}</div>
+        </div>
+        {flag !== true ? null : (
           <Popup
+            onClose={() => setOpenPopUp(false)}
+            open={openPopUp}
             arrow={false}
-            trigger={
-              <div className={classes.info}>
-                <div className={classes.value}>{details}</div>
-                <div className={classes.icon}>{icon}</div>
-              </div>
-            }
             contentStyle={contentStyle}
             overlayStyle={overlayStyle}
-            position="center center"
           >
             <div className={classes.container}>
               <div className={classes.header}>
@@ -73,6 +69,7 @@ export default function Calendars({ label, details, icon, calendarLabel }) {
               <div className={classes.line} />
               <div className={classes.body}>
                 <Calendar
+                  locale={languageState}
                   onChange={setCalendar}
                   value={calendar}
                   className="calendar_pop_up"

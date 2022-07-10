@@ -15,7 +15,6 @@ export default function AirflyTypeData() {
           defaultValue={DEFAULT.ECONOM}
         />
       ),
-      selected: true,
     },
     {
       type: (
@@ -25,7 +24,6 @@ export default function AirflyTypeData() {
           defaultValue={DEFAULT.CONFORT}
         />
       ),
-      selected: false,
     },
     {
       type: (
@@ -35,7 +33,6 @@ export default function AirflyTypeData() {
           defaultValue={DEFAULT.BUSINESS}
         />
       ),
-      selected: false,
     },
     {
       type: (
@@ -45,7 +42,6 @@ export default function AirflyTypeData() {
           defaultValue={DEFAULT.FIRST_CLASS}
         />
       ),
-      selected: false,
     },
   ];
 }

@@ -12,6 +12,7 @@ export default function PassangerInfo({
   label,
   description,
   number,
+  clearData,
   onCounter,
 }) {
   const languageState = useSelector((state) => state.language.value);
@@ -27,6 +28,8 @@ export default function PassangerInfo({
   const styleGreenButton = { color: "#82cdc2" };
 
   useEffect(() => onCounter(count), [count]);
+
+  useEffect(() => setCount(label === grownUps ? 1 : 0), [clearData]);
 
   let increment = () => {
     setCount(count + 1);
