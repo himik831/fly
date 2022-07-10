@@ -41,4 +41,5 @@ export const ENGLISH = {
   SELECT_DEPARTURE_DATE: "Select departure date",
   SELECT_RETURN_DATE: "Select return date",
   REFRESH: "Refresh",
+  AIRCRAFT_SEAT_INFO: "Select aircraft seat information",
 };

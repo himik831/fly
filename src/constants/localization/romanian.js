@@ -40,5 +40,6 @@ export const ROMANIAN = {
   SAVE: "Salviază",
   SELECT_DEPARTURE_DATE: "Selectați data plecării",
   SELECT_RETURN_DATE: "Selectați data întoarcerii",
-  REFRESH: "Șterge",
+  REFRESH: "Reseteză",
+  AIRCRAFT_SEAT_INFO: "Selectați informația despre locul în avion",
 };

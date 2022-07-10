@@ -2,16 +2,22 @@ import classes from "./PassangerPopUp.module.scss";
 import { IoMdClose } from "react-icons/io";
 import { MdRefresh } from "react-icons/md";
 import PassangerInfo from "./passanger_info/PassangerInfo.jsx";
+import AirflySeat from "../../../../../../../assets/img/airflySeat.jpg";
 import { useEffect, useState } from "react";
 import AirflyType from "./airfly_type/AirflyType";
 import ReactDOMServer from "react-dom/server";
 import { DEFAULT } from "../../../../../../../constants/localization/default";
 import { useSelector } from "react-redux";
+import useWindowSize from "../../../../../../../hooks/window_size/useWindowSize";
 import { LOCALIZATION_ID } from "../../../../../../../constants/enum/enum.tsx";
 import Localization from "../../../../../../localization/Localization.tsx";
+import { SMALL_SCREEN_SIZE } from "../../../../../../../constants/constants";
 
-export default function PassangerPopUp() {
+export default function PassangerPopUp({ onClose }) {
   const languageState = useSelector((state) => state.language.value);
+  const image = { backgroundImage: `url(${AirflySeat})` };
+  const [, width] = useWindowSize();
+
   const [adultNumber, setAdultNumber] = useState(0);
   const [childrenNumber, setChildrenNumber] = useState(0);
   const [infantNumber, setInfantNumber] = useState(0);
@@ -101,14 +107,25 @@ export default function PassangerPopUp() {
     />
   );
 
-  // if (clearData) {
-  //   setAdultNumber(0);
-  //   setChildrenNumber(0);
-  //   setInfantNumber(0);
-  // }
+  const seatInformation = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.AIRCRAFT_SEAT_INFO}
+      defaultValue={DEFAULT.AIRCRAFT_SEAT_INFO}
+    />
+  );
 
   return (
     <div className={classes.body}>
+      {width > SMALL_SCREEN_SIZE ? (
+        <div className={classes.current_date}>
+          <div className={classes.img} style={image}>
+            <div className={classes.layer}>
+              <div className={classes.text}>{seatInformation}</div>
+            </div>
+          </div>
+        </div>
+      ) : null}
       <div className={classes.content}>
         <div className={classes.header}>
           <div className={classes.reset} onClick={() => setClearData(true)}>
@@ -117,7 +134,7 @@ export default function PassangerPopUp() {
             </div>
             <div className={classes.text}>{refresh}</div>
           </div>
-          <div className={classes.close}>
+          <div className={classes.close} onClick={() => onClose(false)}>
             <div className={classes.text}>{close}</div>
             <div className={classes.icon}>
               <IoMdClose size={16} />

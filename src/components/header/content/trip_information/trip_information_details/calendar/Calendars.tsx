@@ -14,7 +14,6 @@ export default function Calendars({ label, details, icon, calendarLabel }) {
   const languageState = useSelector((state) => state.language.value);
   const [openPopUp, setOpenPopUp] = useState(false);
   const [calendar, setCalendar] = useState(null);
-  const [flag, setFlag] = useState(false);
   const contentStyle = {
     padding: 0,
     width: 320,
@@ -25,9 +24,7 @@ export default function Calendars({ label, details, icon, calendarLabel }) {
   };
 
   useEffect(() => {
-    setFlag(true);
-    console.log(flag);
-    console.log(calendar);
+    setOpenPopUp(false);
   }, [calendar]);
 
   const close = ReactDOMServer.renderToString(
@@ -46,38 +43,38 @@ export default function Calendars({ label, details, icon, calendarLabel }) {
           <div className={classes.value}>{details}</div>
           <div className={classes.icon}>{icon}</div>
         </div>
-        {flag !== true ? null : (
-          <Popup
-            onClose={() => setOpenPopUp(false)}
-            open={openPopUp}
-            arrow={false}
-            contentStyle={contentStyle}
-            overlayStyle={overlayStyle}
-          >
-            <div className={classes.container}>
-              <div className={classes.header}>
-                <div className={classes.info}>
-                  <div className={classes.text}>{calendarLabel}</div>
-                </div>
-                <div className={classes.close}>
-                  <div className={classes.text}>{close}</div>
-                  <div className={classes.icon}>
-                    <IoMdClose size={16} />
-                  </div>
-                </div>
+
+        <Popup
+          onClose={() => setOpenPopUp(false)}
+          open={openPopUp}
+          arrow={false}
+          contentStyle={contentStyle}
+          overlayStyle={overlayStyle}
+        >
+          <div className={classes.container}>
+            <div className={classes.header}>
+              <div className={classes.info}>
+                <div className={classes.text}>{calendarLabel}</div>
               </div>
-              <div className={classes.line} />
-              <div className={classes.body}>
-                <Calendar
-                  locale={languageState}
-                  onChange={setCalendar}
-                  value={calendar}
-                  className="calendar_pop_up"
-                />
+              <div className={classes.close}>
+                <div className={classes.text}>{close}</div>
+                <div className={classes.icon}>
+                  <IoMdClose size={16} />
+                </div>
               </div>
             </div>
-          </Popup>
-        )}
+            <div className={classes.line} />
+            <div className={classes.body}>
+              <Calendar
+                locale={languageState}
+                onChange={setCalendar}
+                value={calendar}
+                className="calendar_pop_up"
+              />
+            </div>
+          </div>
+        </Popup>
+
         <div className={classes.line} />
       </div>
     </div>

@@ -1,10 +1,35 @@
+$smallScreen: 767px;
+
 .body {
-  max-width: 300px;
   overflow: auto;
   display: flex;
-  flex-direction: column;
+  & .current_date {
+    flex: 1;
+    & .img {
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      & .layer {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 31px;
+        & .text {
+          padding: 20px;
+        }
+      }
+    }
+  }
   & .content {
-    margin: 20px 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 20px 20px;
     & .header {
       display: flex;
       & .reset {
@@ -40,13 +65,15 @@
       }
     }
     & .body {
+      display: flex;
+      flex-direction: column;
       & .seat_type {
         margin-top: 10px;
         font-size: 14px;
         font-weight: 300px;
       }
       & .save {
-        margin-top: 15px;
+        margin-top: 25px;
         font-size: 14px;
         font-weight: 400;
         padding: 10px;
@@ -72,4 +99,18 @@
   width: 100%;
   margin: 15px 0px 10px 0px;
   background-color: #d3d3d3;
+}
+
+@media screen and (min-width: $smallScreen) {
+  .body {
+    & .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 25px 30px 30px 30px;
+      & .header {
+        margin-bottom: 5px;
+      }
+    }
+  }
 }

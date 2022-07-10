@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import classes from "./Passenger.module.scss";
 import Popup from "reactjs-popup";
 import PassangerPopUp from "./passanger_pop_up/PassangerPopUp";
 import "react-calendar/dist/Calendar.css";
+import useWindowSize from "../../../../../../hooks/window_size/useWindowSize";
+import { SMALL_SCREEN_SIZE } from "../../../../../../constants/constants";
 
 export default function Passenger({ label, details, icon }) {
   const [openPopUp, setOpenPopUp] = useState(false);
-  //   let selectedDate;
+  const [, width] = useWindowSize();
+
   const contentStyle = {
     padding: 0,
-    width: 300,
+    border: "none",
+    width: width > SMALL_SCREEN_SIZE ? 600 : 300,
   };
 
   const overlayStyle = {
@@ -27,12 +31,11 @@ export default function Passenger({ label, details, icon }) {
         <Popup
           onClose={() => setOpenPopUp(false)}
           open={openPopUp}
-          className={classes.popUp}
           arrow={false}
           contentStyle={contentStyle}
           overlayStyle={overlayStyle}
         >
-          <PassangerPopUp />
+          <PassangerPopUp onClose={setOpenPopUp} />
         </Popup>
         <div className={classes.line} />
       </div>
