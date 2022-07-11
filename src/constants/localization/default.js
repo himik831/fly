@@ -19,7 +19,7 @@ export const DEFAULT = {
   HELP_AND_ADVICE: "Help and advice",
   TERMS_AND_CONDITION: "Terms and condition",
   LANGUAGE: "Language",
-  EXAMPLE: "Example",
+  EXAMPLE: "Select",
   CITY_FROM: "City from",
   CENTER_OF_CITY: "Center",
   AIRPORT: "Airport",
@@ -42,4 +42,5 @@ export const DEFAULT = {
   SELECT_RETURN_DATE: "Select return date",
   REFRESH: "Refresh",
   AIRCRAFT_SEAT_INFO: "Select aircraft seat information",
+  TODAY: "TODAY",
 };

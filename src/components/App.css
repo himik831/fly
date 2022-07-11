@@ -22,25 +22,62 @@ body {
 }
 
 .calendar_pop_up button:hover.react-calendar__tile {
-  background-color: #e6e6e6;
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-}
-
-.calendar_pop_up button.react-calendar__tile--now {
   background-color: #82cdc2;
-  border-radius: 100%;
   width: 40px;
   height: 40px;
+  border-radius: 100%;
   color: white;
 }
 
-.calendar_pop_up button:hover.react-calendar__tile--now {
+.calendar_pop_up
+  button:hover.react-calendar__tile.react-calendar__year-view__months__month {
+  background-color: transparent;
+}
+
+.calendar_pop_up button.react-calendar__tile--now {
   background-color: #e6e6e6;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
   color: black;
+}
+
+.calendar_pop_up
+  button.react-calendar__tile--now.react-calendar__year-view__months__month {
+  background-color: transparent;
+  color: #82cdc2;
+}
+
+.calendar_pop_up button:hover.react-calendar__tile--now {
+  background-color: #82cdc2;
+  color: white;
 }
 
 .calendar_pop_up {
   border: none;
+}
+
+@media screen and (min-width: 767px) {
+  .calendar_pop_up button {
+    width: 50px;
+    height: 50px;
+  }
+  .calendar_pop_up button:hover.react-calendar__tile {
+    width: 50px;
+    height: 50px;
+  }
+  .calendar_pop_up button.react-calendar__tile--now {
+    width: 50px;
+    height: 50px;
+  }
+
+  .calendar_pop_up
+    button:hover.react-calendar__tile.react-calendar__year-view__months__month {
+    color: #82cdc2;
+    background-color: transparent;
+  }
+  .calendar_pop_up
+    button.react-calendar__tile--now.react-calendar__year-view__months__month {
+    background-color: transparent;
+  }
 }

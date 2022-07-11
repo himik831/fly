@@ -5,19 +5,30 @@ import { useSelector } from "react-redux";
 import { IoMdClose } from "react-icons/io";
 import ReactDOMServer from "react-dom/server";
 import Calendar from "react-calendar";
+import WeekDay from "../../../../../../utils/date_format/WeekDay.tsx";
+import CalendarImg from "../../../../../../assets/img/calendarImg.jpg";
+import { SMALL_SCREEN_SIZE } from "../../../../../../constants/constants";
 import { LOCALIZATION_ID } from "../../../../../../constants/enum/enum.tsx";
 import { DEFAULT } from "../../.././../../../constants/localization/default";
 import Localization from "../../../../../localization/Localization.tsx";
+import useWindowSize from "../../../../../../hooks/window_size/useWindowSize";
 import "react-calendar/dist/Calendar.css";
 
 export default function Calendars({ label, details, icon, calendarLabel }) {
   const languageState = useSelector((state) => state.language.value);
+  const image = { backgroundImage: `url(${CalendarImg})` };
   const [openPopUp, setOpenPopUp] = useState(false);
   const [calendar, setCalendar] = useState(null);
+  const [currentWeekDay, setCurrentWeekDay] = useState(WeekDay(languageState));
+  const [, width] = useWindowSize();
+
   const contentStyle = {
     padding: 0,
-    width: 320,
+    width: width > SMALL_SCREEN_SIZE ? 700 : 320,
+    border: "none",
   };
+
+  useEffect(() => setCurrentWeekDay(WeekDay(languageState)), [openPopUp]);
 
   const overlayStyle = {
     backgroundColor: "rgba(0, 0, 0, 0.20)",
@@ -32,6 +43,14 @@ export default function Calendars({ label, details, icon, calendarLabel }) {
       language={languageState}
       id={LOCALIZATION_ID.CLOSE}
       defaultValue={DEFAULT.CLOSE}
+    />
+  );
+
+  const today = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.TODAY}
+      defaultValue={DEFAULT.TODAY}
     />
   );
 
@@ -51,26 +70,49 @@ export default function Calendars({ label, details, icon, calendarLabel }) {
           contentStyle={contentStyle}
           overlayStyle={overlayStyle}
         >
-          <div className={classes.container}>
-            <div className={classes.header}>
-              <div className={classes.info}>
-                <div className={classes.text}>{calendarLabel}</div>
-              </div>
-              <div className={classes.close}>
-                <div className={classes.text}>{close}</div>
-                <div className={classes.icon}>
-                  <IoMdClose size={16} />
+          <div className={classes.calendarPopUp}>
+            {width > SMALL_SCREEN_SIZE ? (
+              <div className={classes.current_date}>
+                <div className={classes.img} style={image}>
+                  <div className={classes.layer}>
+                    <div className={classes.text_container}>
+                      <div className={classes.today}>
+                        <span>{today}</span>
+                      </div>
+                      <div className={classes.date}>{new Date().getDate()}</div>
+                      <div className={classes.free} />
+                      <div className={classes.weekday}>{currentWeekDay}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className={classes.line} />
-            <div className={classes.body}>
-              <Calendar
-                locale={languageState}
-                onChange={setCalendar}
-                value={calendar}
-                className="calendar_pop_up"
-              />
+            ) : null}
+            <div className={classes.container}>
+              <div className={classes.header}>
+                <div className={classes.info}>
+                  <div className={classes.text}>{calendarLabel}</div>
+                </div>
+                <div
+                  className={classes.close}
+                  onClick={() => setOpenPopUp(false)}
+                >
+                  <div className={classes.text}>{close}</div>
+                  <div className={classes.icon}>
+                    <IoMdClose size={16} />
+                  </div>
+                </div>
+              </div>
+              <div className={classes.line} />
+              <div className={classes.body}>
+                <Calendar
+                  next2Label={null}
+                  prev2Label={null}
+                  locale={languageState}
+                  onChange={setCalendar}
+                  value={calendar}
+                  className="calendar_pop_up"
+                />
+              </div>
             </div>
           </div>
         </Popup>

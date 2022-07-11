@@ -13,7 +13,7 @@ export default function Passenger({ label, details, icon }) {
   const contentStyle = {
     padding: 0,
     border: "none",
-    width: width > SMALL_SCREEN_SIZE ? 600 : 300,
+    width: width > SMALL_SCREEN_SIZE ? 600 : 320,
   };
 
   const overlayStyle = {

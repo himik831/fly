@@ -60,6 +60,14 @@ export default function TripInformation() {
     />
   );
 
+  const example = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.EXAMPLE}
+      defaultValue={DEFAULT.EXAMPLE}
+    />
+  );
+
   return (
     <div className={classes.body}>
       <div className={classes.content}>
@@ -69,7 +77,7 @@ export default function TripInformation() {
             <TripInforamtionDetails
               calendarLabel={selectDepartureDate}
               label={departureDate}
-              details={"15.05.2022"}
+              details={example}
               icon={<BiCalendar size={20} />}
               passangers={false}
             />
@@ -78,7 +86,7 @@ export default function TripInformation() {
             <TripInforamtionDetails
               calendarLabel={selectReturnDate}
               label={returnDate}
-              details={"18.05.2022"}
+              details={example}
               icon={<BiCalendar size={20} />}
               passangers={false}
             />
@@ -87,7 +95,7 @@ export default function TripInformation() {
             <TripInforamtionDetails
               calendarLabel={""}
               label={passengers}
-              details={`1 Adult, Econom`}
+              details={example}
               icon={<IoIosArrowDown size={20} />}
               passangers={true}
             />

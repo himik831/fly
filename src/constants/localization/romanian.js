@@ -19,7 +19,7 @@ export const ROMANIAN = {
   HELP_AND_ADVICE: "Ajutor și sfaturi",
   TERMS_AND_CONDITION: "Termeni și condiții",
   LANGUAGE: "Limba",
-  EXAMPLE: "Exemplu",
+  EXAMPLE: "Selectează",
   CITY_FROM: "Oraș din",
   CENTER_OF_CITY: "Centru",
   AIRPORT: "Aeroport",
@@ -42,4 +42,5 @@ export const ROMANIAN = {
   SELECT_RETURN_DATE: "Selectați data întoarcerii",
   REFRESH: "Reseteză",
   AIRCRAFT_SEAT_INFO: "Selectați informația despre locul în avion",
+  TODAY: "ASTĂZI",
 };

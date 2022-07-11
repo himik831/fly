@@ -33,16 +33,6 @@ function where(language: string) {
   );
 }
 
-function example(language: string, destination: string) {
-  return `${ReactDOMServer.renderToString(
-    <Localization
-      language={language}
-      id={LOCALIZATION_ID.EXAMPLE}
-      defaultValue={DEFAULT.EXAMPLE}
-    />
-  )}: ${destination}`;
-}
-
 interface Airports {
   id: string;
   city: string;
@@ -57,6 +47,14 @@ export default function Content() {
   const [selectedDeparture, setSelectedDeparture] = useState(null);
   const [cityAirports, setCityAirports] = useState<Airports[]>([]);
   const [loadingData, setLoadingData] = useState(false);
+
+  const example = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.EXAMPLE}
+      defaultValue={DEFAULT.EXAMPLE}
+    />
+  );
 
   const onSelectedDestination = (airport, iata) => {
     setSelectedDestination({ airport: airport, codeIata: iata });
@@ -97,7 +95,7 @@ export default function Content() {
                 label={from(languageState)}
                 value={selectedDeparture}
                 loadingData={loadingData}
-                example={example(languageState, "Chisinau")}
+                example={example}
                 onChange={onChange}
                 onSelectedValue={onSelectedDeparture}
               />
@@ -108,7 +106,7 @@ export default function Content() {
                 cityAirports={cityAirports}
                 label={where(languageState)}
                 loadingData={loadingData}
-                example={example(languageState, "Paris")}
+                example={example}
                 onChange={onChange}
                 onSelectedValue={onSelectedDestination}
               />
