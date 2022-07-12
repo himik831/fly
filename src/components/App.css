@@ -53,6 +53,11 @@ body {
   color: white;
 }
 
+.calendar_pop_up button.react-calendar__tile:disabled {
+  background-color: white;
+  color: #dedede;
+}
+
 .calendar_pop_up {
   border: none;
 }

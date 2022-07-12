@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOMServer from "react-dom/server";
 import classes from "./TripInformation.module.scss";
 import CheckBox from "../../../checkbox/CheckBox.tsx";
@@ -9,8 +9,29 @@ import { IoIosArrowDown } from "react-icons/io";
 import { DEFAULT } from "../../../../constants/localization/default";
 import { useSelector } from "react-redux";
 import { LOCALIZATION_ID } from "../../../../constants/enum/enum.tsx";
-export default function TripInformation() {
+export default function TripInformation(selectedDepartureAndReturnDateProp) {
   const languageState = useSelector((state) => state.language.value);
+
+  const onSelectedDepartureDate = (departureDate) => {
+    console.log("onSelectedDeparture: ", departureDate);
+  };
+
+  const onSelectedReturnDate = (returnDate) => {
+    console.log("onSelectedReturn: ", returnDate);
+  };
+
+  const onSelectedPassangersInfo = (passangers) => {
+    console.log("onSelectedPassangersInfo: ", passangers);
+  };
+
+  console.log(
+    "selectedDepartureAndReturnDateProp",
+    selectedDepartureAndReturnDateProp
+  );
+
+  const onSelectedTripType = (tripType) => {
+    console.log("tripType: ", tripType);
+  };
 
   const departureDate = ReactDOMServer.renderToString(
     <Localization
@@ -71,7 +92,7 @@ export default function TripInformation() {
   return (
     <div className={classes.body}>
       <div className={classes.content}>
-        <CheckBox />
+        <CheckBox onTripType={onSelectedTripType} />
         <div className={classes.trip_information}>
           <div className={classes.departure}>
             <TripInforamtionDetails
@@ -80,6 +101,7 @@ export default function TripInformation() {
               details={example}
               icon={<BiCalendar size={20} />}
               passangers={false}
+              onSelectedValue={onSelectedDepartureDate}
             />
           </div>
           <div className={classes.return}>
@@ -89,6 +111,7 @@ export default function TripInformation() {
               details={example}
               icon={<BiCalendar size={20} />}
               passangers={false}
+              onSelectedValue={onSelectedReturnDate}
             />
           </div>
           <div className={classes.passangers}>
@@ -98,6 +121,7 @@ export default function TripInformation() {
               details={example}
               icon={<IoIosArrowDown size={20} />}
               passangers={true}
+              onSelectedValue={onSelectedPassangersInfo}
             />
           </div>
         </div>

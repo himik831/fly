@@ -14,6 +14,7 @@ export default function PassangerInfo({
   number,
   clearData,
   onCounter,
+  icon,
 }) {
   const languageState = useSelector((state) => state.language.value);
   const grownUps = ReactDOMServer.renderToString(
@@ -43,7 +44,7 @@ export default function PassangerInfo({
   return (
     <div className={classes.passenger_info}>
       <div className={classes.info}>
-        <div className={classes.label}>{label}</div>
+        <div className={classes.label}>{label} {icon}</div>
         <div className={classes.description}>{description}</div>
       </div>
       <div className={classes.counter}>

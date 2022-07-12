@@ -1,31 +1,44 @@
+import ReactDOMServer from "react-dom/server";
+import AirflyType from "./airfly_type/AirflyType";
 import classes from "./PassangerPopUp.module.scss";
-import { IoMdClose } from "react-icons/io";
-import { MdRefresh } from "react-icons/md";
 import PassangerInfo from "./passanger_info/PassangerInfo.jsx";
 import AirflySeat from "../../../../../../../assets/img/airflySeat.jpg";
-import { useEffect, useState } from "react";
-import AirflyType from "./airfly_type/AirflyType";
-import ReactDOMServer from "react-dom/server";
-import { DEFAULT } from "../../../../../../../constants/localization/default";
-import { useSelector } from "react-redux";
-import useWindowSize from "../../../../../../../hooks/window_size/useWindowSize";
-import { LOCALIZATION_ID } from "../../../../../../../constants/enum/enum.tsx";
 import Localization from "../../../../../../localization/Localization.tsx";
+import useWindowSize from "../../../../../../../hooks/window_size/useWindowSize";
+import { DEFAULT } from "../../../../../../../constants/localization/default";
+import { FaChild } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { IoMdClose } from "react-icons/io";
+import { MdRefresh } from "react-icons/md";
+import { useEffect, useState } from "react";
+import { MdChildFriendly } from "react-icons/md";
+import { BsFillPersonFill } from "react-icons/bs";
 import { SMALL_SCREEN_SIZE } from "../../../../../../../constants/constants";
+import { LOCALIZATION_ID } from "../../../../../../../constants/enum/enum.tsx";
 
-export default function PassangerPopUp({ onClose }) {
+export default function PassangerPopUp({ onClose, onPassangersInfo }) {
   const languageState = useSelector((state) => state.language.value);
   const image = { backgroundImage: `url(${AirflySeat})` };
   const [, width] = useWindowSize();
 
   const [adultNumber, setAdultNumber] = useState(0);
   const [childrenNumber, setChildrenNumber] = useState(0);
-  const [infantNumber, setInfantNumber] = useState(0);
+  const [babiesNumber, setBabiesNumber] = useState(0);
+  const [airfyType, setAirflyType] = useState(null);
   const [clearData, setClearData] = useState(false);
 
   useEffect(() => {
     if (clearData === true) setClearData(false);
   }, [clearData]);
+
+  function saveData() {
+    return {
+      adultNumber: adultNumber,
+      childrenNumber: childrenNumber,
+      babiesNumber: babiesNumber,
+      airfyType: airfyType,
+    };
+  }
 
   const grownUps = ReactDOMServer.renderToString(
     <Localization
@@ -149,6 +162,7 @@ export default function PassangerPopUp({ onClose }) {
             number={adultNumber}
             onCounter={setAdultNumber}
             clearData={clearData}
+            icon={<BsFillPersonFill />}
           />
           <PassangerInfo
             label={children}
@@ -156,18 +170,25 @@ export default function PassangerPopUp({ onClose }) {
             number={childrenNumber}
             onCounter={setChildrenNumber}
             clearData={clearData}
+            icon={<FaChild size={12}/>}
           />
           <PassangerInfo
             label={babies}
             description={upTo2Years}
-            number={infantNumber}
-            onCounter={setInfantNumber}
+            number={babiesNumber}
+            onCounter={setBabiesNumber}
             clearData={clearData}
+            icon={<MdChildFriendly />}
           />
           <div className={classes.line_grey} />
           <div className={classes.seat_type}>{tipeOfSeat}</div>
-          <AirflyType clearData={clearData} />
-          <div className={classes.save}>{save}</div>
+          <AirflyType clearData={clearData} onAirflyType={setAirflyType} />
+          <div
+            className={classes.save}
+            onClick={() => onPassangersInfo(saveData)}
+          >
+            {save}
+          </div>
         </div>
       </div>
     </div>

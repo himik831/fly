@@ -6,12 +6,18 @@ import { MdAirplanemodeActive } from "react-icons/md";
 import Localization from "../../../../localization/Localization.tsx";
 import { LOCALIZATION_ID } from "../../../../../constants/enum/enum.tsx";
 import { DEFAULT } from "../../../../../constants/localization/default";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Results({ cityAirports, onSelectedValue }) {
+export default function Results({ cityAirports, onSelectedValue, onSelected }) {
   const languageState = useSelector((state) => state.language.value);
 
   const [selectedValue, setSelectedValue] = useState("");
+  const [codeIataAndCity, setCodeIataAndCity] = useState({ name: "", id: "" });
+
+  useEffect(() => {
+    if (codeIataAndCity.id !== "") onSelectedValue(codeIataAndCity);
+    console.log("codeIataAndCity", codeIataAndCity);
+  }, [codeIataAndCity]);
 
   const noResult = ReactDOMServer.renderToString(
     <Localization
@@ -50,7 +56,14 @@ export default function Results({ cityAirports, onSelectedValue }) {
       {cityAirports.map((el, index) => {
         return el.id && selectedValue === "" ? (
           <div className={classes.content} key={index}>
-            <div className={classes.location}>
+            <div
+              className={classes.location}
+              onClick={() => {
+                setSelectedValue(el.city);
+                setCodeIataAndCity({ name: "", id: el.city });
+                onSelected(true);
+              }}
+            >
               <div className={classes.icon}>
                 <GrLocation size={20} />
               </div>
@@ -68,7 +81,8 @@ export default function Results({ cityAirports, onSelectedValue }) {
                 className={classes.airports}
                 onClick={() => {
                   setSelectedValue(value.id);
-                  onSelectedValue(value.name, value.id);
+                  setCodeIataAndCity({ name: value.name, id: value.id });
+                  onSelected(true);
                 }}
                 key={index2}
               >

@@ -12,14 +12,23 @@ import { LOCALIZATION_ID } from "../../../../../../constants/enum/enum.tsx";
 import { DEFAULT } from "../../.././../../../constants/localization/default";
 import Localization from "../../../../../localization/Localization.tsx";
 import useWindowSize from "../../../../../../hooks/window_size/useWindowSize";
+import DayMonthYear from "../../../../../../utils/date_format/DayMonthYear.tsx";
 import "react-calendar/dist/Calendar.css";
 
-export default function Calendars({ label, details, icon, calendarLabel }) {
+export default function Calendars({
+  label,
+  details,
+  icon,
+  calendarLabel,
+  onSelectedDate,
+}) {
   const languageState = useSelector((state) => state.language.value);
   const image = { backgroundImage: `url(${CalendarImg})` };
+  const exampleStyle = { color: "#777777", fontWeight: 100, fontSize: "14px" };
   const [openPopUp, setOpenPopUp] = useState(false);
   const [calendar, setCalendar] = useState(null);
   const [currentWeekDay, setCurrentWeekDay] = useState(WeekDay(languageState));
+  const [selectedDate, setSelectedDate] = useState("");
   const [, width] = useWindowSize();
 
   const contentStyle = {
@@ -34,8 +43,13 @@ export default function Calendars({ label, details, icon, calendarLabel }) {
     backgroundColor: "rgba(0, 0, 0, 0.20)",
   };
 
+  useEffect(() => onSelectedDate(selectedDate), [selectedDate]);
+
   useEffect(() => {
     setOpenPopUp(false);
+    if (calendar !== null) {
+      setSelectedDate(DayMonthYear(calendar));
+    }
   }, [calendar]);
 
   const close = ReactDOMServer.renderToString(
@@ -59,7 +73,13 @@ export default function Calendars({ label, details, icon, calendarLabel }) {
       <div className={classes.content}>
         <div className={classes.label}>{label}</div>
         <div className={classes.info} onClick={() => setOpenPopUp(true)}>
-          <div className={classes.value}>{details}</div>
+          {calendar === null ? (
+            <div className={classes.value} style={exampleStyle}>
+              {details}
+            </div>
+          ) : (
+            <div className={classes.value}>{selectedDate}</div>
+          )}
           <div className={classes.icon}>{icon}</div>
         </div>
 
@@ -105,6 +125,7 @@ export default function Calendars({ label, details, icon, calendarLabel }) {
               <div className={classes.line} />
               <div className={classes.body}>
                 <Calendar
+                  minDate={new Date()}
                   next2Label={null}
                   prev2Label={null}
                   locale={languageState}

@@ -3,10 +3,12 @@ import classes from "./AirflyType.module.scss";
 import AirflyTypeData from "./AirflyTypeData.js";
 import { AIRFLY_PLACE_TYPE } from "../../../../../../../../constants/enum/enum.tsx";
 
-export default function AirflyType({ clearData }) {
+export default function AirflyType({ clearData, onAirflyType }) {
   const [type, setType] = useState(AIRFLY_PLACE_TYPE.ECONOM);
 
   useEffect(() => setType(AIRFLY_PLACE_TYPE.ECONOM), [clearData]);
+
+  useEffect(() => onAirflyType(type), [type]);
 
   return (
     <div className={classes.airfly_type}>

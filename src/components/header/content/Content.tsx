@@ -45,8 +45,19 @@ export default function Content() {
   const [location, setLocation] = useState("");
   const [selectedDestination, setSelectedDestination] = useState(null);
   const [selectedDeparture, setSelectedDeparture] = useState(null);
+  const [
+    selectedDepartureAndDestinationDate,
+    setSelectedDepartureAndDestinationDate,
+  ] = useState({ departure: "", destination: "" });
   const [cityAirports, setCityAirports] = useState<Airports[]>([]);
   const [loadingData, setLoadingData] = useState(false);
+
+  useEffect(() => {
+    setSelectedDepartureAndDestinationDate({
+      departure: selectedDestination,
+      destination: selectedDeparture,
+    });
+  }, [selectedDeparture, selectedDestination]);
 
   const example = ReactDOMServer.renderToString(
     <Localization
@@ -56,12 +67,12 @@ export default function Content() {
     />
   );
 
-  const onSelectedDestination = (airport, iata) => {
-    setSelectedDestination({ airport: airport, codeIata: iata });
+  const onSelectedDestination = (airport) => {
+    setSelectedDestination({ airport: airport.name, codeIata: airport.id });
   };
 
-  const onSelectedDeparture = (airport, iata) => {
-    setSelectedDeparture({ airport: airport, codeIata: iata });
+  const onSelectedDeparture = (airport) => {
+    setSelectedDeparture({ airport: airport.name, codeIata: airport.id });
   };
 
   const onChange = (value) => {
@@ -113,7 +124,11 @@ export default function Content() {
             </div>
           </div>
           <div className={classes.trip_information}>
-            <TripInformation />
+            <TripInformation
+              selectedDepartureAndReturnDateProp={
+                selectedDepartureAndDestinationDate
+              }
+            />
           </div>
         </div>
         <div className={classes.weather}>

@@ -19,6 +19,7 @@ export default function SearchDestination({
   const [inputValue, setInputValue] = useState("");
   const [focused, setFocused] = useState(false);
   const [labelCodeIata, setLabelCodeIata] = useState("");
+  const [wasValueSelected, setWasValueSelected] = useState(false);
   const onFocus = () => {
     setFocused(true);
   };
@@ -50,7 +51,10 @@ export default function SearchDestination({
         <div className={classes.destination}>
           <Popup
             onOpen={() => setFocused(true)}
-            onClose={() => setFocused(false)}
+            onClose={() => {
+              setFocused(false);
+              wasValueSelected ? setFocused(false) : setInputValue("");
+            }}
             trigger={
               <form>
                 <input
@@ -77,6 +81,7 @@ export default function SearchDestination({
               <Results
                 cityAirports={cityAirports}
                 onSelectedValue={onSelectedValue}
+                onSelected={setWasValueSelected}
               />
             )}
           </Popup>

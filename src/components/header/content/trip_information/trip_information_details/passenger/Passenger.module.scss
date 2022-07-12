@@ -15,6 +15,7 @@ $extraBigScreen: 2500px;
     margin-bottom: 8px;
     & .value {
       flex: 1;
+      font-size: 18px;
     }
     & .icon {
       flex: 1;
@@ -30,7 +31,30 @@ $extraBigScreen: 2500px;
   }
 }
 
-
+.det {
+  display: flex;
+  & .bsFillPersonFill {
+    display: flex;
+    align-items: center;
+    margin-right: 4px;
+  }
+  & .faChild {
+    display: flex;
+    align-items: center;
+    margin-right: 4px;
+  }
+  & .mdChildFriendly {
+    display: flex;
+    align-items: center;
+    margin-right: 4px;
+  }
+  & .type {
+    display: flex;
+    align-items: center;
+    width: 90px;
+    font-size: 16px;
+  }
+}
 
 @media screen and(min-width: $extraBigScreen) {
   .body {
