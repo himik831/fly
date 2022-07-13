@@ -8,6 +8,8 @@ import { BiCalendar } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import { DEFAULT } from "../../../../constants/localization/default";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 import { LOCALIZATION_ID } from "../../../../constants/enum/enum.tsx";
 export default function TripInformation(selectedDepartureAndReturnDateProp) {
   const languageState = useSelector((state) => state.language.value);
@@ -125,7 +127,9 @@ export default function TripInformation(selectedDepartureAndReturnDateProp) {
             />
           </div>
         </div>
-        <div className={classes.search_button}>{searchFly}</div>
+        <Link to={"/tickets"} className='link'>
+          <div className={classes.search_button}>{searchFly}</div>
+        </Link>
       </div>
     </div>
   );

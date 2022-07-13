@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./SmallMenu.module.scss";
 import { AiOutlineMenu } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import SidebarMenu from "../small_menu/sidebar/SidebarMenu.tsx";
 import { sidebarOpen } from "../../../../redux/reducers/sidebarReducer";
 
@@ -12,7 +13,9 @@ export default function SmallMenu() {
   return (
     <div className={classes.body}>
       <div className={classes.content}>
-        <div className={classes.logo}>LOGO</div>
+        <Link to={"/"} className="link">
+          <div className={classes.logo}>LOGO</div>
+        </Link>
         <div
           className={classes.menu}
           onClick={() => {

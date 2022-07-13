@@ -17,7 +17,7 @@ export const DAYS_OF_WEEK_RO = [
   "Duminică",
   "Luni",
   "Marți",
-  "Mercuri",
+  "Miercuri",
   "Joi",
   "Vineri",
   "Sâmbătă",
