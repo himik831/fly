@@ -1,7 +1,55 @@
 .body {
-  width: 100%;
-  height: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
   & .free {
-    height: 50vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .search {
+      width: 88%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      height: 70px;
+      & .information {
+        flex: 3;
+        padding-left: 15px;
+        & .location {
+          display: flex;
+          align-items: center;
+        }
+        & .date {
+          font-size: 12px;
+          font-weight: 200;
+          margin-top: 5px;
+        }
+      }
+      & .button {
+        flex: 1;
+        display: flex;
+        font-size: 12px;
+        margin-right: 20px;
+        font-weight: 200;
+        align-items: center;
+        justify-content: end;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .body {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    & .free {
+      & .search {
+        width: 90%;
+      }
+    }
   }
 }
