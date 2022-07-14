@@ -1,193 +1,18 @@
 .body {
-  width: 100%;
   display: flex;
   flex-direction: column;
   & .content {
-    border-radius: 3px;
     margin: 20px;
-    box-shadow: 1px 1px 10px 3px #dbdada;
-    -webkit-box-shadow: 1px 1px 10px 3px #dbdada;
-    & .header {
-      display: flex;
-      background-color: #82cdc2;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-      & .companies {
-        flex: 2;
-        padding: 0px 0px 0px 15px;
-        display: flex;
-        align-items: center;
-        & .circle {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 22px;
-          height: 22px;
-          border-radius: 50%;
-          background-color: white;
-        }
-      }
-      & .price {
-        display: flex;
-        justify-content: flex-end;
-        flex: 1;
-        color: white;
-        font-weight: 500;
-        font-size: 18px;
-        padding: 8px 15px 8px 0px;
-      }
-    }
-    & .info {
-      & .line_delimiter {
-        background-color: #dbd8d8;
-        height: 0.2px;
-        margin: 0px 15px;
-      }
-      & .flight_information {
-        padding: 15px;
-        display: flex;
-        & .departure {
-          flex: 1;
-          & .time {
-            font-size: 14px;
-            font-weight: 300;
-          }
-          & .country {
-            font-size: 12px;
-            padding: 4px 0px;
-          }
-          & .date {
-            font-size: 12px;
-          }
-        }
-        & .flight_time {
-          flex: 2;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          & .time {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            & .plane {
-              margin: 0px 3px;
-            }
-            & .time_on_plane {
-              font-size: 14px;
-              font-weight: 400;
-            }
-          }
-          & .time_line {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            & .circle {
-              margin: 0px 3px;
-              border-radius: 50%;
-              width: 10px;
-              height: 10px;
-              border: 0.8px solid #252525;
-              background-color: #ffffff;
-            }
-            & .line {
-              width: 75%;
-              background-color: #252525;
-              height: 0.5px;
-            }
-          }
-          & .code_iata {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            & .code {
-              font-weight: 300;
-              font-size: 12px;
-            }
-            & .escale {
-              font-size: 10px;
-              color: red;
-            }
-          }
-        }
-        & .destination {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          & .time {
-            font-size: 14px;
-            font-weight: 300;
-          }
-          & .country {
-            font-size: 12px;
-            padding: 4px 0px;
-          }
-          & .date {
-            font-size: 12px;
-          }
-        }
-      }
-      & .other {
-        padding: 0px 15px;
-        display: flex;
-        margin: 15px 0px;
-        & .bagage {
-          flex: 1;
-          display: flex;
-          font-size: 12px;
-          & .icon {
-            display: flex;
-            align-items: center;
-            margin-right: 5px;
-          }
-          & .text {
-            display: flex;
-            align-items: center;
-          }
-        }
-        & .person {
-          flex: 1;
-          display: flex;
-          justify-content: center;
-          font-size: 12px;
-          & .icon {
-            display: flex;
-            align-items: center;
-            margin-right: 5px;
-          }
-          & .text {
-            display: flex;
-            align-items: center;
-          }
-        }
-        & .type {
-          flex: 1;
-          display: flex;
-          justify-content: end;
-          font-size: 12px;
-          & .icon {
-            display: flex;
-            align-items: center;
-            margin-right: 5px;
-          }
-          & .text {
-            display: flex;
-            align-items: center;
-          }
-        }
-      }
-      & .details {
-        padding: 0px 15px;
-        & .button {
-          display: flex;
-          justify-content: center;
-          background-color: #82cdc2;
-          padding: 7px;
-          margin-bottom: 15px;
-          border-radius: 2px;
-          font-size: 14px;
-          font-weight: 300;
-          color: #ffffff;
+    & .flight_duration {
+      width: 100%;
+      border-radius: 3px;
+      box-shadow: 1px 1px 10px 3px #dbdada;
+      -webkit-box-shadow: 1px 1px 10px 3px #dbdada;
+      & .info {
+        & .line_delimiter {
+          background-color: #dbd8d8;
+          height: 0.2px;
+          margin: 0px 15px;
         }
       }
     }
@@ -196,29 +21,36 @@
 
 @media screen and (min-width: 767px) {
   .body {
-    width: 100%;
     display: flex;
-    flex-direction: column;
     & .content {
-      border-radius: 3px;
       margin: 40px;
-      & .info {
-        & .flight_information {
-          & .flight_time {
-            & .time_line {
-              & .line {
-                width: 90%;
-              }
-            }
-          }
-        }
+      & .flight_duration {
+        border-radius: 3px;
       }
     }
   }
 }
 
-// @media screen and (min-width: 1200px) {
-//   .body {
-//     background-color: rebeccapurple;
-//   }
-// }
+@media screen and (min-width: 1200px) {
+  .body {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    & .content {
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+      box-shadow: 1px 1px 10px 3px #dbdada;
+      -webkit-box-shadow: 1px 1px 10px 3px #dbdada;
+      margin: 0px;
+      & .flight_duration {
+        flex: 1.4;
+        box-shadow: none;
+      }
+      & .flight_additional_info {
+        flex: 2;
+        display: flex;
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+.flight_information {
+  padding: 15px;
+  display: flex;
+  & .departure {
+    flex: 1;
+    & .time {
+      font-size: 16px;
+      font-weight: 300;
+    }
+    & .country {
+      font-size: 10px;
+      padding: 4px 0px;
+      font-weight: 200;
+    }
+    & .date {
+      font-size: 10px;
+      font-weight: 200;
+    }
+  }
+  & .flight_time {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & .time {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      & .plane {
+        margin: 0px 3px;
+      }
+      & .time_on_plane {
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+    & .time_line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      & .circle {
+        margin: 0px 3px;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        border: 0.8px solid #252525;
+        background-color: #ffffff;
+      }
+      & .line {
+        width: 75%;
+        background-color: #252525;
+        height: 0.5px;
+      }
+    }
+    & .code_iata {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      & .code {
+        font-weight: 300;
+        font-size: 12px;
+      }
+      & .escale {
+        font-size: 10px;
+        color: red;
+      }
+    }
+  }
+  & .destination {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    & .time {
+      font-size: 16px;
+      font-weight: 300;
+    }
+    & .country {
+      font-size: 10px;
+      padding: 4px 0px;
+      font-weight: 200;
+    }
+    & .date {
+      font-size: 10px;
+      font-weight: 200;
+    }
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .flight_information {
+    margin: 25px 0px;
+    & .departure {
+      & .time {
+        font-size: 22px;
+        font-weight: 300;
+      }
+      & .country {
+        font-size: 14px;
+        padding: 4px 0px;
+        font-weight: 300;
+      }
+      & .date {
+        font-size: 14px;
+        font-weight: 200;
+      }
+    }
+    & .flight_time {
+      & .time_line {
+        & .line {
+          width: 90%;
+        }
+      }
+    }
+    & .destination {
+      & .time {
+        font-size: 22px;
+        font-weight: 300;
+      }
+      & .country {
+        font-size: 14px;
+        padding: 4px 0px;
+        font-weight: 300;
+      }
+      & .date {
+        font-size: 14px;
+        font-weight: 200;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.details {
+  padding: 0px 15px;
+  & .button {
+    display: flex;
+    justify-content: center;
+    background-color: #82cdc2;
+    padding: 7px;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #ffffff;
+  }
+}

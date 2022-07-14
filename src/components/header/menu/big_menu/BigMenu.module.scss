@@ -11,6 +11,12 @@ $extraBigScreen: 2500px;
   margin: 25px 50px;
   display: flex;
   align-items: center;
+  & .logo {
+    & img{
+      width: 45px;
+      height: 45px;
+    }
+  }
 }
 
 @media screen and(min-width: $extraBigScreen) {
