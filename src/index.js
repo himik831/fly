@@ -13,7 +13,7 @@ root.render(
       <BrowserRouter basename="/fly">
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/tickets" element={<Tickets />} />
+          <Route path="/fly/tickets" element={<Tickets />} />
           <Route path="*" element={<div>Not implemented</div>} />
         </Routes>
       </BrowserRouter>
