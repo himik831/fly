@@ -54,8 +54,8 @@ export default function Content() {
 
   useEffect(() => {
     setSelectedDepartureAndDestinationDate({
-      departure: selectedDestination,
-      destination: selectedDeparture,
+      departure: selectedDeparture,
+      destination: selectedDestination,
     });
   }, [selectedDeparture, selectedDestination]);
 
@@ -125,7 +125,7 @@ export default function Content() {
           </div>
           <div className={classes.trip_information}>
             <TripInformation
-              selectedDepartureAndReturnDateProp={
+              selectedDepartureAndDestination={
                 selectedDepartureAndDestinationDate
               }
             />

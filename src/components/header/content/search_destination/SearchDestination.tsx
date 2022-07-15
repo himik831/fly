@@ -76,7 +76,7 @@ export default function SearchDestination({
             position="bottom left"
           >
             {inputValue.length < 3 ? null : loadingData === false ? (
-              <BarLoader width={300} />
+              <BarLoader width={300} color={'#82cdc2'}/>
             ) : (
               <Results
                 cityAirports={cityAirports}

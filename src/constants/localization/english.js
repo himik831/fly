@@ -43,4 +43,17 @@ export const ENGLISH = {
   REFRESH: "Refresh",
   AIRCRAFT_SEAT_INFO: "Select aircraft seat information",
   TODAY: "TODAY",
+
+  STOPOVER: "Stopover",
+  COMPANIES: "Companies",
+  SEATS: "Seats",
+  PASSENGERS_SMALL: "Passengers",
+  BAGGAGE: "Baggage",
+  TYPE: "Type",
+  PRICE: "Price",
+  NO: "no",
+  AVAILABLE: "available",
+  INCLUDED: "included",
+  DETAILS: "Details",
+  EDIT: "EDIT",
 };

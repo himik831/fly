@@ -6,10 +6,10 @@ import { useSelector } from "react-redux";
 import { DEFAULT } from "../../constants/localization/default";
 import { LOCALIZATION_ID } from "../../constants/enum/enum.tsx";
 
-export default function CheckBox({onTripType}) {
+export default function CheckBox({ onTripType }) {
   const languageState = useSelector((state) => state.language.value);
 
-  const [tripType, setTripType] = useState("");
+  const [tripType, setTripType] = useState('roundTrip');
 
   useEffect(() => onTripType(tripType), [tripType]);
 

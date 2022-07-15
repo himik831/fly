@@ -5,10 +5,13 @@ export default function FlightAdditionalInfo({
   info,
   icon = null,
   price = false,
+  lastInRange = false,
 }) {
+  const styleLastElement = lastInRange ? { borderTopRightRadius: "5px" } : null;
+
   return (
     <div className={classes.body}>
-      <div className={classes.header}>
+      <div className={classes.header} style={styleLastElement}>
         <div className={classes.header_line} />
         <div className={classes.label}>{header}</div>
       </div>

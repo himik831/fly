@@ -33,13 +33,14 @@
 
 @media screen and (min-width: 1200px) {
   .body {
-    margin-top: 80px;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
     & .content {
       width: 90%;
       display: flex;
       flex-direction: row;
+      border-radius: 5px;
       box-shadow: 1px 1px 10px 3px #dbdada;
       -webkit-box-shadow: 1px 1px 10px 3px #dbdada;
       margin: 0px;

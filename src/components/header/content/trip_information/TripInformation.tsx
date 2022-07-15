@@ -9,30 +9,85 @@ import { IoIosArrowDown } from "react-icons/io";
 import { DEFAULT } from "../../../../constants/localization/default";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
 import { LOCALIZATION_ID } from "../../../../constants/enum/enum.tsx";
-export default function TripInformation(selectedDepartureAndReturnDateProp) {
+
+interface TicketDetails {
+  departure: { airport: string; codeIata: string };
+  destination: { airport: string; codeIata: string };
+  ticketType: string;
+  returnDate: string;
+  passangers: {
+    adultNumber: number;
+    airfyType: string;
+    babiesNumber: number;
+    childrenNumber: number;
+  };
+}
+
+export default function TripInformation(selectedDepartureAndDestination) {
   const languageState = useSelector((state) => state.language.value);
 
+  const [destinationAndDeparture, setSestinationAndDeparture] = useState(
+    selectedDepartureAndDestination
+  );
+  const [ticketDetails, setTicketDetails] = useState<TicketDetails>({
+    departure: { airport: "", codeIata: "" },
+    destination: { airport: "", codeIata: "" },
+    ticketType: "",
+    returnDate: "",
+    passangers: {
+      adultNumber: null,
+      airfyType: "",
+      babiesNumber: null,
+      childrenNumber: null,
+    },
+  });
+
   const onSelectedDepartureDate = (departureDate) => {
-    console.log("onSelectedDeparture: ", departureDate);
+    setTicketDetails((prev) => {
+      return { ...prev, departureDate: departureDate };
+    });
   };
 
   const onSelectedReturnDate = (returnDate) => {
-    console.log("onSelectedReturn: ", returnDate);
+    setTicketDetails((prev) => {
+      return { ...prev, returnDate: returnDate };
+    });
   };
 
   const onSelectedPassangersInfo = (passangers) => {
-    console.log("onSelectedPassangersInfo: ", passangers);
+    setTicketDetails((prev) => {
+      return {
+        ...prev,
+        passangers: {
+          adultNumber: passangers.adultNumber,
+          airfyType: passangers.airfyType,
+          babiesNumber: passangers.babiesNumber,
+          childrenNumber: passangers.childrenNumber,
+        },
+      };
+    });
   };
 
-  console.log(
-    "selectedDepartureAndReturnDateProp",
-    selectedDepartureAndReturnDateProp
-  );
+  useEffect(() => {
+    return (
+      setSestinationAndDeparture(selectedDepartureAndDestination),
+      setTicketDetails((prev) => {
+        return {
+          ...prev,
+          departure:
+            destinationAndDeparture.selectedDepartureAndDestination.departure,
+          destination:
+            destinationAndDeparture.selectedDepartureAndDestination.destination,
+        };
+      })
+    );
+  }, [selectedDepartureAndDestination]);
 
   const onSelectedTripType = (tripType) => {
-    console.log("tripType: ", tripType);
+    setTicketDetails((prev) => {
+      return { ...prev, ticketType: tripType };
+    });
   };
 
   const departureDate = ReactDOMServer.renderToString(
@@ -127,7 +182,7 @@ export default function TripInformation(selectedDepartureAndReturnDateProp) {
             />
           </div>
         </div>
-        <Link to={"/tickets"} className='link'>
+        <Link to={"/tickets"} className="link" state={ticketDetails}>
           <div className={classes.search_button}>{searchFly}</div>
         </Link>
       </div>
