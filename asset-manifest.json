@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/fly/static/css/main.f39859ca.css",
+    "main.js": "/fly/static/js/main.5db4c941.js",
+    "static/media/airflySeat.jpg": "/fly/static/media/airflySeat.f5760116b1b226e38667.jpg",
+    "static/media/mainImg.jpg": "/fly/static/media/mainImg.8881abda972879afdd1a.jpg",
+    "static/media/tickets.jpg": "/fly/static/media/tickets.8881abda972879afdd1a.jpg",
+    "static/media/calendarImg.jpg": "/fly/static/media/calendarImg.2567efb6f730a3117a3c.jpg",
+    "static/media/skyflyLogo.svg": "/fly/static/media/skyflyLogo.61a2e6abad58062d3994308cb7fc7764.svg",
+    "static/media/slick.svg": "/fly/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/fly/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/fly/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/fly/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/language.svg": "/fly/static/media/language.5cdff37d106d4f98b8bb265dd1916d78.svg",
+    "static/media/gb.svg": "/fly/static/media/gb.516897fd3988e35032b772b026a19f75.svg",
+    "index.html": "/fly/index.html",
+    "static/media/ro.svg": "/fly/static/media/ro.33482fcd4344b097d6d7108dc38ed79f.svg",
+    "main.f39859ca.css.map": "/fly/static/css/main.f39859ca.css.map",
+    "main.5db4c941.js.map": "/fly/static/js/main.5db4c941.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f39859ca.css",
+    "static/js/main.5db4c941.js"
+  ]
+}
