@@ -38,7 +38,7 @@ export default function Tickets() {
       <Header image={image} content={<Search />} />
       <div className={classes.free}></div>
       {loading ? (
-        tickets.data.map((e) => <Ticket />)
+        <Ticket />
       ) : (
         <div className={classes.loader}>
           <BeatLoader color={"#82cdc2"} size={15} margin={20} />
