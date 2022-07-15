@@ -15,8 +15,9 @@ import { MdAirlineSeatReclineExtra } from "react-icons/md";
 import { DEFAULT } from "../../../constants/localization/default";
 import { LOCALIZATION_ID } from "../../../constants/enum/enum.tsx";
 import { BIG_SCREEN_SIZE } from "../../../constants/constants";
+import { useEffect } from "react";
 
-export default function Ticket() {
+export default function Ticket({ ticketData }) {
   const languageState = useSelector((state) => state.language.value);
   const [, width] = useWindowSize();
 
@@ -92,13 +93,18 @@ export default function Ticket() {
     />
   );
 
+  useEffect(
+    () => console.log("ticketData.cityCodeFrom", ticketData.cityCodeFrom),
+    []
+  );
+
   return (
     <div className={classes.body}>
       <div className={classes.content}>
         <div className={classes.flight_duration}>
           <Header />
           <div className={classes.info}>
-            <FlightInformation />
+            <FlightInformation data={ticketData}/>
             {BIG_SCREEN_SIZE >= width ? (
               <div>
                 <div className={classes.line_delimiter} />
@@ -123,11 +129,7 @@ export default function Ticket() {
                 { icon: <MdAirlineSeatReclineExtra />, name: "Tarom" },
               ]}
             />
-            <FlightAdditionalInfo
-              header={seats}
-              info={available}
-              icon={4}
-            />
+            <FlightAdditionalInfo header={seats} info={available} icon={4} />
             <FlightAdditionalInfoList
               header={passengers}
               info={[

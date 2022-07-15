@@ -21,7 +21,7 @@ export default function Tickets() {
   const image = { backgroundImage: `url(${TicketImage})` };
 
   const [loading, setLoading] = useState(false);
-  const [tickets, setTickets] = useState({});
+  const [tickets, setTickets] = useState();
 
   useEffect(() => {
     searchTickets()
@@ -30,15 +30,21 @@ export default function Tickets() {
         setLoading(false);
         console.log(e);
       });
-    if (tickets !== {}) setLoading(true);
   }, []);
+
+  useEffect(() => {
+    tickets === undefined ? setLoading(false) : setLoading(true);
+    console.log('index', tickets)
+  }, [tickets]);
 
   return (
     <div className={classes.content}>
       <Header image={image} content={<Search />} />
       <div className={classes.free}></div>
       {loading ? (
-        <Ticket />
+        tickets.data.map((ticketData, index) => {
+          return <Ticket ticketData={ticketData} key={index}/>;
+        })
       ) : (
         <div className={classes.loader}>
           <BeatLoader color={"#82cdc2"} size={15} margin={20} />
