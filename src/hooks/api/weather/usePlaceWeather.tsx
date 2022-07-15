@@ -5,7 +5,7 @@ import HourMinDayMonthYear from "../../../utils/date_format/HourMinDayMonthYear.
 export default function usePlaceWeather({ place }) {
   const languageState = useSelector((state) => state.language.value);
 
-  const host: string = "http://api.openweathermap.org/";
+  const host: string = "https://api.openweathermap.org/";
   const key: string = "eda6f00ce5cf7fa110832661a868e932";
 
   interface CurrentWeather {
