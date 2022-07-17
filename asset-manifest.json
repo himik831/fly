@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/fly/static/css/main.f39859ca.css",
-    "main.js": "/fly/static/js/main.ac5cbd6c.js",
+    "main.css": "/fly/static/css/main.d7c4f96d.css",
+    "main.js": "/fly/static/js/main.7085a23a.js",
     "static/media/airflySeat.jpg": "/fly/static/media/airflySeat.f5760116b1b226e38667.jpg",
     "static/media/mainImg.jpg": "/fly/static/media/mainImg.8881abda972879afdd1a.jpg",
     "static/media/tickets.jpg": "/fly/static/media/tickets.8881abda972879afdd1a.jpg",
@@ -15,11 +15,11 @@
     "static/media/gb.svg": "/fly/static/media/gb.516897fd3988e35032b772b026a19f75.svg",
     "index.html": "/fly/index.html",
     "static/media/ro.svg": "/fly/static/media/ro.33482fcd4344b097d6d7108dc38ed79f.svg",
-    "main.f39859ca.css.map": "/fly/static/css/main.f39859ca.css.map",
-    "main.ac5cbd6c.js.map": "/fly/static/js/main.ac5cbd6c.js.map"
+    "main.d7c4f96d.css.map": "/fly/static/css/main.d7c4f96d.css.map",
+    "main.7085a23a.js.map": "/fly/static/js/main.7085a23a.js.map"
   },
   "entrypoints": [
-    "static/css/main.f39859ca.css",
-    "static/js/main.ac5cbd6c.js"
+    "static/css/main.d7c4f96d.css",
+    "static/js/main.7085a23a.js"
   ]
 }
