@@ -5,6 +5,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import SidebarMenu from "../small_menu/sidebar/SidebarMenu.tsx";
 import { sidebarOpen } from "../../../../redux/reducers/sidebarReducer";
+import LOGO from "../../../../assets/svg/skyflyLogo.svg";
 
 export default function SmallMenu() {
   const sidebarState = useSelector((state) => state.sidebarMenu.value);
@@ -22,7 +23,7 @@ export default function SmallMenu() {
             dispatch(sidebarOpen());
           }}
         >
-          <AiOutlineMenu size={25} className={classes.reaactIcon} />
+          <AiOutlineMenu size={25} className={classes.reaactIcon} color={'white'}/>
         </div>
         {sidebarState === true ? <SidebarMenu /> : false}
       </div>

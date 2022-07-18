@@ -92,6 +92,7 @@ export default function Results({ cityAirports, onSelectedValue, onSelected }) {
                 <div className={classes.icon_free}>
                   <MdAirplanemodeActive
                     size={20}
+                    color={'white'}
                     className={classes.reactIcon}
                   />
                 </div>

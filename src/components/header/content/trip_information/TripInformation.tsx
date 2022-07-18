@@ -151,6 +151,8 @@ export default function TripInformation(selectedDepartureAndDestination) {
     />
   );
 
+  console.log('destinationAndDeparture',destinationAndDeparture.selectedDepartureAndDestination.destination)
+
   return (
     <div className={classes.body}>
       <div className={classes.content}>
@@ -190,9 +192,16 @@ export default function TripInformation(selectedDepartureAndDestination) {
             />
           </div>
         </div>
-        <Link to={"/tickets"} className="link" state={ticketDetails}>
-          <div className={classes.search_button}>{searchFly}</div>
-        </Link>
+        {destinationAndDeparture.selectedDepartureAndDestination.departure !== null &&
+        destinationAndDeparture.selectedDepartureAndDestination.destination !== null &&
+        ticketDetails.departureDate !== "" &&
+        ticketDetails.passangers.adultNumber !== null ? (
+          <Link to={"/tickets"} className="link" state={ticketDetails}>
+            <div className={classes.search_button}>{searchFly}</div>
+          </Link>
+        ) : (
+          <div className={classes.search_button_disabled}>{searchFly}</div>
+        )}
       </div>
     </div>
   );

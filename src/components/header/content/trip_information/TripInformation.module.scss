@@ -18,6 +18,16 @@ $extraBigScreen: 2500px;
   }
 }
 
+.search_button_disabled {
+  background-color: #c9e2de;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 @media screen and(min-width: $bigScreen) {
   .body {
     & .content {
