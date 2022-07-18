@@ -43,7 +43,6 @@ export const ENGLISH = {
   REFRESH: "Refresh",
   AIRCRAFT_SEAT_INFO: "Select aircraft seat information",
   TODAY: "TODAY",
-
   STOPOVER: "Stopover",
   PLANE_NUMBER: "Plane number",
   SEATS: "Seats",

@@ -43,7 +43,6 @@ export const ROMANIAN = {
   REFRESH: "Reseteză",
   AIRCRAFT_SEAT_INFO: "Selectați informația despre locul în avion",
   TODAY: "ASTĂZI",
-
   STOPOVER: "Escală",
   PLANE_NUMBER: "Nr avionului",
   SEATS: "Locuri",

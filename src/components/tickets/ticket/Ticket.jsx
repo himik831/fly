@@ -20,7 +20,6 @@ import { BIG_SCREEN_SIZE } from "../../../constants/constants";
 import { BsFillPersonFill } from "react-icons/bs";
 import { FaChild } from "react-icons/fa";
 import { MdChildFriendly } from "react-icons/md";
-import { useEffect } from "react";
 
 export default function Ticket({ ticketData, passangers }) {
   const languageState = useSelector((state) => state.language.value);
@@ -98,17 +97,46 @@ export default function Ticket({ ticketData, passangers }) {
     />
   );
 
+  const no = ReactDOMServer.renderToString(
+    <Localization
+      language={languageState}
+      id={LOCALIZATION_ID.NO}
+      defaultValue={DEFAULT.NO}
+    />
+  );
+
+  const passangersType = [
+    {
+      icon: passangers.adults >= 1 ? <BsFillPersonFill size={14} /> : null,
+      name: passangers.adults >= 1 ? passangers.adults : null,
+    },
+    {
+      icon: passangers.children >= 1 ? <FaChild size={14} /> : null,
+      name: passangers.children >= 1 ? passangers.children : null,
+    },
+    {
+      icon: passangers.infants >= 1 ? <MdChildFriendly size={14} /> : null,
+      name: passangers.infants >= 1 ? passangers.infants : null,
+    },
+  ];
+
+  console.log("passangers", passangers.passengers);
   return (
     <div className={classes.body}>
       <div className={classes.content}>
         <div className={classes.flight_duration}>
-          <Header />
+          <Header airlines={ticketData.airlines} price={ticketData.price} />
           <div className={classes.info}>
             <FlightInformation data={ticketData} />
             {BIG_SCREEN_SIZE >= width ? (
               <div>
                 <div className={classes.line_delimiter} />
-                <Other />
+                <Other
+                  seatType={FlySeatTypeByAPIChar(
+                    ticketData.route[0].fare_category
+                  )}
+                  passangersNr={passangers.passengers}
+                />
                 <Details />
               </div>
             ) : null}
@@ -120,7 +148,7 @@ export default function Ticket({ ticketData, passangers }) {
               header={stopover}
               info={
                 ticketData.route.length === 1
-                  ? "nu"
+                  ? no
                   : ticketData.route.length === 2
                   ? "1"
                   : "2"
@@ -143,26 +171,7 @@ export default function Ticket({ ticketData, passangers }) {
             />
             <FlightAdditionalInfoList
               header={passengers}
-              info={[
-                {
-                  icon:
-                    passangers.adults >= 1 ? (
-                      <BsFillPersonFill size={14} />
-                    ) : null,
-                  name: passangers.adults >= 1 ? passangers.adults : null,
-                },
-                {
-                  icon: passangers.children >= 1 ? <FaChild size={14} /> : null,
-                  name: passangers.children >= 1 ? passangers.children : null,
-                },
-                {
-                  icon:
-                    passangers.infants >= 1 ? (
-                      <MdChildFriendly size={14} />
-                    ) : null,
-                  name: passangers.infants >= 1 ? passangers.infants : null,
-                },
-              ]}
+              info={passangersType}
               center={true}
             />
             <FlightAdditionalInfo
