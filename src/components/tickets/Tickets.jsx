@@ -28,7 +28,6 @@ export default function Tickets() {
       .then(setTickets)
       .catch((e) => {
         setLoading(false);
-        console.log(e);
       });
   }, []);
 

@@ -70,6 +70,7 @@ export default function TripInformation(selectedDepartureAndDestination) {
   };
 
   useEffect(() => {
+
     return (
       setSestinationAndDeparture(selectedDepartureAndDestination),
       setTicketDetails((prev) => {

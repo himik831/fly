@@ -12,11 +12,14 @@ export default function Results({ cityAirports, onSelectedValue, onSelected }) {
   const languageState = useSelector((state) => state.language.value);
 
   const [selectedValue, setSelectedValue] = useState("");
-  const [codeIataAndCity, setCodeIataAndCity] = useState({ name: "", id: "" });
+  const [codeIataAndCity, setCodeIataAndCity] = useState({
+    name: "",
+    id: "",
+    country: "",
+  });
 
   useEffect(() => {
     if (codeIataAndCity.id !== "") onSelectedValue(codeIataAndCity);
-    console.log("codeIataAndCity", codeIataAndCity);
   }, [codeIataAndCity]);
 
   const noResult = ReactDOMServer.renderToString(
@@ -60,9 +63,8 @@ export default function Results({ cityAirports, onSelectedValue, onSelected }) {
               className={classes.location}
               onClick={() => {
                 setSelectedValue(el.city);
-                setCodeIataAndCity({ name: "", id: el.city });
+                setCodeIataAndCity({ name: "", id: el.city, country: el.id });
                 onSelected(true);
-                console.log('el', el)
               }}
             >
               <div className={classes.icon}>
@@ -82,7 +84,7 @@ export default function Results({ cityAirports, onSelectedValue, onSelected }) {
                 className={classes.airports}
                 onClick={() => {
                   setSelectedValue(value.id);
-                  setCodeIataAndCity({ name: value.name, id: value.id });
+                  setCodeIataAndCity({ name: value.name, id: value.id, country: value.city.id });
                   onSelected(true);
                 }}
                 key={index2}

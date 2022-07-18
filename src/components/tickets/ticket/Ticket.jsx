@@ -98,8 +98,6 @@ export default function Ticket({ ticketData, passangers }) {
     />
   );
 
-  useEffect(() => console.log("ticketData.cityCodeFrom", ticketData), []);
-
   return (
     <div className={classes.body}>
       <div className={classes.content}>
@@ -118,7 +116,6 @@ export default function Ticket({ ticketData, passangers }) {
         </div>
         {BIG_SCREEN_SIZE <= width ? (
           <div className={classes.flight_additional_info}>
-            {console.log("ticketData.route.length", ticketData.route.length)}
             <FlightAdditionalInfo
               header={stopover}
               info={
@@ -144,7 +141,6 @@ export default function Ticket({ ticketData, passangers }) {
               info={available}
               icon={ticketData.availability.seats}
             />
-            {console.log("passangers.adults.length", passangers.adults)}
             <FlightAdditionalInfoList
               header={passengers}
               info={[

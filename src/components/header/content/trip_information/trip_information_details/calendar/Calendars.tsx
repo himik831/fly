@@ -49,7 +49,6 @@ export default function Calendars({
     setOpenPopUp(false);
     if (calendar !== null) {
       setSelectedDate(YearMonthDay(calendar));
-      console.log('popop: ', YearMonthDay(calendar))
     }
   }, [calendar]);
 

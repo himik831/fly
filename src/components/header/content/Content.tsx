@@ -76,7 +76,6 @@ export default function Content() {
   };
 
   const onSelectedDeparture = (airport) => {
-    console.log('airport',airport)
     setSelectedDeparture({
       airport: airport.name,
       codeIata: airport.id,
