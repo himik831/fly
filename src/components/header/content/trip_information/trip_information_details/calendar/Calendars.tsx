@@ -12,7 +12,7 @@ import { LOCALIZATION_ID } from "../../../../../../constants/enum/enum.tsx";
 import { DEFAULT } from "../../.././../../../constants/localization/default";
 import Localization from "../../../../../localization/Localization.tsx";
 import useWindowSize from "../../../../../../hooks/window_size/useWindowSize";
-import DayMonthYear from "../../../../../../utils/date_format/DayMonthYear.tsx";
+import YearMonthDay from "../../../../../../utils/date_format/YearMonthDay.tsx";
 import "react-calendar/dist/Calendar.css";
 
 export default function Calendars({
@@ -48,7 +48,8 @@ export default function Calendars({
   useEffect(() => {
     setOpenPopUp(false);
     if (calendar !== null) {
-      setSelectedDate(DayMonthYear(calendar));
+      setSelectedDate(YearMonthDay(calendar));
+      console.log('popop: ', YearMonthDay(calendar))
     }
   }, [calendar]);
 

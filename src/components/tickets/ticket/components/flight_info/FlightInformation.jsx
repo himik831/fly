@@ -1,15 +1,24 @@
 import classes from "./FlightInformation.module.scss";
+import EpochDateToTime from "../../../../../utils/date_format/EpochDateToTime.tsx";
+import EpochDateToDate from "../../../../../utils/date_format/EpochDateToDate.tsx";
 import { MdOutlineAirplanemodeActive } from "react-icons/md";
 
 export default function FlightInformation({ data }) {
   const styleDeparture = { transform: "rotate(45deg)" };
   const styleDestination = { transform: "rotate(135deg)" };
+
+  const departureHour = EpochDateToTime(data.dTime);
+  const destinationHour = EpochDateToTime(data.aTime);
+
+  const departureDate = EpochDateToDate(data.dTime);
+  const destinationDate = EpochDateToDate(data.aTime);
+
   return (
     <div className={classes.flight_information}>
       <div className={classes.departure}>
-        <div className={classes.time}>11:25</div>
+        <div className={classes.time}>{departureHour}</div>
         <div className={classes.country}>{data.cityFrom}</div>
-        <div className={classes.date}>12.07.22</div>
+        <div className={classes.date}>{departureDate}</div>
       </div>
       <div className={classes.flight_time}>
         <div className={classes.time}>
@@ -28,16 +37,13 @@ export default function FlightInformation({ data }) {
         </div>
         <div className={classes.code_iata}>
           <div className={classes.code}>{data.flyFrom}</div>
-          {data.airlines.length === 1 ? null : (
-            <div className={classes.escale}>{data.airlines.length } escale</div>
-          )}
           <div className={classes.code}>{data.flyTo}</div>
         </div>
       </div>
       <div className={classes.destination}>
-        <div className={classes.time}>11:25</div>
+        <div className={classes.time}>{destinationHour}</div>
         <div className={classes.country}>{data.cityTo}</div>
-        <div className={classes.date}>12.07.22</div>
+        <div className={classes.date}>{destinationDate}</div>
       </div>
     </div>
   );

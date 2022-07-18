@@ -45,7 +45,7 @@ export const ENGLISH = {
   TODAY: "TODAY",
 
   STOPOVER: "Stopover",
-  COMPANIES: "Companies",
+  PLANE_NUMBER: "Plane number",
   SEATS: "Seats",
   PASSENGERS_SMALL: "Passengers",
   BAGGAGE: "Baggage",
@@ -53,7 +53,7 @@ export const ENGLISH = {
   PRICE: "Price",
   NO: "no",
   AVAILABLE: "available",
-  INCLUDED: "included",
+  INCLUDED: "included (hand)",
   DETAILS: "Details",
   EDIT: "EDIT",
 };

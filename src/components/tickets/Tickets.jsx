@@ -24,7 +24,7 @@ export default function Tickets() {
   const [tickets, setTickets] = useState();
 
   useEffect(() => {
-    searchTickets()
+    searchTickets(searchTicketDetails)
       .then(setTickets)
       .catch((e) => {
         setLoading(false);
@@ -34,7 +34,7 @@ export default function Tickets() {
 
   useEffect(() => {
     tickets === undefined ? setLoading(false) : setLoading(true);
-    console.log('index', tickets)
+    console.log("index", tickets);
   }, [tickets]);
 
   return (
@@ -43,7 +43,13 @@ export default function Tickets() {
       <div className={classes.free}></div>
       {loading ? (
         tickets.data.map((ticketData, index) => {
-          return <Ticket ticketData={ticketData} key={index}/>;
+          return ticketData.availability.seats === null ? null : (
+            <Ticket
+              ticketData={ticketData}
+              key={index}
+              passangers={tickets.search_params.seats}
+            />
+          );
         })
       ) : (
         <div className={classes.loader}>

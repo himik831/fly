@@ -37,7 +37,7 @@ export const ROMANIAN = {
   MORE_THAN_12_YEARS: "Mai mari de 12 ani",
   YEARS_2_12: "2 - 12 ani",
   UP_TO_2_YEARS: "Până la 2 ani, fără loc",
-  SAVE: "Salviază",
+  SAVE: "Salvează",
   SELECT_DEPARTURE_DATE: "Selectați data plecării",
   SELECT_RETURN_DATE: "Selectați data întoarcerii",
   REFRESH: "Reseteză",
@@ -45,7 +45,7 @@ export const ROMANIAN = {
   TODAY: "ASTĂZI",
 
   STOPOVER: "Escală",
-  COMPANIES: "Companii",
+  PLANE_NUMBER: "Nr avionului",
   SEATS: "Locuri",
   PASSENGERS_SMALL: "Pasageri",
   BAGGAGE: "Bagaj",
@@ -53,7 +53,7 @@ export const ROMANIAN = {
   PRICE: "Preț",
   NO: "nu",
   AVAILABLE: "disponibile",
-  INCLUDED: "inclus",
+  INCLUDED: "inclus (mână)",
   DETAILS: "Detalii",
   EDIT: "EDITEAZĂ",
 };

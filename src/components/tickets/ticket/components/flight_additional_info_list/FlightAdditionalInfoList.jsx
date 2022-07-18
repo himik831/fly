@@ -1,6 +1,7 @@
 import classes from "./FlightAdditionalInfoList.module.scss";
 
 export default function FlightAdditionalInfo({ header, info, center = false }) {
+
   return (
     <div className={classes.body}>
       <div className={classes.header}>

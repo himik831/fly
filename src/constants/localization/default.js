@@ -44,7 +44,7 @@ export const DEFAULT = {
   AIRCRAFT_SEAT_INFO: "Select aircraft seat information",
   TODAY: "TODAY",
   STOPOVER: "Stopover",
-  COMPANIES: "Companies",
+  PLANE_NUMBER: "Plane number",
   SEATS: "Seats",
   PASSENGERS_SMALL: "Passengers",
   BAGGAGE: "Baggage",
@@ -52,7 +52,7 @@ export const DEFAULT = {
   PRICE: "Price",
   NO: "no",
   AVAILABLE: "available",
-  INCLUDED: "included",
+  INCLUDED: "included (hand)",
   DETAILS: "Details",
   EDIT: "EDIT",
 };

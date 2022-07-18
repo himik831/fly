@@ -68,11 +68,20 @@ export default function Content() {
   );
 
   const onSelectedDestination = (airport) => {
-    setSelectedDestination({ airport: airport.name, codeIata: airport.id });
+    setSelectedDestination({
+      airport: airport.name,
+      codeIata: airport.id,
+      country: airport.country,
+    });
   };
 
   const onSelectedDeparture = (airport) => {
-    setSelectedDeparture({ airport: airport.name, codeIata: airport.id });
+    console.log('airport',airport)
+    setSelectedDeparture({
+      airport: airport.name,
+      codeIata: airport.id,
+      country: airport.country,
+    });
   };
 
   const onChange = (value) => {

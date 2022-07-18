@@ -62,6 +62,7 @@ export default function Results({ cityAirports, onSelectedValue, onSelected }) {
                 setSelectedValue(el.city);
                 setCodeIataAndCity({ name: "", id: el.city });
                 onSelected(true);
+                console.log('el', el)
               }}
             >
               <div className={classes.icon}>

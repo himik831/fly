@@ -8,16 +8,21 @@ import FlightAdditionalInfoList from "./components/flight_additional_info_list/F
 import useWindowSize from "../../../hooks/window_size/useWindowSize";
 import Localization from "../../localization/Localization.tsx";
 import ReactDOMServer from "react-dom/server";
+import FlySeatTypeByAPIChar from "../../../utils/FlySeatTypeByAPIChar";
 import { useSelector } from "react-redux";
 import { GiEscalator } from "react-icons/gi";
 import { FaSuitcaseRolling } from "react-icons/fa";
+import { MdAirplanemodeActive } from "react-icons/md";
 import { MdAirlineSeatReclineExtra } from "react-icons/md";
 import { DEFAULT } from "../../../constants/localization/default";
 import { LOCALIZATION_ID } from "../../../constants/enum/enum.tsx";
 import { BIG_SCREEN_SIZE } from "../../../constants/constants";
+import { BsFillPersonFill } from "react-icons/bs";
+import { FaChild } from "react-icons/fa";
+import { MdChildFriendly } from "react-icons/md";
 import { useEffect } from "react";
 
-export default function Ticket({ ticketData }) {
+export default function Ticket({ ticketData, passangers }) {
   const languageState = useSelector((state) => state.language.value);
   const [, width] = useWindowSize();
 
@@ -29,11 +34,11 @@ export default function Ticket({ ticketData }) {
     />
   );
 
-  const companies = ReactDOMServer.renderToString(
+  const planeNumber = ReactDOMServer.renderToString(
     <Localization
       language={languageState}
-      id={LOCALIZATION_ID.COMPANIES}
-      defaultValue={DEFAULT.COMPANIES}
+      id={LOCALIZATION_ID.PLANE_NUMBER}
+      defaultValue={DEFAULT.PLANE_NUMBER}
     />
   );
 
@@ -93,10 +98,7 @@ export default function Ticket({ ticketData }) {
     />
   );
 
-  useEffect(
-    () => console.log("ticketData.cityCodeFrom", ticketData.cityCodeFrom),
-    []
-  );
+  useEffect(() => console.log("ticketData.cityCodeFrom", ticketData), []);
 
   return (
     <div className={classes.body}>
@@ -104,7 +106,7 @@ export default function Ticket({ ticketData }) {
         <div className={classes.flight_duration}>
           <Header />
           <div className={classes.info}>
-            <FlightInformation data={ticketData}/>
+            <FlightInformation data={ticketData} />
             {BIG_SCREEN_SIZE >= width ? (
               <div>
                 <div className={classes.line_delimiter} />
@@ -116,25 +118,54 @@ export default function Ticket({ ticketData }) {
         </div>
         {BIG_SCREEN_SIZE <= width ? (
           <div className={classes.flight_additional_info}>
+            {console.log("ticketData.route.length", ticketData.route.length)}
             <FlightAdditionalInfo
               header={stopover}
-              info={"nu"}
+              info={
+                ticketData.route.length === 1
+                  ? "nu"
+                  : ticketData.route.length === 2
+                  ? "1"
+                  : "2"
+              }
               icon={<GiEscalator />}
             />
             <FlightAdditionalInfoList
-              header={companies}
-              info={[
-                { icon: <MdAirlineSeatReclineExtra />, name: "Airmoldova" },
-                { icon: <MdAirlineSeatReclineExtra />, name: "Wisair" },
-                { icon: <MdAirlineSeatReclineExtra />, name: "Tarom" },
-              ]}
+              header={planeNumber}
+              info={ticketData.route.map((e) => {
+                return {
+                  icon: <MdAirplanemodeActive />,
+                  name: `${e.airline} ${e.flight_no}`,
+                };
+              })}
             />
-            <FlightAdditionalInfo header={seats} info={available} icon={4} />
+            <FlightAdditionalInfo
+              header={seats}
+              info={available}
+              icon={ticketData.availability.seats}
+            />
+            {console.log("passangers.adults.length", passangers.adults)}
             <FlightAdditionalInfoList
               header={passengers}
               info={[
-                { icon: <MdAirlineSeatReclineExtra />, name: "3" },
-                { icon: <MdAirlineSeatReclineExtra />, name: "1" },
+                {
+                  icon:
+                    passangers.adults >= 1 ? (
+                      <BsFillPersonFill size={14} />
+                    ) : null,
+                  name: passangers.adults >= 1 ? passangers.adults : null,
+                },
+                {
+                  icon: passangers.children >= 1 ? <FaChild size={14} /> : null,
+                  name: passangers.children >= 1 ? passangers.children : null,
+                },
+                {
+                  icon:
+                    passangers.infants >= 1 ? (
+                      <MdChildFriendly size={14} />
+                    ) : null,
+                  name: passangers.infants >= 1 ? passangers.infants : null,
+                },
               ]}
               center={true}
             />
@@ -145,10 +176,14 @@ export default function Ticket({ ticketData }) {
             />
             <FlightAdditionalInfo
               header={type}
-              info={"econom"}
+              info={FlySeatTypeByAPIChar(ticketData.route[0].fare_category)}
               icon={<MdAirlineSeatReclineExtra />}
             />
-            <FlightAdditionalInfo header={price} info={"$152"} price={true} />
+            <FlightAdditionalInfo
+              header={price}
+              info={`€${ticketData.price}`}
+              price={true}
+            />
             <FlightAdditionalInfo
               header={""}
               info={<Details />}
