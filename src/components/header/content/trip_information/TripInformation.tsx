@@ -9,7 +9,10 @@ import { IoIosArrowDown } from "react-icons/io";
 import { DEFAULT } from "../../../../constants/localization/default";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { LOCALIZATION_ID } from "../../../../constants/enum/enum.tsx";
+import {
+  LOCALIZATION_ID,
+  TRIP_TYPE,
+} from "../../../../constants/enum/enum.tsx";
 
 interface TicketDetails {
   departure: { airport: string; codeIata: string };
@@ -30,6 +33,7 @@ export default function TripInformation(selectedDepartureAndDestination) {
   const [destinationAndDeparture, setSestinationAndDeparture] = useState(
     selectedDepartureAndDestination
   );
+  const [triptType, setTripType] = useState("");
   const [ticketDetails, setTicketDetails] = useState<TicketDetails>({
     departure: { airport: "", codeIata: "" },
     destination: { airport: "", codeIata: "" },
@@ -70,7 +74,6 @@ export default function TripInformation(selectedDepartureAndDestination) {
   };
 
   useEffect(() => {
-
     return (
       setSestinationAndDeparture(selectedDepartureAndDestination),
       setTicketDetails((prev) => {
@@ -86,6 +89,7 @@ export default function TripInformation(selectedDepartureAndDestination) {
   }, [selectedDepartureAndDestination]);
 
   const onSelectedTripType = (tripType) => {
+    setTripType(tripType);
     setTicketDetails((prev) => {
       return { ...prev, ticketType: tripType };
     });
@@ -162,16 +166,19 @@ export default function TripInformation(selectedDepartureAndDestination) {
               onSelectedValue={onSelectedDepartureDate}
             />
           </div>
-          <div className={classes.return}>
-            <TripInforamtionDetails
-              calendarLabel={selectReturnDate}
-              label={returnDate}
-              details={example}
-              icon={<BiCalendar size={20} />}
-              passangers={false}
-              onSelectedValue={onSelectedReturnDate}
-            />
-          </div>
+          {triptType === TRIP_TYPE.ONE_WAY ? null : (
+            <div className={classes.return}>
+              <TripInforamtionDetails
+                calendarLabel={selectReturnDate}
+                label={returnDate}
+                details={example}
+                icon={<BiCalendar size={20} />}
+                passangers={false}
+                onSelectedValue={onSelectedReturnDate}
+              />
+            </div>
+          )}
+
           <div className={classes.passangers}>
             <TripInforamtionDetails
               calendarLabel={""}

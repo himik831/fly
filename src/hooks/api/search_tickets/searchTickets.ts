@@ -23,7 +23,9 @@ export default async function searchTickets(searchDetails) {
     searchDetails.state.passangers.airfyType
   );
 
-  const url: string = `https://api.skypicker.com/flights?partner=himikhimik2&partner_market=ro&locale=ro&sort=price&fly_from=${departure}&fly_to=${destination}&depart_after=${departureDate}T00:00&depart_before=${returnDate}T23:59&selected_cabins=${seatType}&adults=${adult}&children=${childrenNumber}&infants=${babiesNumber}&max_stopovers=3&limit=10`;
+  const url: string = `https://api.skypicker.com/flights?partner=himikhimik2&partner_market=ro&locale=ro&sort=price&fly_from=${departure}&fly_to=${destination}&depart_after=${departureDate}T00:00${
+    returnDate !== "" ? `&depart_before=${returnDate}T23:59&` : "&"
+  }selected_cabins=${seatType}&adults=${adult}&children=${childrenNumber}&infants=${babiesNumber}&max_stopovers=3&limit=10`;
   const response = await fetch(url);
   const json = await response.json();
 

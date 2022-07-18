@@ -14,6 +14,11 @@ export enum REDUCERS_NAME {
   DROPDOWN_SEARCH = "dropdownSearch",
 }
 
+export enum TRIP_TYPE {
+  ROUND_TRIP = "roundTrip",
+  ONE_WAY = "oneWay",
+}
+
 export enum DESTINATION_SEARCH_TYPE {
   FROM = "FROM",
   WHERE = "WHERE",

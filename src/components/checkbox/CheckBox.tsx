@@ -4,12 +4,12 @@ import classes from "./CheckBox.module.scss";
 import Localization from "../localization/Localization.tsx";
 import { useSelector } from "react-redux";
 import { DEFAULT } from "../../constants/localization/default";
-import { LOCALIZATION_ID } from "../../constants/enum/enum.tsx";
+import { LOCALIZATION_ID,TRIP_TYPE } from "../../constants/enum/enum.tsx";
 
 export default function CheckBox({ onTripType }) {
   const languageState = useSelector((state) => state.language.value);
 
-  const [tripType, setTripType] = useState('roundTrip');
+  const [tripType, setTripType] = useState(TRIP_TYPE.ROUND_TRIP);
 
   useEffect(() => onTripType(tripType), [tripType]);
 
@@ -38,7 +38,7 @@ export default function CheckBox({ onTripType }) {
             name="selection"
             defaultChecked={true}
             className={classes.checkbox_round}
-            onClick={() => setTripType("roundTrip")}
+            onClick={() => setTripType(TRIP_TYPE.ROUND_TRIP)}
           />
           <label htmlFor="roundTrip">{roundTrip}</label>
           <input
@@ -46,7 +46,7 @@ export default function CheckBox({ onTripType }) {
             type="radio"
             name="selection"
             className={classes.checkbox_round}
-            onClick={() => setTripType("oneWay")}
+            onClick={() => setTripType(TRIP_TYPE.ONE_WAY)}
           />
           <label htmlFor="oneWay">{oneWay}</label>
         </form>
