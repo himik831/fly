@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fly/static/css/main.d7c4f96d.css",
-    "main.js": "/fly/static/js/main.7d9cf785.js",
+    "main.js": "/fly/static/js/main.e63e7d8b.js",
     "static/media/airflySeat.jpg": "/fly/static/media/airflySeat.f5760116b1b226e38667.jpg",
     "static/media/mainImg.jpg": "/fly/static/media/mainImg.8881abda972879afdd1a.jpg",
     "static/media/tickets.jpg": "/fly/static/media/tickets.8881abda972879afdd1a.jpg",
@@ -16,10 +16,10 @@
     "index.html": "/fly/index.html",
     "static/media/ro.svg": "/fly/static/media/ro.33482fcd4344b097d6d7108dc38ed79f.svg",
     "main.d7c4f96d.css.map": "/fly/static/css/main.d7c4f96d.css.map",
-    "main.7d9cf785.js.map": "/fly/static/js/main.7d9cf785.js.map"
+    "main.e63e7d8b.js.map": "/fly/static/js/main.e63e7d8b.js.map"
   },
   "entrypoints": [
     "static/css/main.d7c4f96d.css",
-    "static/js/main.7d9cf785.js"
+    "static/js/main.e63e7d8b.js"
   ]
 }
