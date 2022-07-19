@@ -26,6 +26,12 @@
           font-size: 12px;
           font-weight: 200;
           margin-top: 5px;
+          display: flex;
+          align-items: center;
+          & .icon {
+            display: flex;
+            align-items: center;
+          }
         }
       }
       & .button {

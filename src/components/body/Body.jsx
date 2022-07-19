@@ -1,7 +1,7 @@
 import React from "react";
 
 function Body() {
-  return <>fdsfdsfsdfds</>;
+  return <></>;
 }
 
 export default Body;

@@ -38,7 +38,10 @@ export default function Tickets() {
 
   return (
     <div className={classes.content}>
-      <Header image={image} content={<Search />} />
+      <Header
+        image={image}
+        content={<Search searchInfo={searchTicketDetails} />}
+      />
       <div className={classes.free}></div>
       {loading ? (
         tickets.data.map((ticketData, index) => {
@@ -57,7 +60,7 @@ export default function Tickets() {
       )}
       <div className={classes.footer}></div>
       <div className={classes.toTopButton} onClick={() => goToTop()}>
-        <MdKeyboardArrowUp size={26} className={classes.icon} />
+        <MdKeyboardArrowUp size={26} className={classes.icon} color={"white"} />
       </div>
     </div>
   );

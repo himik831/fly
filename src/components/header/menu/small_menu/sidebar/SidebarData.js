@@ -12,13 +12,16 @@ import { DEFAULT } from "../../../../../constants/localization/default";
 export default function SidebarData() {
   const iconSize = 20;
   const languageState = useSelector((state) => state.language.value);
-
+  
   return [
     {
       level: 1,
       values: [
         {
-          title: (
+          title: 
+          // {{id={LOCALIZATION_ID.ABOUT_COMPANY}
+          // defaultValue={DEFAULT.ABOUT_COMPANY}}
+          (
             <Localization
               language={languageState}
               id={LOCALIZATION_ID.ABOUT_COMPANY}

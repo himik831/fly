@@ -14,7 +14,7 @@ root.render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/tickets" element={<Tickets />} />
-          <Route path="*" element={<div>Not implemented</div>} />
+          <Route path="*" element={<div>Ooooops.....</div>} />
         </Routes>
       </BrowserRouter>
     </Provider>
