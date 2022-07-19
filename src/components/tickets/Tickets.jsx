@@ -3,7 +3,7 @@ import Search from "./search/Search";
 import Ticket from "../tickets/ticket/Ticket";
 import TicketImage from "../../assets/img/tickets.jpg";
 import classes from "./Tickets.module.scss";
-import searchTickets from "../../hooks/api/search_tickets/searchTickets.ts";
+import searchTickets from "../../api/search_tickets/searchTickets.ts";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -44,15 +44,19 @@ export default function Tickets() {
       />
       <div className={classes.free}></div>
       {loading ? (
-        tickets.data.map((ticketData, index) => {
-          return ticketData.availability.seats === null ? null : (
-            <Ticket
-              ticketData={ticketData}
-              key={index}
-              passangers={tickets.search_params.seats}
-            />
-          );
-        })
+        tickets.data.length !== 0 ? (
+          tickets.data.map((ticketData, index) => {
+            return ticketData.availability.seats === null ? null : (
+              <Ticket
+                ticketData={ticketData}
+                key={index}
+                passangers={tickets.search_params.seats}
+              />
+            );
+          })
+        ) : (
+          <div>No tickets found</div>
+        )
       ) : (
         <div className={classes.loader}>
           <BeatLoader color={"#82cdc2"} size={15} margin={20} />

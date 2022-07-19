@@ -120,7 +120,6 @@ export default function Ticket({ ticketData, passangers }) {
     },
   ];
 
-  console.log("passangers", passangers.passengers);
   return (
     <div className={classes.body}>
       <div className={classes.content}>

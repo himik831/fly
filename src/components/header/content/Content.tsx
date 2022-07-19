@@ -11,7 +11,7 @@ import { DEFAULT } from "../../../constants/localization/default";
 import Results from "./search_destination/results/Results.tsx";
 import { useState } from "react";
 import { DESTINATION_SEARCH_TYPE } from "../../../constants/enum/enum.tsx";
-import searchCityAirports from "../../../hooks/api/search_location/searchCityAirports.ts";
+import searchCityAirports from "../../../api/search_location/searchCityAirports.ts";
 
 function from(language: string) {
   return ReactDOMServer.renderToString(

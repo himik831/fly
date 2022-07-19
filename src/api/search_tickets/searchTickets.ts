@@ -1,4 +1,4 @@
-import CharForAPIByFlySeatType from "../../../utils/CharForAPIByFlySeatType";
+import CharForAPIByFlySeatType from "../../utils/CharForAPIByFlySeatType";
 
 export default async function searchTickets(searchDetails) {
   console.log("searchDetails", searchDetails.state);
