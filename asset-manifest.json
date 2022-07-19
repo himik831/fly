@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/fly/static/css/main.6d5ce9a7.css",
+    "main.css": "/fly/static/css/main.872b3ed3.css",
     "main.js": "/fly/static/js/main.73a82bf3.js",
     "static/media/airflySeat.jpg": "/fly/static/media/airflySeat.f5760116b1b226e38667.jpg",
     "static/media/mainImg.jpg": "/fly/static/media/mainImg.8881abda972879afdd1a.jpg",
@@ -15,11 +15,11 @@
     "static/media/gb.svg": "/fly/static/media/gb.516897fd3988e35032b772b026a19f75.svg",
     "index.html": "/fly/index.html",
     "static/media/ro.svg": "/fly/static/media/ro.33482fcd4344b097d6d7108dc38ed79f.svg",
-    "main.6d5ce9a7.css.map": "/fly/static/css/main.6d5ce9a7.css.map",
+    "main.872b3ed3.css.map": "/fly/static/css/main.872b3ed3.css.map",
     "main.73a82bf3.js.map": "/fly/static/js/main.73a82bf3.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d5ce9a7.css",
+    "static/css/main.872b3ed3.css",
     "static/js/main.73a82bf3.js"
   ]
 }
