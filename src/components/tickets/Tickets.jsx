@@ -40,7 +40,7 @@ export default function Tickets() {
     <div className={classes.content}>
       <Header
         image={image}
-        content={<Search searchInfo={searchTicketDetails} />}
+        // content={<Search searchInfo={searchTicketDetails} />}
       />
       <div className={classes.free}></div>
       {loading ? (
